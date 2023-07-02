@@ -5,6 +5,7 @@ import { Observable, map, of, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router'
+import { DatePipe, formatDate} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,16 @@ export class ClienteService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getClientes(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(this.urlEndPoint);
+    return this.http.get(this.urlEndPoint).pipe(
+      map(response => {
+        let clientes = response as Cliente[]
+        return clientes.map(cliente => {
+          let datePipe = new DatePipe('es');
+          cliente.createAt = datePipe.transform(cliente.createAt, 'EEEE dd, MMMM yyyy')
+          return cliente;
+        })
+      })
+    );
   }
 
   create(cliente: Cliente) : Observable<Cliente> {
