@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CLIENTES } from './clientes.json';
 import { Cliente } from './cliente';
-import { Observable, map, of, catchError, throwError } from 'rxjs';
+import { Observable, map, of, catchError, throwError, tap } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router'
@@ -17,15 +17,33 @@ export class ClienteService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getClientes(): Observable<Cliente[]>{
-    return this.http.get(this.urlEndPoint).pipe(
-      map(response => {
-        let clientes = response as Cliente[]
-        return clientes.map(cliente => {
-          let datePipe = new DatePipe('es');
-          cliente.createAt = datePipe.transform(cliente.createAt, 'EEEE dd, MMMM yyyy')
+  getClientes(page: number): Observable<any>{
+    return this.http.get(this.urlEndPoint + '/page/' + page).pipe(
+      tap((response:any)=> {
+        console.log('ClienteService: tap 1');
+        (response.content as Cliente[]).forEach( cliente => {
+          console.log(cliente.nombre);
+        }
+
+        )
+      }),
+      map((response:any) => {
+        let clientes = 
+        (response.content as Cliente[]).map(cliente => {
+          
+          //let datePipe = new DatePipe('es');
+          //cliente.createAt = datePipe.transform(cliente.createAt, 'EEEE dd, MMMM yyyy')
           return cliente;
-        })
+        });
+        return response;
+      }),
+      tap(response=> {
+        console.log('ClienteService: tap 2');
+        (response.content as Cliente[]).forEach( cliente => {
+          console.log(cliente.nombre);
+        }
+
+        )
       })
     );
   }
