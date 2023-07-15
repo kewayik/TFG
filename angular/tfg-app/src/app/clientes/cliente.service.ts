@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CLIENTES } from './clientes.json';
 import { Cliente } from './cliente';
 import { Observable, map, of, catchError, throwError, tap } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
@@ -90,6 +89,20 @@ export class ClienteService {
 
   delete(id: number): Observable<Cliente>{
     return this.http.delete<Cliente>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders}).pipe(
+      catchError(e=> {
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  subirFoto(archivo: File, id): Observable<Cliente>{
+    let formData = new FormData();
+    formData.append("fotoCliente",archivo);
+    formData.append("id",id);
+    return this.http.post(`${this.urlEndPoint}/upload`, formData).pipe(
+      map( (response:any)=>response.cliente as Cliente),
       catchError(e=> {
         console.error(e.error.mensaje);
         swal.fire(e.error.mensaje, e.error.error, 'error');
