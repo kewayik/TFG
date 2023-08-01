@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { DetalleComponent } from './clientes/detalle/detalle.component';
+import { MaterialesComponent } from './materiales/materiales.component';
+import { MaterialService } from './materiales/material.service';
 
 registerLocaleData(localeES, 'es');
 
@@ -28,7 +30,8 @@ const routes: Routes = [
   {path: 'clientes', component: ClientesComponent},
   {path: 'clientes/page/:page', component: ClientesComponent},
   {path: 'clientes/form', component: FormComponent},
-  {path: 'clientes/form/:id', component: FormComponent}
+  {path: 'clientes/form/:id', component: FormComponent},
+  {path: 'materiales', component: MaterialesComponent}
 
 ];
 
@@ -41,7 +44,8 @@ const routes: Routes = [
     ClientesComponent,
     FormComponent,
     PaginatorComponent,
-    DetalleComponent
+    DetalleComponent,
+    MaterialesComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, MatDatepickerModule, MatNativeDateModule
   ],
-  providers: [ClienteService, {provide: LOCALE_ID, useValue: 'es'}],
+  providers: [ClienteService, MaterialService, {provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

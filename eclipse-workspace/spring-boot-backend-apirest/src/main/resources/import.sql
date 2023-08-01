@@ -10,3 +10,13 @@ INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Maria de la O'
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Adolfo', 'Gonzalez', 'adolgon@gmail.com', '2022-07-25');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Pedro', 'Ximenez', 'pedrox@gmail.com', '2022-12-03');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Daniel', 'Gonzalez', 'dgon@gmail.com', '2022-10-01');
+
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Mancuernas', 'Peso Libre','Mancuernas para realización de diferentes ejercicios');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Discos', 'Peso Libre','Discos para usar tanto en barras como en máquinas');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Barra z', 'Peso Libre','Barra para añadir discos');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Banca recta', 'Apoyo','Banca para realizar diferentes ejercicios, no ajustable');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Prensa', 'Máquina','Máquina para realizar ejercicios de pierna a la cual se le añaden discos');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Máquina curl biceps', 'Máquina','Máquina para curl de biceps en la cual puedes ajustar los diferentes pesos');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Máquina extensión femoral', 'Máquina','Máquina para extensión de pierna en la cual puedes ajustar los diferentes pesos');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Esterilla', 'Apoyo','Esterilla básica para realización de estiramientos y ejercicios');
+INSERT INTO materiales (nombre, tipo, descripcion) VALUES('Banca ajustable', 'Apoyo','Banca para realizar diferentes ejercicos, puedes ajustar la inclinación de esta mediante la palanca');
