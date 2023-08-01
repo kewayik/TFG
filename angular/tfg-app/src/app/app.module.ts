@@ -20,6 +20,7 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { DetalleComponent } from './clientes/detalle/detalle.component';
 import { MaterialesComponent } from './materiales/materiales.component';
 import { MaterialService } from './materiales/material.service';
+import { FormMatComponent } from './materiales/form-mat.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -31,7 +32,9 @@ const routes: Routes = [
   {path: 'clientes/page/:page', component: ClientesComponent},
   {path: 'clientes/form', component: FormComponent},
   {path: 'clientes/form/:id', component: FormComponent},
-  {path: 'materiales', component: MaterialesComponent}
+  {path: 'materiales', component: MaterialesComponent},
+  {path: 'materiales/form-mat', component: FormMatComponent},
+  {path: 'materiales/form-mat/:id', component: FormMatComponent}
 
 ];
 
@@ -45,7 +48,8 @@ const routes: Routes = [
     FormComponent,
     PaginatorComponent,
     DetalleComponent,
-    MaterialesComponent
+    MaterialesComponent,
+    FormMatComponent
   ],
   imports: [
     BrowserModule,

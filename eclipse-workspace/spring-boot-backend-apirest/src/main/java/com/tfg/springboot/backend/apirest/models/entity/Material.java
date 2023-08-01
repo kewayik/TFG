@@ -17,9 +17,18 @@ public class Material implements Serializable{
 	private Long id;
 	private String nombre;
 	private String tipo;
+	private Boolean stock;
 	private String descripcion;
 	
 	
+	public Boolean getStock() {
+		return stock;
+	}
+
+	public void setStock(Boolean stock) {
+		this.stock = stock;
+	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}

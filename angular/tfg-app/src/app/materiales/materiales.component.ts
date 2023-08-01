@@ -8,7 +8,7 @@ import { MaterialService } from './material.service';
 })
 export class MaterialesComponent {
 
-  materiales: Material[];
+  public materiales: Material[];
 
   constructor(private materialService: MaterialService){ }
 

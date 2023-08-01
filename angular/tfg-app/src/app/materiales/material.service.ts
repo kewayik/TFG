@@ -17,13 +17,38 @@ export class MaterialService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getMateriales(): Observable<Material[]>{
-    return this.http.get<Material[]>(this.urlEndPoint);
+    return this.http.get<Material[]>(this.urlEndPoint).pipe(
+      map(response => response as Material[])
+    );
   }
 
 
+  create(material: Material) : Observable<Material> {
+    return this.http.post<Material>(this.urlEndPoint, material, {headers: this.httpHeaders})/*.pipe(
+      map((response: any) => response.material as Material),
+      catchError( e => {
 
+        if(e.status==400){
+          return throwError(e); 
+        }
 
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(e);
+      })
+    );*/
+  }
 
+  getMaterial(id): Observable<Material>{
+    return this.http.get<Material>(`${this.urlEndPoint}/${id}`)/*.pipe(
+      catchError(e => {
+        this.router.navigate(['/materiales']);
+        console.error(e.error.mensaje);
+        swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );*/
+  }
 
 
 

@@ -3,12 +3,21 @@ package com.tfg.springboot.backend.apirest.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tfg.springboot.backend.apirest.models.entity.Material;
+import com.tfg.springboot.backend.apirest.models.services.IClienteService;
 import com.tfg.springboot.backend.apirest.models.services.IMaterialService;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -24,25 +33,11 @@ public class MaterialRestController {
 		return materialService.findAll();
 	}
 	
-	
-	
-	/*
-	
-	
-	@Autowired
-	private IUploadFileService uploadService;
-
-	
-	
-	@GetMapping("/clientes/page/{page}")
-	public Page<Cliente> index(@PathVariable Integer page) {
-		return clienteService.findAll(PageRequest.of(page, 5));
-	}
-
-	@GetMapping("/clientes/{id}")
-	public ResponseEntity<?> show(@PathVariable Long id) {
-
-		Cliente cliente = null;
+	@GetMapping("/materiales/{id}")
+	public /*ResponseEntity<?>*/ Material show(@PathVariable Long id) {
+		
+		return materialService.findById(id);
+		/*Material material = null;
 		Map<String, Object> response = new HashMap<>();
 
 		// Control de errores
@@ -59,12 +54,14 @@ public class MaterialRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+		return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);*/
 	}
-
-	@PostMapping("/clientes")
-	public ResponseEntity<?> create(@Valid @RequestBody Cliente cliente, BindingResult result) {
-
+	
+	@PostMapping("/materiales")
+	public /*ResponseEntity<?>*/ Material create(/*@Valid*/ @RequestBody Material material/*, BindingResult result*/) {
+		
+		return materialService.save(material);
+		/*
 		Cliente clienteNew = null;
 		Map<String, Object> response = new HashMap<>();
 		
@@ -91,14 +88,16 @@ public class MaterialRestController {
 		response.put("mensaje", "El cliente ha sido creado con éxito!");
 		response.put("cliente", clienteNew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+		*/
 	}
+	
+	@PutMapping("/material/{id}")
+	public /*ResponseEntity<?>*/ Material update(/*@Valid*/ @RequestBody Material material/*, BindingResult result*/, @PathVariable Long id) {
+		
+		
+		Material materialActual = materialService.findById(id);
 
-	@PutMapping("/clientes/{id}")
-	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente, BindingResult result, @PathVariable Long id) {
-
-		Cliente clienteActual = clienteService.findById(id);
-
-		Cliente clienteUpdated = null;
+		/*Cliente clienteUpdated = null;
 
 		Map<String, Object> response = new HashMap<>();
 		
@@ -119,13 +118,16 @@ public class MaterialRestController {
 		}
 
 		try {
-			clienteActual.setApellido(cliente.getApellido());
-			clienteActual.setNombre(cliente.getNombre());
-			clienteActual.setEmail(cliente.getEmail());
-			clienteActual.setCreateAt(cliente.getCreateAt());
-
+			*/
+			materialActual.setNombre(material.getNombre());
+			materialActual.setTipo(material.getTipo());
+			materialActual.setStock(material.getStock());
+			materialActual.setDescripcion(material.getDescripcion());
+			
+			return materialService.save(materialActual);
+			/*
 			clienteUpdated = clienteService.save(clienteActual);
-
+			
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al actualizar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -136,11 +138,13 @@ public class MaterialRestController {
 		response.put("cliente", clienteUpdated);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+		*/
 	}
-
-	@DeleteMapping("/clientes/{id}")
-	public ResponseEntity<?> delete(@PathVariable Long id) {
-
+	
+	@DeleteMapping("/materiales/{id}")
+	public void /*ResponseEntity<?>*/ delete(@PathVariable Long id) {
+		
+		/*
 		Map<String, Object> response = new HashMap<>();
 		Cliente clienteEliminar = clienteService.findById(id);
 
@@ -149,7 +153,7 @@ public class MaterialRestController {
 			String nombreFotoAnterior = clienteEliminar.getFoto();
 			uploadService.eliminar(nombreFotoAnterior);
 			
-			clienteService.delete(id);
+			*/materialService.delete(id);/*
 
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar en la base de datos");
@@ -158,8 +162,24 @@ public class MaterialRestController {
 		}
 		response.put("mensaje", "El cliente ha sido eliminado con éxito!");
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+		*/
 	}
 	
+	
+	
+	
+	/*
+	MAS TARDE --------------------------------------------
+	
+	@Autowired
+	private IUploadFileService uploadService;
+
+	@GetMapping("/clientes/page/{page}")
+	public Page<Material> index(@PathVariable Integer page) {
+		return materialService.findAll(PageRequest.of(page, 5));
+	}
+	
+
 	@PostMapping("/clientes/upload")
 	public ResponseEntity<?> upload (@RequestParam("fotoCliente") MultipartFile archivo, @RequestParam("id") Long id){
 		
