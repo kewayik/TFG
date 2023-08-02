@@ -12,6 +12,9 @@ export class FormMatComponent {
 
   public material: Material = new Material()
   public titulo: string = "Crear Material"
+  public creandoMaterial: boolean
+
+  public errores: string[];
 
   constructor(private materialService: MaterialService, 
   private router: Router,
@@ -31,17 +34,34 @@ export class FormMatComponent {
   }
 
   create(): void{   
-    this.materialService.create(this.material)
-    .subscribe(material => { 
+    this.creandoMaterial = true;
+
+    this.materialService.create(this.material).subscribe(
+      material => { 
       this.router.navigate(['/materiales'])
       swal.fire('Nuevo material', `El material ${material.nombre} ha sido creado con éxito`,'success')
-    }
-    /*err => {
+      this.creandoMaterial = false;
+    },
+    err => {
       this.errores = err.error.errors as string[];
       console.error('Código del error desde el backend: '+ err.status);
       console.error(err.error.errors);
-    }*/
+      this.creandoMaterial = false;
+    }
     );
+  }
+
+  update():void{
+    this.materialService.update(this.material)
+    .subscribe( json => {
+      this.router.navigate(['/materiales'])
+      swal.fire('Material Actualizado', `${json.mensaje}: ${json.material.nombre}`, 'success')
+    },
+    err => {
+      this.errores = err.error.errors as string[];
+      console.error('Código del error desde el backend: '+ err.status);
+      console.error(err.error.errors);
+    })
   }
 
 

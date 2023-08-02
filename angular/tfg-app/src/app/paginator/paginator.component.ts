@@ -6,6 +6,7 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 })
 export class PaginatorComponent{
   @Input() paginador:any;
+  @Input() rutaBase: string;
   paginas:number[];
 
   desde: number;

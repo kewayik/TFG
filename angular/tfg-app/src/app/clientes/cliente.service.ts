@@ -30,8 +30,6 @@ export class ClienteService {
         let clientes = 
         (response.content as Cliente[]).map(cliente => {
           
-          //let datePipe = new DatePipe('es');
-          //cliente.createAt = datePipe.transform(cliente.createAt, 'EEEE dd, MMMM yyyy')
           return cliente;
         });
         return response;

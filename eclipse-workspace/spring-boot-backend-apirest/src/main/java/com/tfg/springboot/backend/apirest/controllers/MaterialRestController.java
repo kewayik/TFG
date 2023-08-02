@@ -1,11 +1,17 @@
 package com.tfg.springboot.backend.apirest.controllers;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +26,8 @@ import com.tfg.springboot.backend.apirest.models.entity.Material;
 import com.tfg.springboot.backend.apirest.models.services.IClienteService;
 import com.tfg.springboot.backend.apirest.models.services.IMaterialService;
 
+import jakarta.validation.Valid;
+
 @CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/api")
@@ -33,39 +41,42 @@ public class MaterialRestController {
 		return materialService.findAll();
 	}
 	
+	@GetMapping("/materiales/page/{page}")
+	public Page<Material> index(@PathVariable Integer page) {
+		return materialService.findAll(PageRequest.of(page, 5));
+	}
+	
 	@GetMapping("/materiales/{id}")
-	public /*ResponseEntity<?>*/ Material show(@PathVariable Long id) {
+	public ResponseEntity<?> show(@PathVariable Long id) {
 		
-		return materialService.findById(id);
-		/*Material material = null;
+		Material material = null;
 		Map<String, Object> response = new HashMap<>();
 
 		// Control de errores
 		try {
-			cliente = clienteService.findById(id);
+			material = materialService.findById(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		if (cliente == null) {
-			response.put("mensaje", "El cliente ID: ".concat(id.toString().concat(" no existe en la base de datos!")));
+		if (material == null) {
+			response.put("mensaje", "El material ID: ".concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);*/
+		return new ResponseEntity<Material>(material, HttpStatus.OK);
 	}
 	
 	@PostMapping("/materiales")
-	public /*ResponseEntity<?>*/ Material create(/*@Valid*/ @RequestBody Material material/*, BindingResult result*/) {
+	public ResponseEntity<?> create(@Valid @RequestBody Material material, BindingResult result) {
 		
-		return materialService.save(material);
-		/*
-		Cliente clienteNew = null;
+		Material materialNew = null;
 		Map<String, Object> response = new HashMap<>();
 		
 		//Control de errores al ser incorrecto el formato
+		
 		if(result.hasErrors()) {
 			
 			List<String> errors = result.getFieldErrors()
@@ -78,26 +89,26 @@ public class MaterialRestController {
 		
 		//Control de errores al clickar y que esté mal
 		try {
-			clienteNew = clienteService.save(cliente);
+			materialNew = materialService.save(material);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		response.put("mensaje", "El cliente ha sido creado con éxito!");
-		response.put("cliente", clienteNew);
+		response.put("mensaje", "El material ha sido creado con éxito!");
+		response.put("material", materialNew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-		*/
+		
 	}
 	
-	@PutMapping("/material/{id}")
-	public /*ResponseEntity<?>*/ Material update(/*@Valid*/ @RequestBody Material material/*, BindingResult result*/, @PathVariable Long id) {
+	@PutMapping("/materiales/{id}")
+	public ResponseEntity<?> update(@Valid @RequestBody Material material, BindingResult result, @PathVariable Long id) {
 		
 		
 		Material materialActual = materialService.findById(id);
 
-		/*Cliente clienteUpdated = null;
+		Material materialUpdated = null;
 
 		Map<String, Object> response = new HashMap<>();
 		
@@ -111,22 +122,20 @@ public class MaterialRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		if (clienteActual == null) {
-			response.put("mensaje", "Error: no se pudo editar, el cliente ID: "
+		if (materialActual == null) {
+			response.put("mensaje", "Error: no se pudo editar, el material ID: "
 					.concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
 		try {
-			*/
+			
 			materialActual.setNombre(material.getNombre());
 			materialActual.setTipo(material.getTipo());
 			materialActual.setStock(material.getStock());
 			materialActual.setDescripcion(material.getDescripcion());
 			
-			return materialService.save(materialActual);
-			/*
-			clienteUpdated = clienteService.save(clienteActual);
+			materialUpdated = materialService.save(materialActual);
 			
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al actualizar en la base de datos");
@@ -134,35 +143,35 @@ public class MaterialRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		response.put("mensaje", "El cliente ha sido actualizado con éxito!");
-		response.put("cliente", clienteUpdated);
+		response.put("mensaje", "El material ha sido actualizado con éxito!");
+		response.put("material", materialUpdated);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-		*/
+		
 	}
 	
 	@DeleteMapping("/materiales/{id}")
-	public void /*ResponseEntity<?>*/ delete(@PathVariable Long id) {
+	public ResponseEntity<?> delete(@PathVariable Long id) {
 		
-		/*
+		
 		Map<String, Object> response = new HashMap<>();
-		Cliente clienteEliminar = clienteService.findById(id);
+		//Cliente clienteEliminar = clienteService.findById(id);
 
 
 		try {
-			String nombreFotoAnterior = clienteEliminar.getFoto();
+			/*String nombreFotoAnterior = clienteEliminar.getFoto();
 			uploadService.eliminar(nombreFotoAnterior);
 			
-			*/materialService.delete(id);/*
+			*/materialService.delete(id);
 
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El cliente ha sido eliminado con éxito!");
+		response.put("mensaje", "El material ha sido eliminado con éxito!");
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
-		*/
+		
 	}
 	
 	
@@ -174,10 +183,7 @@ public class MaterialRestController {
 	@Autowired
 	private IUploadFileService uploadService;
 
-	@GetMapping("/clientes/page/{page}")
-	public Page<Material> index(@PathVariable Integer page) {
-		return materialService.findAll(PageRequest.of(page, 5));
-	}
+	
 	
 
 	@PostMapping("/clientes/upload")

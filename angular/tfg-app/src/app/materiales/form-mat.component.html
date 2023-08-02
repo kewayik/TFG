@@ -1,21 +1,26 @@
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+    <li *ngFor="let err of errores">
+        {{ err }}
+    </li>
+</ul>
 
 <div class="card bg-dark text-white">
     <div class="card-header">{{ titulo }}</div>
     <div class="card-body">
 
-        <form (ngSubmit)="create()"> <!--#clienteForm="ngForm"-->
+        <form (ngSubmit)="create()" #materialForm="ngForm"> <!---->
             <div class="form-group row">
                 <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" [(ngModel)]="material.nombre" name="nombre" #nombre="ngModel"> 
-                    <!--<div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
                         <div *ngIf="nombre.errors.required">
                             Nombre es requerido
                         </div>
                         <div *ngIf="nombre.errors.minlength">
                             Nombre debe tener al menos 4 caracteres
                         </div>
-                    </div>-->
+                    </div>
                 </div>
             </div>
 
@@ -23,11 +28,14 @@
                 <label for="tipo" class="col-form-label col-sm-2">Tipo</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" [(ngModel)]="material.tipo" name="tipo" #tipo="ngModel">
-                    <!--<div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-                        <div *ngIf="apellido.errors.required">
-                            Apellido es requerido
+                    <div class="alert alert-danger" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
+                        <div *ngIf="tipo.errors.required">
+                            Tipo es requerido
                         </div>
-                    </div>-->
+                        <div *ngIf="tipo.errors.minlength">
+                            Tipo debe tener al menos 4 caracteres
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -35,14 +43,14 @@
                 <label for="descripcion" class="col-form-label col-sm-2">Descripcion</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" [(ngModel)]="material.descripcion" name="descripcion" #descripcion="ngModel"> 
-                    <!--<div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-                        <div *ngIf="email.errors.required">
-                            Email es requerido
+                    <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <div *ngIf="descripcion.errors.required">
+                            Descripcion es requerido
                         </div>
-                        <div *ngIf="email.errors.email">
-                            Email debe tener un formato válido
+                        <div *ngIf="descripcion.errors.minlength">
+                            Descripcion debe tener al menos 4 caracteres
                         </div>
-                    </div>-->
+                    </div>
                 </div>
             </div>
 
@@ -55,14 +63,13 @@
 
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Crear</button>
-                    <!--
-                    <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.form.valid">Crear</button>
+                    
+                    <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!material.id else elseBlock" [disabled]="!materialForm.form.valid" [disabled]="creandoMaterial">Crear</button> <!-- -->
                 
                     <ng-template #elseBlock>
-                        <button class="btn btn-primary" role="button" (click)='update()' [disabled]="!clienteForm.form.valid">Editar</button>
+                        <button class="btn btn-primary" role="button" (click)='update()' [disabled]="!materialForm.form.valid">Editar</button>   <!---->
                     </ng-template>
-                -->
+                
                 </div>
             </div>
 

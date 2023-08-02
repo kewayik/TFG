@@ -34,7 +34,8 @@ const routes: Routes = [
   {path: 'clientes/form/:id', component: FormComponent},
   {path: 'materiales', component: MaterialesComponent},
   {path: 'materiales/form-mat', component: FormMatComponent},
-  {path: 'materiales/form-mat/:id', component: FormMatComponent}
+  {path: 'materiales/form-mat/:id', component: FormMatComponent},
+  {path: 'materiales/page/:page', component: MaterialesComponent}
 
 ];
 
