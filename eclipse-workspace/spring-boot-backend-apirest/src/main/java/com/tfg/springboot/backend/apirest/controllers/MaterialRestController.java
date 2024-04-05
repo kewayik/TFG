@@ -28,7 +28,7 @@ import com.tfg.springboot.backend.apirest.models.services.IMaterialService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class MaterialRestController {
