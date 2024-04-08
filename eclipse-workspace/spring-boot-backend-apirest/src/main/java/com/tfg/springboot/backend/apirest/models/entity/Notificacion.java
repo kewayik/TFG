@@ -10,7 +10,7 @@ public class Notificacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String descripcion;
 	private String tipo;
 	private Date fecha;

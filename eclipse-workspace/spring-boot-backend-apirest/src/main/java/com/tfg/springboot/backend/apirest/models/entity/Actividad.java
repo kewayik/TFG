@@ -1,6 +1,7 @@
 package com.tfg.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -11,11 +12,12 @@ public class Actividad implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nombre;
 	private String descripcion;
 	private String sala;
 	private int aforo;
+	private Date fecha;
 	private String horario;
 	
 	@ManyToMany
@@ -69,6 +71,14 @@ public class Actividad implements Serializable {
 
 	public void setHorario(String horario) {
 		this.horario = horario;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
 	/**

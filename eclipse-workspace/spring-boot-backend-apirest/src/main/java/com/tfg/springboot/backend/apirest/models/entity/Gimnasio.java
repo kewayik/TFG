@@ -10,7 +10,7 @@ public class Gimnasio implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nombre;
 	private int telefono;
 	private String direccion;

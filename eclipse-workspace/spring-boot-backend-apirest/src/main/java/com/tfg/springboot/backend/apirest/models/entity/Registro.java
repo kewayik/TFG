@@ -10,7 +10,7 @@ public class Registro implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private Date fecha;
 	private float peso;
 	private int repeticiones;
