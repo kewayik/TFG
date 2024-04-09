@@ -3,10 +3,11 @@ package com.tfg.springboot.backend.apirest.models.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tfg.springboot.backend.apirest.models.dao.IMaterial1Dao;
 import com.tfg.springboot.backend.apirest.models.entity.Material1;
-
+@Service
 public class Material1ServiceImpl implements IMaterial1Service {
 	
 	@Autowired

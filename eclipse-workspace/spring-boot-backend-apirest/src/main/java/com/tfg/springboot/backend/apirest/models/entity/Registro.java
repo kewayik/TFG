@@ -15,9 +15,10 @@ public class Registro implements Serializable {
 	private float peso;
 	private int repeticiones;
 	private int series;
+
 	@ManyToOne
 	private Ejercicio ejercicio;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -58,13 +59,6 @@ public class Registro implements Serializable {
 		this.series = series;
 	}
 
-	public Ejercicio getEjercicio() {
-		return ejercicio;
-	}
-
-	public void setEjercicio(Ejercicio ejercicio) {
-		this.ejercicio = ejercicio;
-	}
 
 	/**
 	 * 

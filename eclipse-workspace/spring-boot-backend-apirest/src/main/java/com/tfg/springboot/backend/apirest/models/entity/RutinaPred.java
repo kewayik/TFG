@@ -1,6 +1,8 @@
 package com.tfg.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +19,8 @@ public class RutinaPred implements Serializable {
 	private String descripcion;
 	private String dias;
 	private String recomendaciones;
+	@OneToMany
+	private List<Ejercicio> ejercicios;
 
 	public int getId() {
 		return id;

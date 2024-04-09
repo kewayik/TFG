@@ -13,6 +13,7 @@ public class Ejercicio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
+	@Column(length = 1000)
 	private String descripcion;
 	private String grupoMuscular;
 	@OneToMany(mappedBy = "ejercicio")

@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
-    <fullyQualifiedTypeName name="java.net.MalformedURLException"/>
-    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.nio.file.Path"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.UploadFileServiceImpl"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IUploadFileService"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IMaterialDao"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IMaterialService"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Material"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
@@ -36,15 +24,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Inheritance"/>
     <fullyQualifiedTypeName name="jakarta.persistence.DiscriminatorColumn"/>
     <fullyQualifiedTypeName name="jakarta.persistence.DiscriminatorValue"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Ejercicio"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Gimnasio"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Material1"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Notificacion"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Registro"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.RutinaPers"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.RutinaPred"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Usuario"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IActividadDao"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IEjercicioDao"/>
@@ -56,8 +35,29 @@
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IRutinaPersDao"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IRutinaPredDao"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IUsuarioDao"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IActividadService"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Actividad"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IEjercicioService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Actividad"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IGimnasioService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Gimnasio"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IMaterial1Service"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Material1"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.INotificacionService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.controllers.Notificacion"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Notificacion"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IRegistroService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Registro"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IRutinaPersService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.RutinaPers"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IRutinaPredService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.RutinaPred"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IUsuarioService"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Usuario"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Ejercicio"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
 </qualifiedTypeNameHistroy>
