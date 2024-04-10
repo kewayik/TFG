@@ -18,8 +18,8 @@ public class Material1 implements Serializable {
 	private String tipo;
 	
 	@ManyToMany
-	@JoinTable(name="ejerciciosmateriales", joinColumns = @JoinColumn(name="ejercicios_fk"),
-	inverseJoinColumns = @JoinColumn(name="materiales_fk"))
+	@JoinTable(name="ejerciciosmateriales", joinColumns = @JoinColumn(name="materiales_fk"),
+	inverseJoinColumns = @JoinColumn(name="ejercicios_fk"))
 	private List<Ejercicio> ejerciciosMat;
 
 	public int getId() {

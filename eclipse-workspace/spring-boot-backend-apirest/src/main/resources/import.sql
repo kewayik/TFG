@@ -48,6 +48,9 @@ INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Máquina curl
 INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Máquina extensión femoral', 'Máquina', false,'Máquina para extensión de pierna en la cual puedes ajustar los diferentes pesos');
 INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Esterilla', 'Apoyo', true,'Esterilla básica para realización de estiramientos y ejercicios');
 INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Banca ajustable', 'Apoyo', true,'Banca para realizar diferentes ejercicos, puedes ajustar la inclinación de esta mediante la palanca');
+INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Polea', 'Peso libre', true,'Consiste en una rueda con una cuerda o cable enrollado a su alrededor . La polea proporciona una forma efectiva de trabajar una amplia gama de grupos musculares, incluyendo los brazos, hombros, espalda y pecho');
+INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Anillas', 'Apoyo', true,'Dispositivos en forma de anillo que se cuelgan y se utilizan en ejercicios de calistenia y gimnasia para realizar movimientos como fondos, dominadas, y otras variaciones');
+INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Barra recta', 'Apoyo', true,'Barra metálica larga y recta utilizada en ejercicios de levantamiento de pesas y entrenamiento de fuerza para sujetar discos de peso en ambos extremos');
 
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('La actividad Crossfit de las 15:00 ha sido atrasada una hora debido a un problema con el entrenador de esta', 'Aviso', '2024-07-12', '10:32');
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('La clase de Yoga programada para mañana ha sido cancelada debido a problemas de disponibilidad del instructor. Disculpa las molestias.', 'Aviso', '2024-07-11', '16:45');
@@ -68,6 +71,95 @@ INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol
 INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Adolfo', 'Gonzalez Bujalance', '78962222D', 'adolgon@gmail.com', 'Calle Alameda Principal, 333, Centro, Málaga', 'Lejia2365', 'cliente', '2004-04-04');
 INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Natalia', 'Paez Marquez', '78965431K', 'nati@gmail.com', 'Calle Compañía, 444, Centro Histórico, Málaga', 'papelerIa954', 'cliente', '2001-08-29');
 INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Daniel', 'Gonzalez Holgado', '78963311L', 'dgon@gmail.com', 'Paseo Marítimo Antonio Banderas, 555, Huelin, Málaga', 'Jueves6587', 'cliente', '2001-12-15');
+
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 15, 5, '2024-03-12', 1, 2);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 12, 4, '2024-03-13', 2, 3);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 10, 3, '2024-03-14', 3, 4);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 5, '2024-03-15', 4, 5);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 3, '2024-03-16', 5, 6);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 10, 4, '2024-03-17', 6, 7);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 5, '2024-03-18', 7, 8);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (28.0, 12, 3, '2024-03-19', 8, 9);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (16.5, 10, 4, '2024-03-20', 9, 10);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (30.0, 8, 5, '2024-03-21', 10, 11);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 12, 3, '2024-03-22', 11, 12);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 15, 4, '2024-03-23', 12, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 5, '2024-03-24', 13, 2);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 3, '2024-03-25', 14, 3);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 4, '2024-03-26', 15, 4);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 5, '2024-03-27', 16, 5);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 3, '2024-03-28', 17, 6);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (28.0, 10, 4, '2024-03-29', 18, 7);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (16.5, 8, 5, '2024-03-30', 19, 8);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (30.0, 20, 3, '2024-03-31', 20, 9);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 12, 4, '2024-04-01', 21, 10);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 15, 5, '2024-04-02', 22, 11);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 3, '2024-04-03', 23, 12);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 4, '2024-04-04', 24, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 5, '2024-04-05', 25, 2);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 3, '2024-04-06', 26, 3);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 4, '2024-04-07', 27, 4);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (28.0, 10, 5, '2024-04-08', 1, 5);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (16.5, 8, 3, '2024-04-09', 2, 6);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (30.0, 20, 4, '2024-04-10', 3, 7);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 12, 5, '2024-04-11', 4, 8);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 15, 3, '2024-04-12', 5, 9);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 4, '2024-04-13', 6, 10);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 5, '2024-04-14', 7, 11);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 3, '2024-04-15', 8, 12);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 4, '2024-04-16', 9, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 5, '2024-04-17', 10, 2);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (28.0, 10, 3, '2024-04-18', 11, 3);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (16.5, 8, 4, '2024-04-19', 12, 4);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (30.0, 20, 5, '2024-04-20', 13, 5);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 12, 3, '2024-04-21', 14, 6);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 15, 4, '2024-04-22', 15, 7);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 5, '2024-04-23', 16, 8);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 3, '2024-04-24', 17, 9);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 4, '2024-04-25', 18, 10);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 5, '2024-04-26', 19, 11);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 3, '2024-04-27', 20, 12);
+
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Lunes', 'Pierna');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Martes', 'Empuje');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Miercoles', 'Tiron');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Jueves', 'Pierna');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Viernes', 'Tiron');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Sabado', 'Empuje');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Lunes', 'Hombro-Triceps');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Martes', 'Brazo');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Miercoles', 'Cuadriceps');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Jueves', 'Pecho');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Viernes', 'Fullbody');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Sabado', 'Pierna');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Lunes', 'Fullbody');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Martes', 'Fullbody');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Miercoles', 'Fullbody');
+INSERT INTO dias_rutinas (dia, nombre) VALUES ('Jueves', 'Fullbody');
+
+
+--Rutinas predeterminadas
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('P', null, 'Esta rutina de entrenamiento centrada en la parte superior del cuerpo está diseñada para fortalecer y tonificar tus músculos de la espalda, pecho, hombros y brazos. Con un enfoque en ejercicios compuestos y aislados, esta rutina te ayudará a mejorar tu fuerza y definición muscular en la parte superior del cuerpo.', 'Rutina de Parte Superior del Cuerpo', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('P', null, 'Esta rutina de entrenamiento enfocada en la parte inferior del cuerpo se centra en fortalecer y tonificar tus piernas, glúteos y músculos de la pantorrilla. Incorpora una variedad de ejercicios de peso corporal y con pesas para mejorar tu fuerza y resistencia en la parte inferior del cuerpo.', 'Rutina de Parte Inferior del Cuerpo', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('P', null, 'Esta rutina de entrenamiento de cuerpo completo está diseñada para trabajar todos los grupos musculares principales en una sola sesión de entrenamiento. Incorpora una combinación de ejercicios compuestos y aislados para maximizar tu desarrollo muscular y fuerza en todo el cuerpo.', 'Rutina de Cuerpo Completo', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('P', null, 'Esta rutina de entrenamiento de alta intensidad se centra en maximizar tu rendimiento cardiovascular y mejorar tu resistencia muscular. Incorpora una combinación de ejercicios de cardio y entrenamiento de fuerza para quemar calorías y mejorar tu condición física general.', 'Rutina de Alta Intensidad', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('P', null, 'Esta rutina de entrenamiento de flexibilidad y movilidad se centra en mejorar tu rango de movimiento y reducir el riesgo de lesiones. Incorpora una variedad de ejercicios de estiramiento y movilidad para mejorar la flexibilidad y mantener las articulaciones sanas.', 'Rutina de Flexibilidad y Movilidad', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+
+--Rutinas personalizadas
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '1', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '2', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '3', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '4', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '5', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '6', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '7', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '8', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '9', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '10', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '11', 'Esta rutina de fullbody, personalizada para ti, está diseñada para maximizar tu progreso en el gimnasio. Se centra en trabajar todos los grupos musculares en cada sesión de entrenamiento, asegurando un enfoque completo en tu desarrollo físico. Cada día de esta rutina está cuidadosamente estructurado para proporcionarte un equilibrio entre intensidad y recuperación, permitiéndote alcanzar tus metas de fuerza y definición muscular de manera efectiva. ¡Prepárate para desafiarte a ti mismo y ver resultados impresionantes con cada sesión de entrenamiento!','Rutina Fullbody', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+INSERT INTO rutinas_pred (tipo, usuario_id, descripcion, nombre, recomendaciones) VALUES ('U', '12', 'Esta rutina de tiron pierna y empuje, personalizada para ti, está diseñada para optimizar tu desarrollo muscular y fuerza en los grupos musculares principales. Se divide en tres días de entrenamiento: tirón, pierna y empuje. Cada día se enfoca en un conjunto específico de músculos, permitiendo una atención intensiva y una recuperación adecuada. Con esta rutina, podrás trabajar de manera efectiva todos los grupos musculares importantes, mejorando tu fuerza, resistencia y composición corporal.', 'Rutina Tiron Pierna Empuje', 'Mantén la consistencia: Para obtener los mejores resultados, es importante seguir el programa de entrenamiento de forma consistente. Intenta no saltarte sesiones y sigue el plan de entrenamiento según lo programado. Escucha a tu cuerpo: Si sientes dolor intenso o fatiga extrema durante el entrenamiento, no dudes en reducir la intensidad o tomarte un día de descanso adicional. Escuchar a tu cuerpo es clave para prevenir lesiones y maximizar la recuperación. Ajusta el peso adecuado: Utiliza pesos que te desafíen pero que te permitan mantener una buena técnica. Es importante no comprometer la forma por levantar demasiado peso. Si es necesario, ajusta el peso durante el entrenamiento para mantener la forma adecuada.');
+
+
 
 --#############################Datos de relación################################################################################
 
@@ -102,6 +194,137 @@ INSERT INTO actividadesusuarios (actividades_fk, usuarios_fk) VALUES (4, 6);
 INSERT INTO actividadesusuarios (actividades_fk, usuarios_fk) VALUES (5, 7);
 INSERT INTO actividadesusuarios (actividades_fk, usuarios_fk) VALUES (6, 8);
 
+-- Relaciones para el ejercicio "Press Banca"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 4); -- Necesita Banca recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Sentadillas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (2, 1); -- Necesita Mancuernas
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (2, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Dominadas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (3, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Peso Muerto"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (4, 1); -- Necesita Mancuernas
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (4, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Flexiones de Brazos"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (5, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Zancadas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (6, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Fondos en Paralelas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (7, 9); -- Necesita Banca ajustable
+-- Relaciones para el ejercicio "Remo con Barra"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (8, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Press de Hombros con Mancuernas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (9, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Elevaciones de Gemelos en Máquina"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (10, 3); -- Necesita Barra z
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (10, 5); -- Necesita Prensa
+-- Relaciones para el ejercicio "Curl de Bíceps con Barra"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (11, 3); -- Necesita Barra z
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (11, 5); -- Necesita Prensa
+-- Relaciones para el ejercicio "Flexiones con Manos Elevadas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (12, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Deadlift Rumano"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (13, 1); -- Necesita Mancuernas
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (13, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Press de Banca Inclinado"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (14, 2); -- Necesita Discos
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (14, 4); -- Necesita Banca recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Hip Thrust"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (15, 4); -- Necesita Banca recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (15, 1); -- Necesita Mancuernas
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+-- Relaciones para el ejercicio "Pull-ups"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (16, 7); -- Necesita Máquina curl biceps
+-- Relaciones para el ejercicio "Press Militar"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (17, 3); -- Necesita Barra z
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (17, 5); -- Necesita Prensa
+-- Relaciones para el ejercicio "Elevaciones Laterales con Mancuernas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (18, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Estocadas con Mancuernas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (19, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Fondos en Anillas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (20, 11); -- Necesita anillas
+-- Relaciones para el ejercicio "Sentadillas Sumo"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (21, 1); -- Necesita Mancuernas
+-- Relaciones para el ejercicio "Flexiones de Brazos con una Sola Mano"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (22, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Abdominales con Piernas Elevadas"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (23, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Extensiones de Tríceps con Polea Alta"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (24, 10); -- Necesita polea
+-- Relaciones para el ejercicio "Flexiones de Brazos Diamante"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (25, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Plancha"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (26, 8); -- Necesita Esterilla
+-- Relaciones para el ejercicio "Burpees"
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (27, 8); -- Necesita Esterilla
+
+-- Lunes: Pierna
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (1, 2), (1, 12), (1, 20);
+-- Martes: Empuje
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (2, 1), (2, 5), (2, 19), (2, 8), (2, 23);
+-- Miércoles: Tiron
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (3, 3), (3, 17), (3, 10), (3, 22), (3, 9);
+-- Jueves: Pierna
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (4, 2), (4, 12), (4, 20);
+-- Viernes: Tiron
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (5, 3), (5, 17), (5, 10), (5, 22), (5, 9);
+-- Sábado: Empuje
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (6, 1), (6, 5), (6, 19), (6, 8), (6, 23);
+-- Lunes: Hombro-Tríceps
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (7, 21), (7, 9), (7, 7), (7, 24);
+-- Martes: Brazo
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (8, 11), (8, 14), (8, 16), (8, 24);
+-- Miércoles: Cuadriceps
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (9, 2), (9, 12), (9, 20);
+-- Jueves: Pecho
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (10, 1), (10, 5), (10, 19), (10, 8), (10, 23);
+-- Viernes: Fullbody
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (11, 2), (11, 1), (11, 3), (11, 12), (11, 17), (11, 5), (11, 21), (11, 11), (11, 10), (11, 20), (11, 19), (11, 22), (11, 8), (11, 9);
+
+
+-- Rutina de Parte Superior del Cuerpo
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (1, 1), (1, 2), (1, 3);
+-- Rutina de Parte Inferior del Cuerpo
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (2, 4), (2, 5), (2, 6);
+-- Rutina de Cuerpo Completo
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (3, 1), (3, 2), (3, 3);
+-- Rutina de Alta Intensidad
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (4, 4), (4, 5), (4, 6);
+-- Rutina de Flexibilidad y Movilidad
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (5, 1), (5, 2), (5, 3);
+
+-- Rutinas personalizadas
+-- Rutina Fullbody (Usuario 1)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (6, 1), (6, 2), (6, 3);
+-- Rutina Tiron Pierna Empuje (Usuario 2)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (7, 4), (7, 5), (7, 6);
+-- Rutina Fullbody (Usuario 3)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (8, 13), (8, 14), (8, 15), (8, 16);
+-- Rutina Tiron Pierna Empuje (Usuario 4)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (9, 4), (9, 5), (9, 6);
+-- Rutina Fullbody (Usuario 5)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (10, 13), (10, 14), (10, 15), (10, 16);
+-- Rutina Tiron Pierna Empuje (Usuario 6)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (11, 4), (11, 5), (11, 6);
+-- Rutina Fullbody (Usuario 7)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (12, 13), (12, 14), (12, 15), (12, 16);
+-- Rutina Tiron Pierna Empuje (Usuario 8)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (13, 4), (13, 5), (13, 6);
+-- Rutina Fullbody (Usuario 9)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (14, 13), (14, 14), (14, 15), (14, 16);
+-- Rutina Tiron Pierna Empuje (Usuario 10)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (15, 4), (15, 5), (15, 6);
+-- Rutina Fullbody (Usuario 11)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (16, 13), (16, 14), (16, 15), (16, 16);
+-- Rutina Tiron Pierna Empuje (Usuario 12)
+INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (17, 4), (17, 5), (17, 6);
 
 --#############################Datos que habrá que borrar################################################################################
 

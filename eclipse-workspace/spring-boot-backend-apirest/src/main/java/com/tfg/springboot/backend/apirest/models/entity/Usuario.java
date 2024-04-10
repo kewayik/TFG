@@ -29,6 +29,9 @@ public class Usuario implements Serializable {
 	
 	@ManyToMany(mappedBy = "usuariosAct")
 	private List<Actividad> actividadesUsu;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Registro> registros;
 
 	public int getId() {
 		return id;

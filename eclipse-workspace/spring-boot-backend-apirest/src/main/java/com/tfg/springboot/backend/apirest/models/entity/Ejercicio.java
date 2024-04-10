@@ -16,6 +16,7 @@ public class Ejercicio implements Serializable {
 	@Column(length = 1000)
 	private String descripcion;
 	private String grupoMuscular;
+	
 	@OneToMany(mappedBy = "ejercicio")
 	private List<Registro> registros;
 	

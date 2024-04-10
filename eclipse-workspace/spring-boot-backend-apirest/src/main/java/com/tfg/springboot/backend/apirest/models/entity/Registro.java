@@ -19,6 +19,9 @@ public class Registro implements Serializable {
 	@ManyToOne
 	private Ejercicio ejercicio;
 	
+	@ManyToOne
+	private Usuario usuario;
+	
 	public int getId() {
 		return id;
 	}

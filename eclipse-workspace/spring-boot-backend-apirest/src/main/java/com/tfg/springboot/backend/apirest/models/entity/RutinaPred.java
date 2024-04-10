@@ -16,12 +16,15 @@ public class RutinaPred implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
+	@Column(length = 1000)
 	private String descripcion;
-	private String dias;
+	@Column(length = 1000)
 	private String recomendaciones;
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name="rutinas_pred_dias_rutina", joinColumns = @JoinColumn(name="rutina_pred_id"),
+	inverseJoinColumns = @JoinColumn(name="dias_rutina_id"))
 	private List<Ejercicio> ejercicios;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -46,13 +49,6 @@ public class RutinaPred implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public String getDias() {
-		return dias;
-	}
-
-	public void setDias(String dias) {
-		this.dias = dias;
-	}
 
 	public String getRecomendaciones() {
 		return recomendaciones;
