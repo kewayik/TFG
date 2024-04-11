@@ -20,4 +20,22 @@ public class ActividadServiceImpl implements IActividadService {
 	public List<Actividad> findAll() {
 		return actividadDao.findAll();
 	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Actividad findById(Integer id) {
+		return actividadDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Actividad save(Actividad actividad) {
+		return actividadDao.save(actividad);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		actividadDao.deleteById(id);
+	}
 }

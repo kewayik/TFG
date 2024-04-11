@@ -58,6 +58,14 @@ public class RutinaPred implements Serializable {
 		this.recomendaciones = recomendaciones;
 	}
 
+	public List<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+
+	public void setEjercicios(List<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
+
 	/**
 	 * 
 	 */

@@ -8,4 +8,10 @@ public interface IEjercicioService {
 	
 	public List<Ejercicio> findAll();
 	
+	public Ejercicio findById(Integer id);
+	
+	public Ejercicio save(Ejercicio ejercicio);
+	
+	public void delete(Integer id);
+	
 }

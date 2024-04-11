@@ -80,7 +80,16 @@ public class Actividad implements Serializable {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	
+	/*
+	public List<Usuario> getUsuariosAct() {
+		return usuariosAct;
+	}
 
+	public void setUsuariosAct(List<Usuario> usuariosAct) {
+		this.usuariosAct = usuariosAct;
+	}
+	*/
 	/**
 	 * 
 	 */

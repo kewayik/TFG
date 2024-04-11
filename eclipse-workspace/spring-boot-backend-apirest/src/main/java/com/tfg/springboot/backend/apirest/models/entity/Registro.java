@@ -22,6 +22,7 @@ public class Registro implements Serializable {
 	@ManyToOne
 	private Usuario usuario;
 	
+	
 	public int getId() {
 		return id;
 	}
@@ -61,7 +62,23 @@ public class Registro implements Serializable {
 	public void setSeries(int series) {
 		this.series = series;
 	}
+	
+	/*
+	public Ejercicio getEjercicio() {
+		return ejercicio;
+	}
 
+	public void setEjercicio(Ejercicio ejercicio) {
+		this.ejercicio = ejercicio;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}*/
 
 	/**
 	 * 

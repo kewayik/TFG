@@ -17,7 +17,7 @@ public class Ejercicio implements Serializable {
 	private String descripcion;
 	private String grupoMuscular;
 	
-	@OneToMany(mappedBy = "ejercicio")
+	@OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Registro> registros;
 	
 	@ManyToMany(mappedBy = "ejerciciosMat")
@@ -54,7 +54,7 @@ public class Ejercicio implements Serializable {
 	public void setGrupoMuscular(String grupoMuscular) {
 		this.grupoMuscular = grupoMuscular;
 	}
-
+	/*
 	public List<Registro> getRegistros() {
 		return registros;
 	}
@@ -62,7 +62,15 @@ public class Ejercicio implements Serializable {
 	public void setRegistros(List<Registro> registros) {
 		this.registros = registros;
 	}
+	
+	public List<Material1> getMaterialesEj() {
+		return materialesEj;
+	}
 
+	public void setMaterialesEj(List<Material1> materialesEj) {
+		this.materialesEj = materialesEj;
+	}
+	*/
 	/**
 	 * 
 	 */

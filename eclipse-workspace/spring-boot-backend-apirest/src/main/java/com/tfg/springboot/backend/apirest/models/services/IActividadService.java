@@ -8,4 +8,10 @@ public interface IActividadService {
 	
 	public List<Actividad> findAll();
 	
+	public Actividad findById(Integer id);
+	
+	public Actividad save(Actividad actividad);
+	
+	public void delete(Integer id);
+	
 }

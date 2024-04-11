@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=spring-boot-backend-apirest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tfg.springboot.backend.apirest.models.entity{RutinaPred.java[RutinaPred" modifiers="1" timestamp="1712662087232"/>
+    <typeInfo handle="=spring-boot-backend-apirest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tfg.springboot.backend.apirest.models.entity{RutinaPred.java[RutinaPred" modifiers="1" timestamp="1712766843712"/>
     <typeInfo handle="=spring-boot-backend-apirest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tfg.springboot.backend.apirest.models.services{IActividadService.java[IActividadService" modifiers="513" timestamp="1712587073264"/>
     <typeInfo handle="=spring-boot-backend-apirest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tfg.springboot.backend.apirest.models.services{IEjercicioService.java[IEjercicioService" modifiers="513" timestamp="1712587416338"/>
     <typeInfo handle="=spring-boot-backend-apirest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tfg.springboot.backend.apirest.models.services{IGimnasioService.java[IGimnasioService" modifiers="513" timestamp="1712587453896"/>

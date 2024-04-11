@@ -47,7 +47,7 @@ public class DiaRutina implements Serializable {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-
+	/*
 	public List<Ejercicio> getEjercicios() {
 		return ejercicios;
 	}
@@ -55,5 +55,5 @@ public class DiaRutina implements Serializable {
 	public void setEjercicios(List<Ejercicio> ejercicios) {
 		this.ejercicios = ejercicios;
 	}
-
+	*/
 }

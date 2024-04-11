@@ -105,6 +105,30 @@ public class Usuario implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public RutinaPers getRutinaPersonalizada() {
+		return rutinaPersonalizada;
+	}
+
+	public void setRutinaPersonalizada(RutinaPers rutinaPersonalizada) {
+		this.rutinaPersonalizada = rutinaPersonalizada;
+	}
+
+	public List<Actividad> getActividadesUsu() {
+		return actividadesUsu;
+	}
+
+	public void setActividadesUsu(List<Actividad> actividadesUsu) {
+		this.actividadesUsu = actividadesUsu;
+	}
+
+	public List<Registro> getRegistros() {
+		return registros;
+	}
+
+	public void setRegistros(List<Registro> registros) {
+		this.registros = registros;
+	}
+
 	/**
 	 * 
 	 */

@@ -7,4 +7,11 @@ import com.tfg.springboot.backend.apirest.models.entity.Gimnasio;
 public interface IGimnasioService {
 
 	public List<Gimnasio> findAll();
+	
+	public Gimnasio findById(Integer id);
+	
+	public Gimnasio save(Gimnasio gimnasio);
+	
+	public void delete(Integer id);
+	
 }

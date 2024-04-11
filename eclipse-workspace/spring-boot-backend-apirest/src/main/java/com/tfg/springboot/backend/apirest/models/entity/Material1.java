@@ -62,6 +62,14 @@ public class Material1 implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public List<Ejercicio> getEjerciciosMat() {
+		return ejerciciosMat;
+	}
+
+	public void setEjerciciosMat(List<Ejercicio> ejerciciosMat) {
+		this.ejerciciosMat = ejerciciosMat;
+	}
+
 	/**
 	 * 
 	 */
