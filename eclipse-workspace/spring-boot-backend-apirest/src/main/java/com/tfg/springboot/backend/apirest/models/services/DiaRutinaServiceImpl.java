@@ -36,6 +36,7 @@ public class DiaRutinaServiceImpl implements IDiaRutinaService {
 	@Override
 	@Transactional
 	public void delete(Integer id) {
+		diarutinaDao.deleteDiasRutinasRutinasPred(id);
 		diarutinaDao.deleteById(id);
 		
 	}

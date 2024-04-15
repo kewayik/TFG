@@ -24,13 +24,13 @@ public class Usuario implements Serializable {
 	private String rol;
 	private Date fechaNacimiento;
 	
-	@OneToOne(mappedBy = "usuario")
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private RutinaPers rutinaPersonalizada;
 	
 	@ManyToMany(mappedBy = "usuariosAct")
 	private List<Actividad> actividadesUsu;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	private List<Registro> registros;
 
 	public int getId() {

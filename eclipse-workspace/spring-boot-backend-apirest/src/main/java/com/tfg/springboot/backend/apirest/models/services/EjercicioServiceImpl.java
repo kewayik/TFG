@@ -1,5 +1,6 @@
 package com.tfg.springboot.backend.apirest.models.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tfg.springboot.backend.apirest.models.dao.IDiaRutinaDao;
 import com.tfg.springboot.backend.apirest.models.dao.IEjercicioDao;
+import com.tfg.springboot.backend.apirest.models.entity.DiaRutina;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 
 @Service
@@ -17,7 +19,7 @@ public class EjercicioServiceImpl implements IEjercicioService {
 	private IEjercicioDao ejercicioDao;
 	
 	@Autowired
-	private IDiaRutinaDao diarutinaDao;
+	private IDiaRutinaDao diaRutinaDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -40,7 +42,8 @@ public class EjercicioServiceImpl implements IEjercicioService {
 	@Override
 	@Transactional
 	public void delete(Integer id) {
-		diarutinaDao.eliminarRelacionesPorEjercicioId(id);
+		ejercicioDao.deleteEjerciciosMateriales(id);
+		ejercicioDao.deleteEjerciciosDiasRutinas(id);
 		ejercicioDao.deleteById(id);
 		
 	}

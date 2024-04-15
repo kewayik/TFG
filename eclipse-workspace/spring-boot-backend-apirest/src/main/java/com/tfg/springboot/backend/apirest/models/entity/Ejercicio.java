@@ -22,6 +22,9 @@ public class Ejercicio implements Serializable {
 	
 	@ManyToMany(mappedBy = "ejerciciosMat")
 	private List<Material1> materialesEj;
+	
+	@ManyToMany(mappedBy = "ejercicios")
+	private List<DiaRutina> diasRutinas;
 
 	public int getId() {
 		return id;
@@ -62,7 +65,7 @@ public class Ejercicio implements Serializable {
 	public void setRegistros(List<Registro> registros) {
 		this.registros = registros;
 	}
-	
+	*/
 	public List<Material1> getMaterialesEj() {
 		return materialesEj;
 	}
@@ -70,7 +73,7 @@ public class Ejercicio implements Serializable {
 	public void setMaterialesEj(List<Material1> materialesEj) {
 		this.materialesEj = materialesEj;
 	}
-	*/
+	
 	/**
 	 * 
 	 */

@@ -35,6 +35,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	@Override
 	@Transactional
 	public void delete(Integer id) {
+		usuarioDao.deleteActividadesUsuariosByUserId(id);
 		usuarioDao.deleteById(id);
 		
 	}
@@ -44,5 +45,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public Usuario findByEmail(String email) {
 		return usuarioDao.findByEmail(email);
 	}
+
 
 }

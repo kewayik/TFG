@@ -61,7 +61,7 @@ public class Material1 implements Serializable {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
+	/*
 	public List<Ejercicio> getEjerciciosMat() {
 		return ejerciciosMat;
 	}
@@ -70,7 +70,7 @@ public class Material1 implements Serializable {
 		this.ejerciciosMat = ejerciciosMat;
 	}
 
-	/**
+	*
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

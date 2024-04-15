@@ -53,7 +53,7 @@ public class Material1RestController {
 		materialActual.setDescripcion(material.getDescripcion());
 		materialActual.setStock(material.getStock());
 		materialActual.setTipo(material.getTipo());
-		materialActual.setEjerciciosMat(material.getEjerciciosMat());
+		//materialActual.setEjerciciosMat(material.getEjerciciosMat());
 		
 		return material1Service.save(materialActual);
 		

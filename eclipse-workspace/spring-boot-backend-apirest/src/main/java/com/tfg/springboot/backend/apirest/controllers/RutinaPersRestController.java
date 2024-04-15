@@ -52,7 +52,7 @@ public class RutinaPersRestController {
 		rutinasPersActual.setNombre(rutinasPers.getNombre());
 		rutinasPersActual.setDescripcion(rutinasPers.getDescripcion());
 		rutinasPersActual.setRecomendaciones(rutinasPers.getRecomendaciones());
-		rutinasPersActual.setEjercicios(rutinasPers.getEjercicios());
+		rutinasPersActual.setDiasRutinas(rutinasPers.getDiasRutinas());
 		//rutinasPersActual.setUsuario(rutinasPers.getUsuario());
 		
 		return rutinapersService.save(rutinasPersActual);

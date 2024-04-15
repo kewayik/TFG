@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tfg.springboot.backend.apirest.models.entity.DiaRutina;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
+import com.tfg.springboot.backend.apirest.models.services.IActividadService;
+import com.tfg.springboot.backend.apirest.models.services.IDiaRutinaService;
 import com.tfg.springboot.backend.apirest.models.services.IEjercicioService;
 
 @CrossOrigin
@@ -26,6 +29,7 @@ public class EjercicioRestController {
 	
 	@Autowired
 	private IEjercicioService ejercicioService;
+	
 	
 	@GetMapping("/ejercicios")
 	public List<Ejercicio> index(){
@@ -62,6 +66,7 @@ public class EjercicioRestController {
 	@DeleteMapping("/ejercicios/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
+		
 		ejercicioService.delete(id);
 	}
 }

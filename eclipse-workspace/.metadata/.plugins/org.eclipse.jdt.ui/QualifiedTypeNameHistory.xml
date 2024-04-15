@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Inheritance"/>
     <fullyQualifiedTypeName name="jakarta.persistence.DiscriminatorColumn"/>
     <fullyQualifiedTypeName name="jakarta.persistence.DiscriminatorValue"/>
@@ -19,8 +12,6 @@
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IRutinaPersDao"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IRutinaPredDao"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IUsuarioDao"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IActividadService"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IEjercicioService"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IGimnasioService"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Gimnasio"/>
@@ -41,10 +32,6 @@
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Ejercicio"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IDiaRutinaService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.DiaRutina"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Actividad"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
@@ -55,9 +42,22 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dto.ActividadDTO"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IDiaRutinaDao"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.DiaRutina"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IActividadService"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.services.IDiaRutinaService"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dto.UsuarioDTO"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Modifying"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
-    <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IDiaRutinaDao"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
 </qualifiedTypeNameHistroy>

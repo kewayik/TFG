@@ -1,6 +1,7 @@
 package com.tfg.springboot.backend.apirest.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tfg.springboot.backend.apirest.models.dto.ActividadDTO;
 import com.tfg.springboot.backend.apirest.models.entity.Actividad;
 import com.tfg.springboot.backend.apirest.models.services.IActividadService;
 
@@ -27,48 +29,75 @@ public class ActividadRestController {
 	private IActividadService actividadService;
 	
 	@GetMapping("/actividades")
-	public List<Actividad> index() {
-		return actividadService.findAll();
-	}
+    public List<ActividadDTO> index() {
+        List<Actividad> actividades = actividadService.findAll();
+        return actividades.stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
 	
 	@GetMapping("/actividades/{id}")
-	public Actividad show(@PathVariable Integer id) {
-		return actividadService.findById(id);
+	public ActividadDTO show(@PathVariable Integer id) {
+	    Actividad actividad = actividadService.findById(id);
+	    return mapToDTO(actividad);
 	}
 	
 	@PostMapping("/actividades")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Actividad create(@RequestBody Actividad actividad) {
-		return actividadService.save(actividad);
+	public ActividadDTO create(@RequestBody ActividadDTO actividadDTO) {
+	    Actividad actividad = mapToEntity(actividadDTO);
+	    Actividad savedActividad = actividadService.save(actividad);
+	    return mapToDTO(savedActividad);
 	}
 	
 	@PutMapping("/actividades/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Actividad update(@RequestBody Actividad actividad, @PathVariable Integer id) {
-		
-		Actividad actividadActual = actividadService.findById(id);
-		
-		actividadActual.setNombre(actividad.getNombre());
-		actividadActual.setDescripcion(actividad.getDescripcion());
-		actividadActual.setHorario(actividad.getHorario());
-		actividadActual.setAforo(actividad.getAforo());
-		actividadActual.setFecha(actividad.getFecha());
-		actividadActual.setSala(actividad.getSala());
-		//actividadActual.setUsuarios(actividad.getUsuarios());
-		
-		return actividadService.save(actividadActual);
-		
+	public ActividadDTO update(@RequestBody ActividadDTO actividadDTO, @PathVariable Integer id) {
+	    Actividad actividad = mapToEntity(actividadDTO);
+	    Actividad actividadActual = actividadService.findById(id);
+	    
+	    // Actualizar los campos de la actividad actual con los valores del DTO
+	    actividadActual.setNombre(actividad.getNombre());
+	    actividadActual.setDescripcion(actividad.getDescripcion());
+	    actividadActual.setHorario(actividad.getHorario());
+	    actividadActual.setAforo(actividad.getAforo());
+	    actividadActual.setFecha(actividad.getFecha());
+	    actividadActual.setSala(actividad.getSala());
+	    actividadActual.setUsuariosAct(actividadActual.getUsuariosAct());
+	    
+	    // Guardar y retornar la actividad actualizada
+	    Actividad updatedActividad = actividadService.save(actividadActual);
+	    return mapToDTO(updatedActividad);
 	}
 	
 	@DeleteMapping("/actividades/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
-		actividadService.delete(id);
+	    actividadService.delete(id);
+	}
+
+	private ActividadDTO mapToDTO(Actividad actividad) {
+	    ActividadDTO dto = new ActividadDTO();
+	    dto.setId(actividad.getId());
+	    dto.setNombre(actividad.getNombre());
+	    dto.setDescripcion(actividad.getDescripcion());
+	    dto.setHorario(actividad.getHorario());
+	    dto.setAforo(actividad.getAforo());
+	    dto.setFecha(actividad.getFecha());
+	    dto.setSala(actividad.getSala());
+	    return dto;
 	}
 	
-	
-	
-	
-	
+	private Actividad mapToEntity(ActividadDTO dto) {
+	    Actividad actividad = new Actividad();
+	    actividad.setId(dto.getId());
+	    actividad.setNombre(dto.getNombre());
+	    actividad.setDescripcion(dto.getDescripcion());
+	    actividad.setHorario(dto.getHorario());
+	    actividad.setAforo(dto.getAforo());
+	    actividad.setFecha(dto.getFecha());
+	    actividad.setSala(dto.getSala());
+	    return actividad;
+	}
 	
 }

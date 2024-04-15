@@ -81,7 +81,7 @@ public class Actividad implements Serializable {
 		this.fecha = fecha;
 	}
 	
-	/*
+	
 	public List<Usuario> getUsuariosAct() {
 		return usuariosAct;
 	}
@@ -89,7 +89,9 @@ public class Actividad implements Serializable {
 	public void setUsuariosAct(List<Usuario> usuariosAct) {
 		this.usuariosAct = usuariosAct;
 	}
-	*/
+	
+	
+	
 	/**
 	 * 
 	 */

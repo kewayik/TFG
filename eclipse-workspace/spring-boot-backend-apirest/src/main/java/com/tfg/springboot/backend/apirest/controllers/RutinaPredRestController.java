@@ -52,7 +52,7 @@ public class RutinaPredRestController {
 		rutinasPredActual.setNombre(rutinasPred.getNombre());
 		rutinasPredActual.setDescripcion(rutinasPred.getDescripcion());
 		rutinasPredActual.setRecomendaciones(rutinasPred.getRecomendaciones());
-		rutinasPredActual.setEjercicios(rutinasPred.getEjercicios());
+		rutinasPredActual.setDiasRutinas(rutinasPred.getDiasRutinas());
 		
 		return rutinapredService.save(rutinasPredActual);
 		

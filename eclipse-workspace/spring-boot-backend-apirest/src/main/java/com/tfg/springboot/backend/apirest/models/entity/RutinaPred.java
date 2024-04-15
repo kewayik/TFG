@@ -23,7 +23,7 @@ public class RutinaPred implements Serializable {
 	@ManyToMany
 	@JoinTable(name="rutinas_pred_dias_rutina", joinColumns = @JoinColumn(name="rutina_pred_id"),
 	inverseJoinColumns = @JoinColumn(name="dias_rutina_id"))
-	private List<Ejercicio> ejercicios;
+	private List<DiaRutina> diasRutinas;
 	
 	public int getId() {
 		return id;
@@ -58,13 +58,17 @@ public class RutinaPred implements Serializable {
 		this.recomendaciones = recomendaciones;
 	}
 
-	public List<Ejercicio> getEjercicios() {
-		return ejercicios;
+
+
+	public List<DiaRutina> getDiasRutinas() {
+		return diasRutinas;
 	}
 
-	public void setEjercicios(List<Ejercicio> ejercicios) {
-		this.ejercicios = ejercicios;
+	public void setDiasRutinas(List<DiaRutina> diasRutinas) {
+		this.diasRutinas = diasRutinas;
 	}
+
+
 
 	/**
 	 * 

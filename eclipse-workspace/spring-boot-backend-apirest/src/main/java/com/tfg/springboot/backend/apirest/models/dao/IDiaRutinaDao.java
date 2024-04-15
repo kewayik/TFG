@@ -12,6 +12,6 @@ public interface IDiaRutinaDao extends JpaRepository<DiaRutina, Integer> {
 
 	@Transactional
     @Modifying
-    @Query("DELETE FROM DiaRutina dr WHERE :id MEMBER OF dr.ejercicios")
-	void eliminarRelacionesPorEjercicioId(@Param("id")Integer id);
+    @Query(value = "DELETE FROM rutinas_pred_dias_rutina WHERE dias_rutina_id = :diarutinaID", nativeQuery = true)
+    void deleteDiasRutinasRutinasPred(@Param("diarutinaID") Integer diarutinaId);
 }

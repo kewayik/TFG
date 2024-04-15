@@ -201,13 +201,13 @@ INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); 
 -- Relaciones para el ejercicio "Sentadillas"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (2, 1); -- Necesita Mancuernas
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (2, 2); -- Necesita Discos
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (2, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Dominadas"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (3, 1); -- Necesita Mancuernas
 -- Relaciones para el ejercicio "Peso Muerto"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (4, 1); -- Necesita Mancuernas
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (4, 2); -- Necesita Discos
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (4, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Flexiones de Brazos"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (5, 8); -- Necesita Esterilla
 -- Relaciones para el ejercicio "Zancadas"
@@ -216,7 +216,7 @@ INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (6, 1); -
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (7, 9); -- Necesita Banca ajustable
 -- Relaciones para el ejercicio "Remo con Barra"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (8, 2); -- Necesita Discos
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (8, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Press de Hombros con Mancuernas"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (9, 1); -- Necesita Mancuernas
 -- Relaciones para el ejercicio "Elevaciones de Gemelos en Máquina"
@@ -230,15 +230,15 @@ INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (12, 8); 
 -- Relaciones para el ejercicio "Deadlift Rumano"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (13, 1); -- Necesita Mancuernas
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (13, 2); -- Necesita Discos
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (13, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Press de Banca Inclinado"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (14, 2); -- Necesita Discos
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (14, 4); -- Necesita Banca recta
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (14, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Hip Thrust"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (15, 4); -- Necesita Banca recta
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (15, 1); -- Necesita Mancuernas
-INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (1, 12); -- Necesita Barra recta
+INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (15, 12); -- Necesita Barra recta
 -- Relaciones para el ejercicio "Pull-ups"
 INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) VALUES (16, 7); -- Necesita Máquina curl biceps
 -- Relaciones para el ejercicio "Press Militar"
