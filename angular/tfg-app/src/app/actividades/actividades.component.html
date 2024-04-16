@@ -1,0 +1,53 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Actividades</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de actividades</h5>
+      <div class="my-2 text-left">
+        <button class=" btn btn-rounded btn-primary" type="button" [routerLink]="['/actividades/form-actividad']">Crear Material</button>
+          </div>
+      <div *ngIf="actividades?.length == 0" class="alert alert-info">
+        No hay registros en la base de datos
+    </div>
+    <table class="table table-bordered table-striped" *ngIf="actividades?.length>0"> <!---->
+        <thead>
+            <tr>
+                <!--<th>#</th>-->
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Sala</th>
+                <th>Aforo</th>
+                <th>Fecha</th>
+                <th>Horario</th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Eliminar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let actividad of actividades">
+               
+                <td> {{ actividad.nombre}}</td>
+                <td> {{ actividad.descripcion}}</td>
+                <td> {{ actividad.sala}}</td>
+                <td> {{ actividad.aforo}}</td>
+                <td> {{ actividad.fecha}}</td>
+                <td> {{ actividad.horario}}</td>
+                
+
+                
+                <td>
+                    <button type="button" name="editar" [routerLink]="['/actividades/form-actividad', actividad.id]" class="btn btn-primary">editar</button>
+                </td>
+
+                <td>
+                    <button type="button" name="eliminar" (click)="delete(actividad)" class="btn btn-danger btn-sm">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+

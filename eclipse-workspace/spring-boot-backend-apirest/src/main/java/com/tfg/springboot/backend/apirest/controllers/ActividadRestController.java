@@ -90,7 +90,6 @@ public class ActividadRestController {
 	
 	private Actividad mapToEntity(ActividadDTO dto) {
 	    Actividad actividad = new Actividad();
-	    actividad.setId(dto.getId());
 	    actividad.setNombre(dto.getNombre());
 	    actividad.setDescripcion(dto.getDescripcion());
 	    actividad.setHorario(dto.getHorario());
