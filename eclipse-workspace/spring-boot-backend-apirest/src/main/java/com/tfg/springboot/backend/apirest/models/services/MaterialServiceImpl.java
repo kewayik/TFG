@@ -3,16 +3,13 @@ package com.tfg.springboot.backend.apirest.models.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tfg.springboot.backend.apirest.models.dao.IMaterialDao;
 import com.tfg.springboot.backend.apirest.models.entity.Material;
-
 @Service
-public class MaterialServiceImpl implements IMaterialService{
+public class MaterialServiceImpl implements IMaterialService {
 	
 	@Autowired
 	private IMaterialDao materialDao;
@@ -20,19 +17,12 @@ public class MaterialServiceImpl implements IMaterialService{
 	@Override
 	@Transactional(readOnly = true)
 	public List<Material> findAll() {
+		return materialDao.findAll();
+	}
 
-		return (List<Material>) materialDao.findAll();
-	}
-	
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Material> findAll(Pageable pageable) {
-		return materialDao.findAll(pageable);
-	}
-	
-	@Override
-	@Transactional(readOnly = true)
-	public Material findById(Long id) {
+	public Material findById(Integer id) {
 		return materialDao.findById(id).orElse(null);
 	}
 
@@ -44,9 +34,9 @@ public class MaterialServiceImpl implements IMaterialService{
 
 	@Override
 	@Transactional
-	public void delete(Long id) {
+	public void delete(Integer id) {
 		materialDao.deleteById(id);
+		
 	}
 
-	
 }

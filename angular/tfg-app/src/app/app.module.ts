@@ -17,19 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { DetalleComponent } from './clientes/detalle/detalle.component';
-import { MaterialesComponent } from './materiales/materiales.component';
-import { MaterialService } from './materiales/material.service';
-import { FormMatComponent } from './materiales/form-mat.component';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { DiasrutinasComponent } from './diasrutinas/diasrutinas.component';
 import { EjerciciosComponent } from './ejercicios/ejercicios.component';
 import { GimnasiosComponent } from './gimnasios/gimnasios.component';
-import { Materiales1Component } from './materiales1/materiales1.component';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { RutinasComponent } from './rutinas/rutinas.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FormActividadComponent } from './actividades/form-actividad.component';
+import { MaterialesComponent } from './materiales/materiales.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -40,10 +37,6 @@ const routes: Routes = [
   {path: 'clientes/page/:page', component: ClientesComponent},
   {path: 'clientes/form', component: FormComponent},
   {path: 'clientes/form/:id', component: FormComponent},
-  {path: 'materiales', component: MaterialesComponent},
-  {path: 'materiales/form-mat', component: FormMatComponent},
-  {path: 'materiales/form-mat/:id', component: FormMatComponent},
-  {path: 'materiales/page/:page', component: MaterialesComponent},
   {path: 'actividades', component: ActividadesComponent},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
   {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
@@ -60,18 +53,16 @@ const routes: Routes = [
     FormComponent,
     PaginatorComponent,
     DetalleComponent,
-    MaterialesComponent,
-    FormMatComponent,
     ActividadesComponent,
     DiasrutinasComponent,
     EjerciciosComponent,
     GimnasiosComponent,
-    Materiales1Component,
     NotificacionesComponent,
     RegistrosComponent,
     RutinasComponent,
     UsuariosComponent,
-    FormActividadComponent
+    FormActividadComponent,
+    MaterialesComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +71,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, MatDatepickerModule, MatNativeDateModule
   ],
-  providers: [ClienteService, MaterialService, {provide: LOCALE_ID, useValue: 'es'}],
+  providers: [ClienteService, {provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

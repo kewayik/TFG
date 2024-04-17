@@ -39,19 +39,6 @@ INSERT INTO ejercicios (nombre, descripcion, grupo_muscular) VALUES ('Burpees', 
 
 INSERT INTO gimnasio (nombre, telefono, direccion, n_identificacion_fiscal) VALUES ('Peso puma', 952695478, 'Calle Diego de Almenguer, 15', '754169854M');
 
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Mancuernas', 'Peso Libre', false, 'Mancuernas para realización de diferentes ejercicios');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Discos', 'Peso Libre', false,'Discos para usar tanto en barras como en máquinas');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Barra z', 'Peso Libre', true, 'Barra para añadir discos');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Banca recta', 'Apoyo', false,'Banca para realizar diferentes ejercicios, no ajustable');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Prensa', 'Máquina', true,'Máquina para realizar ejercicios de pierna a la cual se le añaden discos');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Máquina curl biceps', 'Máquina', false,'Máquina para curl de biceps en la cual puedes ajustar los diferentes pesos');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Máquina extensión femoral', 'Máquina', false,'Máquina para extensión de pierna en la cual puedes ajustar los diferentes pesos');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Esterilla', 'Apoyo', true,'Esterilla básica para realización de estiramientos y ejercicios');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Banca ajustable', 'Apoyo', true,'Banca para realizar diferentes ejercicos, puedes ajustar la inclinación de esta mediante la palanca');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Polea', 'Peso libre', true,'Consiste en una rueda con una cuerda o cable enrollado a su alrededor . La polea proporciona una forma efectiva de trabajar una amplia gama de grupos musculares, incluyendo los brazos, hombros, espalda y pecho');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Anillas', 'Apoyo', true,'Dispositivos en forma de anillo que se cuelgan y se utilizan en ejercicios de calistenia y gimnasia para realizar movimientos como fondos, dominadas, y otras variaciones');
-INSERT INTO materiales1 (nombre, tipo, stock, descripcion) VALUES('Barra recta', 'Apoyo', true,'Barra metálica larga y recta utilizada en ejercicios de levantamiento de pesas y entrenamiento de fuerza para sujetar discos de peso en ambos extremos');
-
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('La actividad Crossfit de las 15:00 ha sido atrasada una hora debido a un problema con el entrenador de esta', 'Aviso', '2024-07-12', '10:32');
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('La clase de Yoga programada para mañana ha sido cancelada debido a problemas de disponibilidad del instructor. Disculpa las molestias.', 'Aviso', '2024-07-11', '16:45');
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('A partir del próximo lunes, los horarios de apertura del gimnasio se adelantarán una hora. El nuevo horario será de 7:00 a 22:00.', 'Aviso', '2024-07-09', '11:00');
@@ -119,6 +106,21 @@ INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 4, '2024-04-25', 18, 10);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 5, '2024-04-26', 19, 11);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 3, '2024-04-27', 20, 12);
+
+
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Mancuernas', 'Peso Libre', false, 'Mancuernas para realización de diferentes ejercicios');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Discos', 'Peso Libre', false,'Discos para usar tanto en barras como en máquinas');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Barra z', 'Peso Libre', true, 'Barra para añadir discos');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Banca recta', 'Apoyo', false,'Banca para realizar diferentes ejercicios, no ajustable');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Prensa', 'Máquina', true,'Máquina para realizar ejercicios de pierna a la cual se le añaden discos');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Máquina curl biceps', 'Máquina', false,'Máquina para curl de biceps en la cual puedes ajustar los diferentes pesos');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Máquina extensión femoral', 'Máquina', false,'Máquina para extensión de pierna en la cual puedes ajustar los diferentes pesos');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Esterilla', 'Apoyo', true,'Esterilla básica para realización de estiramientos y ejercicios');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Banca ajustable', 'Apoyo', true,'Banca para realizar diferentes ejercicos, puedes ajustar la inclinación de esta mediante la palanca');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Polea', 'Peso libre', true,'Consiste en una rueda con una cuerda o cable enrollado a su alrededor . La polea proporciona una forma efectiva de trabajar una amplia gama de grupos musculares, incluyendo los brazos, hombros, espalda y pecho');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Anillas', 'Apoyo', true,'Dispositivos en forma de anillo que se cuelgan y se utilizan en ejercicios de calistenia y gimnasia para realizar movimientos como fondos, dominadas, y otras variaciones');
+INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Barra recta', 'Apoyo', true,'Barra metálica larga y recta utilizada en ejercicios de levantamiento de pesas y entrenamiento de fuerza para sujetar discos de peso en ambos extremos');
+
 
 INSERT INTO dias_rutinas (dia, nombre) VALUES ('Lunes', 'Pierna');
 INSERT INTO dias_rutinas (dia, nombre) VALUES ('Martes', 'Empuje');
@@ -341,13 +343,3 @@ INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Maria de la O'
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Adolfo', 'Gonzalez', 'adolgon@gmail.com', '2022-07-25');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Pedro', 'Ximenez', 'pedrox@gmail.com', '2022-12-03');
 INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Daniel', 'Gonzalez', 'dgon@gmail.com', '2022-10-01');
-
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Mancuernas', 'Peso Libre', false, 'Mancuernas para realización de diferentes ejercicios');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Discos', 'Peso Libre', false,'Discos para usar tanto en barras como en máquinas');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Barra z', 'Peso Libre', true, 'Barra para añadir discos');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Banca recta', 'Apoyo', false,'Banca para realizar diferentes ejercicios, no ajustable');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Prensa', 'Máquina', true,'Máquina para realizar ejercicios de pierna a la cual se le añaden discos');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Máquina curl biceps', 'Máquina', false,'Máquina para curl de biceps en la cual puedes ajustar los diferentes pesos');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Máquina extensión femoral', 'Máquina', false,'Máquina para extensión de pierna en la cual puedes ajustar los diferentes pesos');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Esterilla', 'Apoyo', true,'Esterilla básica para realización de estiramientos y ejercicios');
-INSERT INTO materiales (nombre, tipo, stock, descripcion) VALUES('Banca ajustable', 'Apoyo', true,'Banca para realizar diferentes ejercicos, puedes ajustar la inclinación de esta mediante la palanca');

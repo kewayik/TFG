@@ -21,7 +21,7 @@ public class Ejercicio implements Serializable {
 	private List<Registro> registros;
 	
 	@ManyToMany(mappedBy = "ejerciciosMat")
-	private List<Material1> materialesEj;
+	private List<Material> materialesEj;
 	
 	@ManyToMany(mappedBy = "ejercicios")
 	private List<DiaRutina> diasRutinas;
@@ -66,11 +66,11 @@ public class Ejercicio implements Serializable {
 		this.registros = registros;
 	}
 	*/
-	public List<Material1> getMaterialesEj() {
+	public List<Material> getMaterialesEj() {
 		return materialesEj;
 	}
 
-	public void setMaterialesEj(List<Material1> materialesEj) {
+	public void setMaterialesEj(List<Material> materialesEj) {
 		this.materialesEj = materialesEj;
 	}
 	
