@@ -1,1 +1,55 @@
-<p>gimnasios works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header" style="display: flex; align-items: center; justify-content: center;">
+            <h2 style="font-size: 42px; margin: 0; ">{{ !modoEdicion ? gimnasio.nombre : 'Editar Gimnasio' }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group" *ngIf="modoEdicion">
+              <label for="nombre">Nombre:</label>
+              <input type="text" [(ngModel)]="gimnasio.nombre" class="form-control" id="nombre">
+            </div>
+  
+            <div class="form-group">
+              <label for="direccion">Dirección:</label>
+              <input type="text" [(ngModel)]="gimnasio.direccion" class="form-control" id="direccion" *ngIf="modoEdicion">
+              <p *ngIf="!modoEdicion">{{ gimnasio.direccion }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="number" [(ngModel)]="gimnasio.telefono" class="form-control" id="telefono" *ngIf="modoEdicion">
+              <p *ngIf="!modoEdicion">{{ gimnasio.telefono }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" [(ngModel)]="gimnasio.email" class="form-control" id="email" *ngIf="modoEdicion">
+              <p *ngIf="!modoEdicion">{{ gimnasio.email }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="n_identificacion">Número de Identificación Fiscal:</label>
+              <input type="text" [(ngModel)]="gimnasio.n_identificacion" class="form-control" id="n_identificacion" *ngIf="modoEdicion">
+              <p *ngIf="!modoEdicion">{{ gimnasio.n_identificacion }}</p>
+            </div>
+  
+            <div class="btn-group">
+              <button class="btn btn-primary" role="button" (click)="editar()" *ngIf="!modoEdicion">Editar</button>
+              <div *ngIf="modoEdicion"> 
+                <button class="btn btn-success" (click)="guardarEdicion()">Guardar</button>
+                <span style="margin-right: 10px;"></span>
+                <button class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.441538438604!2d-4.440783824165665!3d36.711955672272374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f79d65b9277d%3A0x44ff22a17fb5623!2sC.%20Diego%20de%20Almaguer%2C%205%2C%20Cruz%20de%20Humilladero%2C%2029006%20M%C3%A1laga!5e0!3m2!1ses!2ses!4v1713353374738!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  

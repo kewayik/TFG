@@ -50,10 +50,12 @@
                     <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!actividad.id else elseBlock">Crear</button>
 
                     <ng-template #elseBlock>
-                        <button class="btn btn-primary" role="button" (click)='update()' >Editar</button>   <!---->
+                        <button class="btn btn-primary" role="button" (click)='update()' >Editar</button> 
                     </ng-template>
-                
+                    <span class="mx-2"></span>
+                    <button class="btn btn-rounded btn-primary" [routerLink]="['/actividades']">Cancelar</button>
                 </div>
+               
             </div>
 
 

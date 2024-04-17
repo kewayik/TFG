@@ -46,7 +46,8 @@ const routes: Routes = [
   {path: 'materiales/page/:page', component: MaterialesComponent},
   {path: 'actividades', component: ActividadesComponent},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
-  {path: 'actividades/form-actividad/:id', component: FormActividadComponent}
+  {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
+  {path: 'gimnasio', component: GimnasiosComponent}
 
 ];
 

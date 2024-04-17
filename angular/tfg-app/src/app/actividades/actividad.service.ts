@@ -30,4 +30,8 @@ export class ActividadService {
     return this.http.put<Actividad>(`${this.urlEndpoint}/${actividad.id}`, actividad, {headers: this.httpHeaders});
   }
 
+  delete(id: number): Observable<Actividad>{
+    return this.http.delete<Actividad>(`${this.urlEndpoint}/${id}`, {headers: this.httpHeaders});
+  }
+
 }
