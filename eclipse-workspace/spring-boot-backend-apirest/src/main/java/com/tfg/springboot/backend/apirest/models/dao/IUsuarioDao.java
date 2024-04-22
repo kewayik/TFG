@@ -10,7 +10,8 @@ import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 
 public interface IUsuarioDao extends JpaRepository<Usuario, Integer> {
 	
-	Usuario findByEmail(String email);
+	public Usuario findByEmail(String email);
+	
 	
 	@Transactional
     @Modifying

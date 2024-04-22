@@ -57,7 +57,7 @@ public class Ejercicio implements Serializable {
 	public void setGrupoMuscular(String grupoMuscular) {
 		this.grupoMuscular = grupoMuscular;
 	}
-	/*
+	
 	public List<Registro> getRegistros() {
 		return registros;
 	}
@@ -65,7 +65,7 @@ public class Ejercicio implements Serializable {
 	public void setRegistros(List<Registro> registros) {
 		this.registros = registros;
 	}
-	*/
+	
 	public List<Material> getMaterialesEj() {
 		return materialesEj;
 	}

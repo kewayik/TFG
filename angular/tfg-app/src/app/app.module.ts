@@ -27,6 +27,8 @@ import { RutinasComponent } from './rutinas/rutinas.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FormActividadComponent } from './actividades/form-actividad.component';
 import { MaterialesComponent } from './materiales/materiales.component';
+import { VerEjercicioComponent } from './ejercicios/ver-ejercicio.component';
+import { FormEjercicioComponent } from './ejercicios/form-ejercicio.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -40,7 +42,11 @@ const routes: Routes = [
   {path: 'actividades', component: ActividadesComponent},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
   {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
-  {path: 'gimnasio', component: GimnasiosComponent}
+  {path: 'gimnasio', component: GimnasiosComponent},
+  {path: 'ejercicios', component: EjerciciosComponent},
+  {path: 'ejercicios/ver-ejercicio/:id', component: VerEjercicioComponent},
+  {path: 'ejercicios/form-ejercicio', component: FormEjercicioComponent},
+  {path: 'ejercicios/form-ejercicio/:id', component: FormEjercicioComponent},
 
 ];
 
@@ -62,7 +68,9 @@ const routes: Routes = [
     RutinasComponent,
     UsuariosComponent,
     FormActividadComponent,
-    MaterialesComponent
+    MaterialesComponent,
+    VerEjercicioComponent,
+    FormEjercicioComponent
   ],
   imports: [
     BrowserModule,
