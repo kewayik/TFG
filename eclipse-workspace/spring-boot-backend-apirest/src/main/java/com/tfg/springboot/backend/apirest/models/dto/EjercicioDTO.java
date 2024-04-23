@@ -11,16 +11,18 @@ public class EjercicioDTO implements Serializable {
     private String nombre;
     private String descripcion;
     private String grupoMuscular;
+    private String foto;
     private List<Material> materiales;
 
     // Constructor, getters y setters
 
     // Constructor
-    public EjercicioDTO(Integer id, String nombre, String descripcion, String grupoMuscular, List<Material> materiales) {
+    public EjercicioDTO(Integer id, String nombre, String descripcion, String grupoMuscular, String foto, List<Material> materiales) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.grupoMuscular = grupoMuscular;
+        this.foto = foto;
         this.materiales = materiales;
     }
 
@@ -63,6 +65,14 @@ public class EjercicioDTO implements Serializable {
 
 	public void setMateriales(List<Material> materiales) {
 		this.materiales = materiales;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	private static final long serialVersionUID = 1L;

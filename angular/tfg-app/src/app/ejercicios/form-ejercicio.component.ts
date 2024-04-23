@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Ejercicio } from './ejercicio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EjercicioService } from './ejercicio.service';
@@ -11,12 +11,14 @@ import { Material } from '../materiales/material';
 })
 export class FormEjercicioComponent {
 
+
   public ejercicio: Ejercicio = new Ejercicio();
   public titulo: string = "Crear Ejercicio";
   public creandoEjercicio: boolean = false;
   public materiales: Material[] = [];
   public materialSeleccionado: string; // Variable para almacenar el material seleccionado
   public materialesSeleccionados: Material[] = []; // Lista de materiales seleccionados
+  public fotoSeleccionada: File;
 
   constructor(private ejercicioService: EjercicioService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -85,4 +87,21 @@ export class FormEjercicioComponent {
       swal.fire('Error', 'Ocurrió un error al actualizar el ejercicio', 'error');
     });
   }
+
+  seleccionarFoto(event){
+    this.fotoSeleccionada = event.target.files[0];
+    console.log(this.fotoSeleccionada);
+    if(this.fotoSeleccionada.type.indexOf('image')<0){
+      swal.fire('Error al seleccionar imagen: ', 'El archivo debe ser del tipo imagen', 'error');
+      this.fotoSeleccionada = null;
+    }
+  }
+
+ subirFoto(){
+  this.ejercicioService.subirFoto(this.fotoSeleccionada, this.ejercicio.id)
+    .subscribe(ejercicio2=>{
+      this.ejercicio = ejercicio2;
+      swal.fire('La foto se ha subido completamente!', `La foto se ha subido con éxito: ${this.ejercicio.foto}`, 'success');
+    });
+ }
 }

@@ -210,7 +210,7 @@ public class ClienteRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("uploads/img/{nombreFoto:.+}")
+	@GetMapping("uploadsEjercicio/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
 	
 		Resource recurso = null;

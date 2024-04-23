@@ -34,13 +34,13 @@ export class DetalleComponent {
       swal.fire('Error: Upload: ', 'Debe seleccionar una foto', 'error');
     }else{
 
-    this.clienteService.subirFoto(this.fotoSeleccionada, this.cliente.id)
-    .subscribe(cliente=>{
-      this.cliente = cliente;
-      this.modalService.notificarUpload.emit(this.cliente);
-      swal.fire('La foto se ha subido completamente!', `La foto se ha subido con éxito: ${this.cliente.foto}`, 'success');
-    });
-  }
+      this.clienteService.subirFoto(this.fotoSeleccionada, this.cliente.id)
+      .subscribe(cliente=>{
+        this.cliente = cliente;
+        this.modalService.notificarUpload.emit(this.cliente);
+        swal.fire('La foto se ha subido completamente!', `La foto se ha subido con éxito: ${this.cliente.foto}`, 'success');
+      });
+    }
   }
 
   cerrarModal(){

@@ -19,6 +19,7 @@ public class Ejercicio implements Serializable {
 	@Column(length = 1000)
 	private String descripcion;
 	private String grupoMuscular;
+	private String foto;
 	
 	@OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Registro> registros;
@@ -83,6 +84,14 @@ public class Ejercicio implements Serializable {
 		this.materialesEj = materialesEj;
 	}
 	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	/**
 	 * 
 	 */

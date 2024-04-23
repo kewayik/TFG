@@ -6,5 +6,6 @@ export class Ejercicio {
     nombre:string;
     descripcion: string;
     grupoMuscular: string;
+    foto: string;
     materiales: Array<Material>;
 }

@@ -11,7 +11,12 @@
     <div class="row">
         <div class="col-md-3" *ngFor="let ejercicio of ejercicios">
             <div class="card mb-3">
-                <img src="assets/images/material-de-gimnasio.png" class="card-img-top" alt="Imagen del ejercicio">
+                <img *ngIf="ejercicio?.foto" 
+                        src="http://localhost:8080/api/uploads/img/{{ejercicio.foto}}" alt="{{ejercicio.foto}}" class="img-thumbnail rounded"
+                        style = "width:300px;">
+
+                        <img  *ngIf="!ejercicio?.foto" 
+                        src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded">
                 <div class="card-body">
                     <h5 class="card-title">{{ ejercicio.nombre }}</h5>
                     <div class="btn-group" role="group">

@@ -1,24 +1,28 @@
 <div class="container">
-    <div class="card">
-     
+  <div class="card">
+   
       <div class="card-body d-flex justify-content-between align-items-center">
-        <h1 class="card-title" style="font-size: 3em;">{{ ejercicio.nombre }}</h1>
-        <div>
-          <button type="button" name="verProgreso" class="btn btn-primary">Ver Progreso</button>
-          <span class="mx-2"></span>
-          <button type="button" name="verProgreso" class="btn btn-primary">Registrar progreso</button>
-        </div>
+          <h1 class="card-title" style="font-size: 3em;">{{ ejercicio.nombre }}</h1>
+          <div>
+              <button type="button" name="verProgreso" class="btn btn-primary">Ver Progreso</button>
+              <span class="mx-2"></span>
+              <button type="button" name="verProgreso" class="btn btn-primary">Registrar progreso</button>
+          </div>
       </div>
       <div class="card-body">
-        <p class="card-text">{{ ejercicio.descripcion }}</p>
-        <p class="card-text">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
-        <p class="card-text">Materiales: 
-          <ng-container *ngFor="let material of ejercicio.materiales; let last = last">
-            <a [routerLink]="['/materiales/ver-material', material.id]">{{ material.nombre }}</a>{{ !last ? ', ' : '' }}
-          </ng-container>
-        </p>
+          <p class="card-text">{{ ejercicio.descripcion }}</p>
+          <p class="card-text">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
+          <p class="card-text">Materiales: 
+              <ng-container *ngFor="let material of ejercicio.materiales; let last = last">
+                  <a [routerLink]="['/materiales/ver-material', material.id]">{{ material.nombre }}</a>{{ !last ? ', ' : '' }}
+              </ng-container>
+          </p>
       </div>
-      <img src="assets/images/material-de-gimnasio.png" class="card-img-top" alt="Imagen del ejercicio">
-    </div>
+      
+      
+          <img *ngIf="ejercicio?.foto" src="http://localhost:8080/api/uploads/img/{{ejercicio.foto}}" alt="{{ejercicio.foto}}" class="img-thumbnail rounded imagen-ejercicio shadow" >
+          <img *ngIf="!ejercicio?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-ejercicio shadow" style="max-width: 100%; max-height: 300px;">
+      
+      
   </div>
-  
+</div>
