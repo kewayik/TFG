@@ -19,4 +19,14 @@ public interface IEjercicioDao extends JpaRepository<Ejercicio, Integer> {
     @Modifying
     @Query(value = "DELETE FROM ejerciciosmateriales WHERE ejercicios_fk = :ejercicioID", nativeQuery = true)
     void deleteEjerciciosMateriales(@Param("ejercicioID") Integer ejercicioId);
+	
+	@Transactional
+    @Modifying
+    @Query(value = "INSERT INTO ejerciciosmateriales (ejercicios_fk, materiales_fk) " +
+                   "SELECT :ejercicioId, :materialId " +
+                   "FROM dual " +
+                   "WHERE NOT EXISTS " +
+                   "(SELECT 1 FROM ejerciciosmateriales WHERE ejercicios_fk = :ejercicioId AND materiales_fk = :materialId)",
+           nativeQuery = true)
+    void addEjercicioMateriales(@Param("ejercicioId") Integer ejercicioId, @Param("materialId") Integer materialId);
 }

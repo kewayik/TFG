@@ -1,8 +1,10 @@
+import { Material } from "../materiales/material";
+
 export class Ejercicio {
 
     id:number;
     nombre:string;
     descripcion: string;
     grupoMuscular: string;
-    materiales: Array<Array<string>>;
+    materiales: Array<Material>;
 }

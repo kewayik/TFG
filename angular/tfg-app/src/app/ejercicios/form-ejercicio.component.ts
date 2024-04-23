@@ -25,13 +25,17 @@ export class FormEjercicioComponent {
     this.cargarEjercicio();
   }
 
-  cargarEjercicio(): void{
+  cargarEjercicio(): void {
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
-      if(id){
-        this.ejercicioService.getEjercicio(id).subscribe((ejercicio) => this.ejercicio = ejercicio)
+      let id = params['id'];
+      if (id) {
+        this.ejercicioService.getEjercicio(id).subscribe((ejercicio) => {
+          this.ejercicio = ejercicio;
+          // Cargar los materiales asociados al ejercicio
+          this.materialesSeleccionados = ejercicio.materiales || [];
+        });
       }
-    })
+    });
   }
 
   cargarMateriales(): void {
@@ -46,57 +50,39 @@ export class FormEjercicioComponent {
   }
 
   agregarMaterial(): void {
-    // Convertir materialSeleccionado a number
-    const materialId: number = Number(this.materialSeleccionado);
-    // Verificar si el materialId es un número válido
-    if (!isNaN(materialId)) {
-        // Encontrar el material correspondiente al ID
-        const material = this.materiales.find(mat => mat.id === materialId);
-        if (material && !this.materialesSeleccionados.includes(material)) {
-            this.materialesSeleccionados.push(material);
-        }
+    // Encontrar el material correspondiente al ID seleccionado
+    const material = this.materiales.find(mat => mat.id.toString() === this.materialSeleccionado);
+    if (material && !this.materialesSeleccionados.some(mat => mat.id === material.id)) {
+      this.materialesSeleccionados.push(material);
     }
-}
-
+  }
 
   eliminarMaterial(material: Material): void {
-    const index = this.materialesSeleccionados.indexOf(material);
+    const index = this.materialesSeleccionados.findIndex(mat => mat.id === material.id);
     if (index !== -1) {
       this.materialesSeleccionados.splice(index, 1);
     }
   }
 
-  reiniciarSeleccion(): void {
-    this.materialesSeleccionados = [];
-  }
-
-  guardar(): void{
-    this.creandoEjercicio = true;
-    // Convertir materiales seleccionados a List<String[]>
-    const materialesStringArray: string[][] = this.materialesSeleccionados.map(material => [material.id.toString(), material.nombre]);
-    // Enviar datos del ejercicio y materiales seleccionados al servicio para guardar
-    this.ejercicioService.create({...this.ejercicio, materiales: materialesStringArray}).subscribe(
-      ejercicio => {
-        this.router.navigate(['/ejercicios'])
-        swal.fire('Nuevo Ejercicio', `El ejercicio ${ejercicio.nombre} ha sido creado con éxito`, 'success');
-      },
-      error => {
-        this.creandoEjercicio = false;
+  guardar(): void {
+    this.ejercicio.materiales = this.materialesSeleccionados;
+    this.ejercicioService.create(this.ejercicio).subscribe(() => {
+      swal.fire('Nuevo Ejercicio', `El ejercicio ${this.ejercicio.nombre} ha sido creado con éxito`, 'success');
+      this.router.navigate(['/ejercicios']);
+    }, error => {
+      console.error(error);
+      swal.fire('Error', 'Ocurrió un error al crear el ejercicio', 'error');
     });
   }
 
-  actualizar(): void{
-    // Convertir materiales seleccionados a List<String[]>
-    const materialesStringArray: string[][] = this.materialesSeleccionados.map(material => [material.id.toString(), material.nombre]);
-    // Enviar datos del ejercicio y materiales seleccionados al servicio para actualizar
-    this.ejercicioService.update({...this.ejercicio, materiales: materialesStringArray}).subscribe(
-      ejercicio => {
-        this.router.navigate(['/ejercicios'])
-        swal.fire('Ejercicio Actualizado', `El ejercicio ${ejercicio.nombre} ha sido editado con éxito`, 'success')
-      },
-      error => {
-        console.error(error);
-      }
-    );
+  actualizar(): void {
+    this.ejercicio.materiales = this.materialesSeleccionados;
+    this.ejercicioService.update(this.ejercicio).subscribe(() => {
+      swal.fire('Ejercicio Actualizado', `El ejercicio ${this.ejercicio.nombre} ha sido actualizado con éxito`, 'success');
+      this.router.navigate(['/ejercicios']);
+    }, error => {
+      console.error(error);
+      swal.fire('Error', 'Ocurrió un error al actualizar el ejercicio', 'error');
+    });
   }
 }

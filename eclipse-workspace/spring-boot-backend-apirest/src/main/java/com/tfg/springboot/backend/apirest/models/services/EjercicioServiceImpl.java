@@ -11,6 +11,7 @@ import com.tfg.springboot.backend.apirest.models.dao.IDiaRutinaDao;
 import com.tfg.springboot.backend.apirest.models.dao.IEjercicioDao;
 import com.tfg.springboot.backend.apirest.models.entity.DiaRutina;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
+import com.tfg.springboot.backend.apirest.models.entity.Material;
 
 @Service
 public class EjercicioServiceImpl implements IEjercicioService {
@@ -18,8 +19,6 @@ public class EjercicioServiceImpl implements IEjercicioService {
 	@Autowired
 	private IEjercicioDao ejercicioDao;
 	
-	@Autowired
-	private IDiaRutinaDao diaRutinaDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -36,7 +35,19 @@ public class EjercicioServiceImpl implements IEjercicioService {
 	@Override
 	@Transactional
 	public Ejercicio save(Ejercicio ejercicio) {
-		return ejercicioDao.save(ejercicio);
+			
+			
+		    // Guardar el ejercicio
+		    Ejercicio savedEjercicio = ejercicioDao.save(ejercicio);		    
+		    
+		    List<Material> materiales = ejercicio.getMaterialesEj();
+		    
+		    for (Material material : materiales) {
+		    	System.out.println("Ejercicio: "+ejercicio.getId()+ "con Material: "+material.getId());
+		    	ejercicioDao.addEjercicioMateriales(ejercicio.getId(), material.getId());
+		    }
+		  
+		    return savedEjercicio;
 	}
 
 	@Override

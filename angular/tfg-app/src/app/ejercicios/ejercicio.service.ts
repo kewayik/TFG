@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Ejercicio } from './ejercicio';
 import { Material } from '../materiales/material';
@@ -39,4 +39,5 @@ export class EjercicioService {
   delete(id: number): Observable<Ejercicio>{
     return this.http.delete<Ejercicio>(`${this.urlEndpoint}/${id}`, {headers: this.httpHeaders});
   }
+
 }

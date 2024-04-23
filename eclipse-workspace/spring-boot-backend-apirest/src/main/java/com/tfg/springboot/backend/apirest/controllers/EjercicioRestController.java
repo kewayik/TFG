@@ -1,6 +1,5 @@
 package com.tfg.springboot.backend.apirest.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.tfg.springboot.backend.apirest.models.dto.EjercicioDTO;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
-import com.tfg.springboot.backend.apirest.models.entity.Material;
 import com.tfg.springboot.backend.apirest.models.services.IEjercicioService;
-import com.tfg.springboot.backend.apirest.models.services.IMaterialService;
 
 @CrossOrigin
 @RestController
@@ -21,9 +18,6 @@ public class EjercicioRestController {
 
     @Autowired
     private IEjercicioService ejercicioService;
-    
-    @Autowired
-    private IMaterialService materialeService;
 
     @GetMapping("/ejercicios")
     public List<EjercicioDTO> index() {
@@ -42,7 +36,8 @@ public class EjercicioRestController {
     @PostMapping("/ejercicios")
     @ResponseStatus(HttpStatus.CREATED)
     public EjercicioDTO create(@RequestBody EjercicioDTO ejercicioDTO) {
-        Ejercicio ejercicio = mapToEntity(ejercicioDTO);
+    	
+        Ejercicio ejercicio = mapToEntity(ejercicioDTO);        
         Ejercicio savedEjercicio = ejercicioService.save(ejercicio);
         return mapToDTO(savedEjercicio);
     }
@@ -57,6 +52,7 @@ public class EjercicioRestController {
         ejercicioActual.setNombre(ejercicio.getNombre());
         ejercicioActual.setDescripcion(ejercicio.getDescripcion());
         ejercicioActual.setGrupoMuscular(ejercicio.getGrupoMuscular());
+        ejercicioActual.setMaterialesEj(ejercicio.getMaterialesEj());
         
         // Guardar y retornar el ejercicio actualizado
         Ejercicio updatedEjercicio = ejercicioService.save(ejercicioActual);
@@ -72,17 +68,7 @@ public class EjercicioRestController {
 
     private EjercicioDTO mapToDTO(Ejercicio ejercicio) {
     	
-    	List<String[]> materialesTrans = new ArrayList<String[]>();
-    	List<Material> materiales = ejercicio.getMaterialesEj();
-    	
-    	for(Material material: materiales) {
-    		String[] arr = new String[2];
-    		arr[0] = String.valueOf(material.getId());
-    		arr[1] = material.getNombre();
-    		materialesTrans.add(arr);
-    	}
-    	
-        return new EjercicioDTO(ejercicio.getId(), ejercicio.getNombre(), ejercicio.getDescripcion(), ejercicio.getGrupoMuscular(), materialesTrans);
+        return new EjercicioDTO(ejercicio.getId(), ejercicio.getNombre(), ejercicio.getDescripcion(), ejercicio.getGrupoMuscular(), ejercicio.getMaterialesEj());
     }
 
     private Ejercicio mapToEntity(EjercicioDTO ejercicioDTO) {
@@ -96,15 +82,10 @@ public class EjercicioRestController {
         ejercicio.setNombre(ejercicioDTO.getNombre());
         ejercicio.setDescripcion(ejercicioDTO.getDescripcion());
         ejercicio.setGrupoMuscular(ejercicioDTO.getGrupoMuscular());
-
-        List<String[]> materialesTrans = ejercicioDTO.getMateriales();
-        List<Material> materiales = new ArrayList<>();
-
-        for (String[] arr : materialesTrans) {
-            materiales.add(materialeService.findById(Integer.parseInt(arr[0])));
-        }
-
-        ejercicio.setMaterialesEj(materiales);
+        ejercicio.setMaterialesEj(ejercicioDTO.getMateriales());
+        
         return ejercicio;
     }
+
+
 }

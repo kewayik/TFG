@@ -3,6 +3,8 @@ package com.tfg.springboot.backend.apirest.models.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,10 +19,6 @@ public class Material implements Serializable {
 	private Boolean stock;
 	private String tipo;
 	
-	@ManyToMany
-	@JoinTable(name="ejerciciosmateriales", joinColumns = @JoinColumn(name="materiales_fk"),
-	inverseJoinColumns = @JoinColumn(name="ejercicios_fk"))
-	private List<Ejercicio> ejerciciosMat;
 
 	public int getId() {
 		return id;
@@ -61,18 +59,10 @@ public class Material implements Serializable {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	/*
-	public List<Ejercicio> getEjerciciosMat() {
-		return ejerciciosMat;
-	}
+	
+	
 
-	public void setEjerciciosMat(List<Ejercicio> ejerciciosMat) {
-		this.ejerciciosMat = ejerciciosMat;
-	}
-
-	*
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 }

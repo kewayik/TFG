@@ -3,18 +3,20 @@ package com.tfg.springboot.backend.apirest.models.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.tfg.springboot.backend.apirest.models.entity.Material;
+
 public class EjercicioDTO implements Serializable {
 
 	private Integer id;
     private String nombre;
     private String descripcion;
     private String grupoMuscular;
-    private List<String[]> materiales;
+    private List<Material> materiales;
 
     // Constructor, getters y setters
 
     // Constructor
-    public EjercicioDTO(Integer id, String nombre, String descripcion, String grupoMuscular, List<String[]> materiales) {
+    public EjercicioDTO(Integer id, String nombre, String descripcion, String grupoMuscular, List<Material> materiales) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -55,11 +57,11 @@ public class EjercicioDTO implements Serializable {
         this.grupoMuscular = grupoMuscular;
     }
     
-	public List<String[]> getMateriales() {
+	public List<Material> getMateriales() {
 		return materiales;
 	}
 
-	public void setMateriales(List<String[]> materiales) {
+	public void setMateriales(List<Material> materiales) {
 		this.materiales = materiales;
 	}
 

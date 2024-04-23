@@ -38,5 +38,5 @@ public class MaterialServiceImpl implements IMaterialService {
 		materialDao.deleteById(id);
 		
 	}
-
+	
 }

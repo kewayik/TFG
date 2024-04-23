@@ -23,19 +23,6 @@
                 </div>
             </div>
 
-            
-
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button" (click)="guardar()" *ngIf="!ejercicio.id; else elseBlock">Crear</button>
-                    <ng-template #elseBlock>
-                        <button class="btn btn-primary" role="button" (click)="actualizar()">Editar</button> 
-                    </ng-template>
-                    <span class="mx-2"></span>
-                    <button class="btn btn-rounded btn-primary" [routerLink]="['/ejercicios']">Cancelar</button>
-                </div>
-            </div>
-
         </form>
 
         <hr>
@@ -54,14 +41,27 @@
                 </div>
             </div>
         </form>
-
+        
         <!-- Lista de materiales seleccionados -->
         <div *ngIf="materialesSeleccionados.length > 0" class="mt-3">
             <h5>Materiales Seleccionados:</h5>
             <ul class="list-group">
                 <li class="list-group-item" style="color: black;" *ngFor="let material of materialesSeleccionados">{{ material.nombre }} <button class="btn btn-sm btn-danger ml-2" (click)="eliminarMaterial(material)">Eliminar</button></li>
             </ul>
-            <button class="btn btn-warning mt-3" (click)="reiniciarSeleccion()">Reiniciar Selección</button>
+        </div>
+
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary" role="button" (click)="guardar()" *ngIf="!ejercicio.id; else elseBlock">Crear</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary" role="button" (click)="actualizar()">Editar</button> 
+                </ng-template>
+                <span class="mx-2"></span>
+                <button class="btn btn-rounded btn-primary" [routerLink]="['/ejercicios']">Cancelar</button>
+            </div>
         </div>
     </div>
+
+    
 </div>

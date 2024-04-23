@@ -2,6 +2,9 @@ package com.tfg.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -20,11 +23,17 @@ public class Ejercicio implements Serializable {
 	@OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Registro> registros;
 	
-	@ManyToMany(mappedBy = "ejerciciosMat")
+	@ManyToMany
+	@JoinTable(name="ejerciciosmateriales", joinColumns = @JoinColumn(name="ejercicios_fk"),
+	inverseJoinColumns = @JoinColumn(name="materiales_fk"))
 	private List<Material> materialesEj;
 	
 	@ManyToMany(mappedBy = "ejercicios")
 	private List<DiaRutina> diasRutinas;
+	
+	public Ejercicio() {
+        this.materialesEj = new ArrayList<>(); // Inicializar la lista de materiales
+    }
 
 	public int getId() {
 		return id;

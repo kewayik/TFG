@@ -14,7 +14,7 @@
         <p class="card-text">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
         <p class="card-text">Materiales: 
           <ng-container *ngFor="let material of ejercicio.materiales; let last = last">
-            <a [routerLink]="['/materiales/ver-material', material[0]]">{{ material[1] }}</a>{{ !last ? ', ' : '' }}
+            <a [routerLink]="['/materiales/ver-material', material.id]">{{ material.nombre }}</a>{{ !last ? ', ' : '' }}
           </ng-container>
         </p>
       </div>
