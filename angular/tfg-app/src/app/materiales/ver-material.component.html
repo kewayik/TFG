@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8"> <!-- Columna para los datos -->
+          <div class="card-body">
+            <h1 class="card-title" style="font-size: 3em;">{{ material.nombre }}</h1>
+            <p class="card-text">{{ material.descripcion }}</p>
+            <p class="card-text">Stock: {{ material.stock ? 'Disponible' : 'Agotado' }}</p>
+            <p class="card-text">Tipo: {{ material.tipo }}</p>
+          </div>
+        </div>
+        <div class="col-md-4"> <!-- Columna para la imagen -->
+          <div class="float-right mt-3 mr-3"> <!-- Div para alinear la imagen a la derecha -->
+            <img *ngIf="material?.foto" src="http://localhost:8080/api/uploads/img/{{material.foto}}" alt="{{material.foto}}" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
+            <img *ngIf="!material?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,1 +1,28 @@
-<p>materiales works!</p>
+<div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-header d-flex justify-content-between align-items-center" style="font-size: 30px;">
+        <span style="font-weight: bold; font-size: xx-large;">Materiales</span>
+        <button class="btn btn-primary btn-lg" [routerLink]="['/materiales/form-material']">Crear Material</button>
+    </div>
+    <div class="card-body">
+       
+        <div *ngIf="materiales?.length == 0" class="alert alert-info">
+            No hay registros en la base de datos
+        </div>
+        <div class="row">
+            <div class="col-md-3" *ngFor="let material of materiales">
+                <div class="card mb-3">
+                    <img *ngIf="material?.foto" src="http://localhost:8080/api/uploads/img/{{material.foto}}" alt="{{material.foto}}" class="card-img-top rounded">
+                    <img *ngIf="!material?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="card-img-top rounded">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 20px; color: black">{{ material.nombre }}</h5>
+                        <div class="btn-group d-flex justify-content-center" role="group">
+                            <button type="button" name="ver" [routerLink]="['/materiales/ver-material', material.id]" class="btn btn-primary">Ver</button>
+                            <button type="button" name="editar" [routerLink]="['/materiales/form-material', material.id]" class="btn btn-warning">Editar</button>
+                            <button type="button" name="eliminar" (click)="delete(material)" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

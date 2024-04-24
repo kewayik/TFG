@@ -5,5 +5,6 @@ export class Material {
     descripcion: string;
     stock: boolean;
     tipo: string;
+    foto: string;
 
 }

@@ -1,10 +1,8 @@
-<div class="card border-primary mb-3">
-    <div class="card-header">Ejercicios</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">Listado de ejercicios</h5>
-      <div class="my-2 text-left">
-        <button class=" btn btn-rounded btn-primary" type="button" [routerLink]="['/ejercicios/form-ejercicio']">Crear Ejercicio</button>
-          </div>
+<div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card-header d-flex justify-content-between align-items-center" style="font-size: 30px;">
+        <span style="font-weight: bold; font-size: xx-large;">Ejercicios</span>
+        <button class="btn btn-primary btn-lg" [routerLink]="['/ejercicios/form-ejercicio']">Crear Ejercicio</button>
+    </div>
       <div *ngIf="ejercicios?.length == 0" class="alert alert-info">
         No hay registros en la base de datos
     </div>
@@ -18,7 +16,7 @@
                         <img  *ngIf="!ejercicio?.foto" 
                         src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded">
                 <div class="card-body">
-                    <h5 class="card-title">{{ ejercicio.nombre }}</h5>
+                    <h5 class="card-title" style="font-size: 20px; color: black">{{ ejercicio.nombre }}</h5>
                     <div class="btn-group" role="group">
                         <button type="button" name="ver"  [routerLink]="['/ejercicios/ver-ejercicio', ejercicio.id]" class="btn btn-primary">Ver</button>
                         <button type="button" name="editar" [routerLink]="['/ejercicios/form-ejercicio', ejercicio.id]" class="btn btn-warning">Editar</button>
@@ -29,4 +27,3 @@
         </div>
     </div>
     </div>
-</div>

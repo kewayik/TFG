@@ -78,10 +78,6 @@ public class EjercicioRestController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
     	
-    	Ejercicio ejercicioEliminar = ejercicioService.findById(id);
-			String nombreFotoAnterior = ejercicioEliminar.getFoto();
-			uploadService.eliminar(nombreFotoAnterior);
-			
 			ejercicioService.delete(id);
 
 		

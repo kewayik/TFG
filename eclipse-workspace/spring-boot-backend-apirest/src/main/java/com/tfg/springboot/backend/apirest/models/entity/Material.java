@@ -18,6 +18,7 @@ public class Material implements Serializable {
 	private String descripcion;
 	private Boolean stock;
 	private String tipo;
+	private String foto;
 	
 
 	public int getId() {
@@ -63,6 +64,17 @@ public class Material implements Serializable {
 	
 
 	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+
+
+
 	private static final long serialVersionUID = 1L;
 
 }

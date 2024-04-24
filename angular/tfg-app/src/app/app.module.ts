@@ -29,6 +29,8 @@ import { FormActividadComponent } from './actividades/form-actividad.component';
 import { MaterialesComponent } from './materiales/materiales.component';
 import { VerEjercicioComponent } from './ejercicios/ver-ejercicio.component';
 import { FormEjercicioComponent } from './ejercicios/form-ejercicio.component';
+import { VerMaterialComponent } from './materiales/ver-material.component';
+import { FormMaterialComponent } from './materiales/form-material.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -47,6 +49,10 @@ const routes: Routes = [
   {path: 'ejercicios/ver-ejercicio/:id', component: VerEjercicioComponent},
   {path: 'ejercicios/form-ejercicio', component: FormEjercicioComponent},
   {path: 'ejercicios/form-ejercicio/:id', component: FormEjercicioComponent},
+  {path: 'materiales', component: MaterialesComponent},
+  {path: 'materiales/ver-material/:id', component: VerMaterialComponent},
+  {path: 'materiales/form-material', component: FormMaterialComponent},
+  {path: 'materiales/form-material/:id', component: FormMaterialComponent},
 
 ];
 
@@ -70,7 +76,9 @@ const routes: Routes = [
     FormActividadComponent,
     MaterialesComponent,
     VerEjercicioComponent,
-    FormEjercicioComponent
+    FormEjercicioComponent,
+    VerMaterialComponent,
+    FormMaterialComponent
   ],
   imports: [
     BrowserModule,

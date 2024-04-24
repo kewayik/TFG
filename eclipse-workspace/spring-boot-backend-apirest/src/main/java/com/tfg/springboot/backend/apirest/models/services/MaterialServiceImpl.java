@@ -35,6 +35,7 @@ public class MaterialServiceImpl implements IMaterialService {
 	@Override
 	@Transactional
 	public void delete(Integer id) {
+		materialDao.deleteEjerciciosMateriales(id);
 		materialDao.deleteById(id);
 		
 	}
