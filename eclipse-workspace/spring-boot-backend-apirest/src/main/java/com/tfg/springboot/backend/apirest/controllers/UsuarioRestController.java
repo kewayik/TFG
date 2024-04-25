@@ -58,7 +58,6 @@ public class UsuarioRestController {
 		usuarioActual.setRol(usuario.getRol());
 		usuarioActual.setFechaNacimiento(usuario.getFechaNacimiento());
 		usuarioActual.setRutinaPersonalizada(usuario.getRutinaPersonalizada());
-		usuarioActual.setActividadesUsu(usuario.getActividadesUsu());
 		usuarioActual.setRegistros(usuario.getRegistros());
 		
 		return usuarioService.save(usuarioActual);

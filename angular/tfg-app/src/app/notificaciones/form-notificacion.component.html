@@ -1,0 +1,25 @@
+<div class="card border-primary mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span style="font-weight: bold; font-size: xx-large;">{{ titulo }}</span>
+        <button class="btn btn-rounded btn-primary" [routerLink]="['/notificaciones']">Volver</button>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="guardar()">
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" class="form-control" id="descripcion" [(ngModel)]="notificacion.descripcion" name="descripcion" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <select class="form-control" id="tipo" [(ngModel)]="notificacion.tipo" name="tipo" required>
+                    <option value="Anuncio">Anuncio</option>
+                    <option value="Aviso">Aviso</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>

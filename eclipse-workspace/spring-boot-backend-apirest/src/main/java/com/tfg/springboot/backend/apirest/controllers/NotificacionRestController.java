@@ -43,21 +43,6 @@ public class NotificacionRestController {
 		return notificacionService.save(notificacion);
 	}
 	
-	@PutMapping("notificaciones/{id}")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Notificacion update(@RequestBody Notificacion notificacion, @PathVariable Integer id) {
-		
-		Notificacion notificacionActual = notificacionService.findById(id);
-		
-		notificacionActual.setDescripcion(notificacion.getDescripcion());
-		notificacionActual.setFecha(notificacion.getFecha());
-		notificacionActual.setHoraGeneracion(notificacion.getHoraGeneracion());
-		notificacionActual.setTipo(notificacion.getTipo());
-		
-		return notificacionService.save(notificacionActual);
-		
-	}
-	
 	@DeleteMapping("/notificaciones/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {

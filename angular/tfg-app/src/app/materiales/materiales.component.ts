@@ -1,28 +1,28 @@
 import { Component } from '@angular/core';
-import { Material } from './material'; // Importamos la clase Material en lugar de Ejercicio
-import { MaterialService } from './material.service'; // Importamos el servicio de materiales en lugar del de ejercicios
+import { Material } from './material'; 
+import { MaterialService } from './material.service'; 
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-materiales', // Cambiamos el nombre del componente
-  templateUrl: './materiales.component.html' // Cambiamos el nombre del archivo HTML
+  selector: 'app-materiales', 
+  templateUrl: './materiales.component.html'
 })
-export class MaterialesComponent { // Cambiamos el nombre de la clase
+export class MaterialesComponent {
 
-  materiales: Material[]; // Cambiamos el tipo de la variable
+  materiales: Material[]; 
 
-  constructor(private materialService: MaterialService) { } // Cambiamos el nombre del servicio
+  constructor(private materialService: MaterialService) { } 
 
   ngOnInit(){
-    this.materialService.getMateriales().subscribe( // Cambiamos el nombre del servicio
-      materiales => this.materiales = materiales // Cambiamos el nombre de la variable
+    this.materialService.getMateriales().subscribe( 
+      materiales => this.materiales = materiales 
     );
   }
 
-  delete(material: Material): void{ // Cambiamos el tipo de parámetro
+  delete(material: Material): void{ 
     Swal.fire({
       title: "¿Está seguro?",
-      text: `¿Seguro que desea eliminar el Material ${material.nombre}?`, // Cambiamos el nombre de la variable
+      text: `¿Seguro que desea eliminar el Material ${material.nombre}?`, 
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: 'Sí, eliminar!',
@@ -31,12 +31,12 @@ export class MaterialesComponent { // Cambiamos el nombre de la clase
       cancelButtonColor: '#d33'
     }).then((result) => {
       if (result.value) {
-        this.materialService.delete(material.id).subscribe( // Cambiamos el nombre del servicio y el nombre de la variable
+        this.materialService.delete(material.id).subscribe( 
           response => {
-            this.materiales = this.materiales.filter(act => act !== material) // Cambiamos el nombre de la variable
+            this.materiales = this.materiales.filter(act => act !== material)
             Swal.fire(
-              'Material Eliminado!', // Cambiamos el mensaje
-              `Material ${material.nombre} eliminado con éxito.`, // Cambiamos el nombre de la variable
+              'Material Eliminado!',
+              `Material ${material.nombre} eliminado con éxito.`,
               'success'
             )
           }

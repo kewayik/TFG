@@ -1,6 +1,9 @@
 package com.tfg.springboot.backend.apirest.models.dto;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 
 public class ActividadDTO {
 
@@ -11,13 +14,14 @@ public class ActividadDTO {
     private int aforo;
     private Date fecha;
     private String horario;
+    private List<Usuario> usuarios;
     
  // Constructor vacío
     public ActividadDTO() {
     }
 
     // Constructor con todos los campos
-    public ActividadDTO(Integer id, String nombre, String descripcion, String sala, int aforo, Date fecha, String horario) {
+    public ActividadDTO(Integer id, String nombre, String descripcion, String sala, int aforo, Date fecha, String horario, List<Usuario> usuarios) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -25,6 +29,7 @@ public class ActividadDTO {
         this.aforo = aforo;
         this.fecha = fecha;
         this.horario = horario;
+        this.usuarios = usuarios;
     }
 
     // Getters y setters para todos los campos
@@ -84,4 +89,12 @@ public class ActividadDTO {
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
 }

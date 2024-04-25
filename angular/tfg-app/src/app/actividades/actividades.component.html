@@ -29,9 +29,10 @@
             <div id="collapse{{i}}" class="collapse" [ngClass]="{'show': activeIndex === i}" aria-labelledby="heading{{i}}" data-parent="#accordion">
                 <div class="card-body">
                     <p><strong>Descripción:</strong> {{actividad.descripcion}}</p>
-                    <p><strong>Aforo:</strong> {{actividad.aforo}}</p>
                     <p><strong>Sala:</strong> {{actividad.sala}}</p>
-                    <button class="btn btn-primary float-right mb-3">Reservar</button>
+                    <p><strong>Aforo:</strong> {{actividad.usuarios.length}}/{{actividad.aforo}}</p>
+                    <button [routerLink]="['/actividades/ver-usuarios',actividad.id]" class="btn btn-primary float-left mb-3">Ver usuarios</button>                    
+                    <button class="btn btn-primary float-right mb-3" [disabled]="actividad.usuarios.length === actividad.aforo">Reservar</button>
                 </div>
             </div>
         </div>

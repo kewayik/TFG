@@ -31,6 +31,9 @@ import { VerEjercicioComponent } from './ejercicios/ver-ejercicio.component';
 import { FormEjercicioComponent } from './ejercicios/form-ejercicio.component';
 import { VerMaterialComponent } from './materiales/ver-material.component';
 import { FormMaterialComponent } from './materiales/form-material.component';
+import { VerNotificacionComponent } from './notificaciones/ver-notificacion.component';
+import { FormNotificacionComponent } from './notificaciones/form-notificacion.component';
+import { VerUsuariosComponent } from './actividades/ver-usuarios.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -44,6 +47,7 @@ const routes: Routes = [
   {path: 'actividades', component: ActividadesComponent},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
   {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
+  {path: 'actividades/ver-usuarios/:id', component: VerUsuariosComponent},
   {path: 'gimnasio', component: GimnasiosComponent},
   {path: 'ejercicios', component: EjerciciosComponent},
   {path: 'ejercicios/ver-ejercicio/:id', component: VerEjercicioComponent},
@@ -53,6 +57,9 @@ const routes: Routes = [
   {path: 'materiales/ver-material/:id', component: VerMaterialComponent},
   {path: 'materiales/form-material', component: FormMaterialComponent},
   {path: 'materiales/form-material/:id', component: FormMaterialComponent},
+  {path: 'notificaciones', component: NotificacionesComponent},
+  {path: 'notificaciones/ver-notificacion/:id', component: VerNotificacionComponent},
+  {path: 'notificaciones/form-notificacion', component: FormNotificacionComponent},
 
 ];
 
@@ -78,7 +85,10 @@ const routes: Routes = [
     VerEjercicioComponent,
     FormEjercicioComponent,
     VerMaterialComponent,
-    FormMaterialComponent
+    FormMaterialComponent,
+    VerNotificacionComponent,
+    FormNotificacionComponent,
+    VerUsuariosComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ public class Actividad implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
+	@Column(length = 1000)
 	private String descripcion;
 	private String sala;
 	private int aforo;
@@ -91,10 +92,6 @@ public class Actividad implements Serializable {
 	}
 	
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 }

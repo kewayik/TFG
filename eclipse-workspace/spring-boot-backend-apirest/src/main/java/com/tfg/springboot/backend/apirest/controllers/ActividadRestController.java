@@ -63,7 +63,7 @@ public class ActividadRestController {
 	    actividadActual.setAforo(actividad.getAforo());
 	    actividadActual.setFecha(actividad.getFecha());
 	    actividadActual.setSala(actividad.getSala());
-	    actividadActual.setUsuariosAct(actividadActual.getUsuariosAct());
+	    actividadActual.setUsuariosAct(actividad.getUsuariosAct());
 	    
 	    // Guardar y retornar la actividad actualizada
 	    Actividad updatedActividad = actividadService.save(actividadActual);
@@ -85,6 +85,7 @@ public class ActividadRestController {
 	    dto.setAforo(actividad.getAforo());
 	    dto.setFecha(actividad.getFecha());
 	    dto.setSala(actividad.getSala());
+	    dto.setUsuarios(actividad.getUsuariosAct());
 	    return dto;
 	}
 	
@@ -96,6 +97,7 @@ public class ActividadRestController {
 	    actividad.setAforo(dto.getAforo());
 	    actividad.setFecha(dto.getFecha());
 	    actividad.setSala(dto.getSala());
+	    actividad.setUsuariosAct(dto.getUsuarios());
 	    return actividad;
 	}
 	

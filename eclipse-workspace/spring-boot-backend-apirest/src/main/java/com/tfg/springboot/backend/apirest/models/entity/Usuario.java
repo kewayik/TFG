@@ -24,19 +24,10 @@ public class Usuario implements Serializable {
 	private String rol;
 	private Date fechaNacimiento;
 	
-	private Boolean enable;
-	
-	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="usuarios_roles", joinColumns= @JoinColumn(name="usuario_id"),
-	inverseJoinColumns=@JoinColumn(name="role_id"),
-	uniqueConstraints= {@UniqueConstraint(columnNames= {"usuario_id", "role_id"})})
-	private List<Role> roles;
 	
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private RutinaPers rutinaPersonalizada;
 	
-	@ManyToMany(mappedBy = "usuariosAct")
-	private List<Actividad> actividadesUsu;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	private List<Registro> registros;
@@ -121,13 +112,6 @@ public class Usuario implements Serializable {
 		this.rutinaPersonalizada = rutinaPersonalizada;
 	}
 
-	public List<Actividad> getActividadesUsu() {
-		return actividadesUsu;
-	}
-
-	public void setActividadesUsu(List<Actividad> actividadesUsu) {
-		this.actividadesUsu = actividadesUsu;
-	}
 
 	public List<Registro> getRegistros() {
 		return registros;
@@ -135,22 +119,6 @@ public class Usuario implements Serializable {
 
 	public void setRegistros(List<Registro> registros) {
 		this.registros = registros;
-	}
-
-	public Boolean getEnable() {
-		return enable;
-	}
-
-	public void setEnable(Boolean enable) {
-		this.enable = enable;
-	}
-
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
 	}
 
 	public void setId(Integer id) {
