@@ -34,6 +34,8 @@ import { FormMaterialComponent } from './materiales/form-material.component';
 import { VerNotificacionComponent } from './notificaciones/ver-notificacion.component';
 import { FormNotificacionComponent } from './notificaciones/form-notificacion.component';
 import { VerUsuariosComponent } from './actividades/ver-usuarios.component';
+import { VerRutinaComponent } from './rutinas/ver-rutina.component';
+import { FormRutinaComponent } from './rutinas/form-rutina.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -60,6 +62,10 @@ const routes: Routes = [
   {path: 'notificaciones', component: NotificacionesComponent},
   {path: 'notificaciones/ver-notificacion/:id', component: VerNotificacionComponent},
   {path: 'notificaciones/form-notificacion', component: FormNotificacionComponent},
+  {path: 'rutinas', component: RutinasComponent},
+  {path: 'rutinas/ver-rutina/:id', component: VerRutinaComponent},
+  {path: 'rutinas/form-rutina', component: FormRutinaComponent},
+  {path: 'rutinas/form-rutina/:id', component: FormRutinaComponent},
 
 ];
 
@@ -88,7 +94,9 @@ const routes: Routes = [
     FormMaterialComponent,
     VerNotificacionComponent,
     FormNotificacionComponent,
-    VerUsuariosComponent
+    VerUsuariosComponent,
+    VerRutinaComponent,
+    FormRutinaComponent
   ],
   imports: [
     BrowserModule,

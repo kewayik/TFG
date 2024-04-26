@@ -25,10 +25,6 @@ public class Usuario implements Serializable {
 	private Date fechaNacimiento;
 	
 	
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-    private RutinaPers rutinaPersonalizada;
-	
-	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	private List<Registro> registros;
 
@@ -103,15 +99,6 @@ public class Usuario implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
-	public RutinaPers getRutinaPersonalizada() {
-		return rutinaPersonalizada;
-	}
-
-	public void setRutinaPersonalizada(RutinaPers rutinaPersonalizada) {
-		this.rutinaPersonalizada = rutinaPersonalizada;
-	}
-
 
 	public List<Registro> getRegistros() {
 		return registros;

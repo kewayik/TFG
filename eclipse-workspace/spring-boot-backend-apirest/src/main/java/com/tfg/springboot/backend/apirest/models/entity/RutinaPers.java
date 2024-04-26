@@ -11,7 +11,7 @@ public class RutinaPers extends RutinaPred implements Serializable {
 	 @OneToOne
 	 @JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	 private Usuario usuario;
-	/*
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -19,10 +19,8 @@ public class RutinaPers extends RutinaPred implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	*/
-	/**
-	 * 
-	 */
+	
+	
 	private static final long serialVersionUID = 1L;
 
 }
