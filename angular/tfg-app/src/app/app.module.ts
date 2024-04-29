@@ -36,6 +36,7 @@ import { FormNotificacionComponent } from './notificaciones/form-notificacion.co
 import { VerUsuariosComponent } from './actividades/ver-usuarios.component';
 import { VerRutinaComponent } from './rutinas/ver-rutina.component';
 import { FormRutinaComponent } from './rutinas/form-rutina.component';
+import { FormDiarutinaComponent } from './diasrutinas/form-diarutina.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -66,6 +67,8 @@ const routes: Routes = [
   {path: 'rutinas/ver-rutina/:id', component: VerRutinaComponent},
   {path: 'rutinas/form-rutina', component: FormRutinaComponent},
   {path: 'rutinas/form-rutina/:id', component: FormRutinaComponent},
+  {path: 'diasrutinas', component: DiasrutinasComponent},
+  {path: 'diasrutinas/form-diarutina', component: FormDiarutinaComponent},
 
 ];
 
@@ -96,7 +99,8 @@ const routes: Routes = [
     FormNotificacionComponent,
     VerUsuariosComponent,
     VerRutinaComponent,
-    FormRutinaComponent
+    FormRutinaComponent,
+    FormDiarutinaComponent
   ],
   imports: [
     BrowserModule,

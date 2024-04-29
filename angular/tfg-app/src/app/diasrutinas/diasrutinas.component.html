@@ -1,1 +1,37 @@
-<p>diasrutinas works!</p>
+<div class="card border-primary mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span style="font-weight: bold; font-size: xx-large;">Dias de rutina</span>
+        <button class="btn btn-rounded btn-primary" [routerLink]="['/diasrutinas/form-diarutina']">Crear dia de rutina</button>
+    </div>
+    <div class="card-body text-primary">
+        <div class="my-2 text-left">
+            <div *ngIf="diasrutinas?.length == 0" class="alert alert-info">
+                No hay registros en la base de datos
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let diarutina of diasrutinas">
+                                <td>{{ diarutina.nombre }}</td>
+                                <td>{{ diarutina.dia }}</td>
+                                <p class="card-text">Ejercicios: 
+                                    <ng-container *ngFor="let ejercicios of diarutina.ejercicios; let last = last">
+                                        <a [routerLink]="['/materiales/ver-material', material.id]">{{ ejercicios.nombre }}</a>{{ !last ? ', ' : '' }}
+                                    </ng-container>
+                                </p>
+                                <td>
+                                    <div class="d-flex">
+                                        <button type="button" class="btn btn-primary mr-2" [routerLink]="['/diasrutinas/ver-diarutina', diarutina.id]">Ver</button>
+                                        <button type="button" class="btn btn-danger" (click)="eliminardiarutina(diarutina)">Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

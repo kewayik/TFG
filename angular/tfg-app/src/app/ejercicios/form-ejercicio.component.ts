@@ -23,7 +23,7 @@ export class FormEjercicioComponent {
   constructor(private ejercicioService: EjercicioService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(){
-    this.cargarMateriales(); // Cargar materiales al inicializar el componente
+    this.cargarMateriales();
     this.cargarEjercicio();
   }
 
@@ -52,7 +52,6 @@ export class FormEjercicioComponent {
   }
 
   agregarMaterial(): void {
-    // Encontrar el material correspondiente al ID seleccionado
     const material = this.materiales.find(mat => mat.id.toString() === this.materialSeleccionado);
     if (material && !this.materialesSeleccionados.some(mat => mat.id === material.id)) {
       this.materialesSeleccionados.push(material);

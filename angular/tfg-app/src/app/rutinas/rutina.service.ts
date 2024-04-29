@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Rutina } from './rutina';
+import { Diarutina } from '../diasrutinas/diarutina';
+import { Usuario } from '../usuarios/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ export class RutinaService {
 
   private urlEndpoint: string = 'http://localhost:8080/api/rutinasPred';
   private urlDiasRutina: string = 'http://localhost:8080/api/diasrutinas';
+  private urlUsuarios: string = 'http://localhost:8080/api/usuarios';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -21,8 +24,12 @@ export class RutinaService {
     return this.http.get<Rutina[]>(this.urlEndpoint);
   }
 
-  getDiasRutina(): Observable<Rutina[]>{
-    return this.http.get<Rutina[]>(this.urlDiasRutina);
+  getDiasRutina(): Observable<Diarutina[]>{
+    return this.http.get<Diarutina[]>(this.urlDiasRutina);
+  }
+
+  getUsuarios(): Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.urlUsuarios);
   }
 
   create(rutina: Rutina): Observable<Rutina>{

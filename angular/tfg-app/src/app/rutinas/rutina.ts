@@ -7,7 +7,7 @@ export class Rutina {
     nombre: string;
     descripcion: string;
     recomendaciones: string;
-    diasRutina: Array<Diarutina>;
+    diasRutinas: Array<Diarutina>;
     usuario: Usuario;
 
 }

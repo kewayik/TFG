@@ -1,1 +1,87 @@
-<p>form-rutina works!</p>
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4">Tipo de Rutina</label>
+                <div class="col-sm-8">
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <button class="btn btn-primary mr-2" role="button" [disabled]="!rutinaPersonalizada" (click)="rutinaPersonalizada=false">Predeterminada</button>
+                        <button class="btn btn-primary" role="button" [disabled]="rutinaPersonalizada" (click)="rutinaPersonalizada=true">Personalizada</button>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-4">Nombre</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="rutina.nombre" name="nombre">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="descripcion" class="col-form-label col-sm-4">Descripción</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="rutina.descripcion" name="descripcion">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="recomendaciones" class="col-form-label col-sm-4">Recomendaciones</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="rutina.recomendaciones" name="recomendaciones">
+                </div>
+            </div>
+
+            <!-- Sección para seleccionar un usuario -->
+            <div *ngIf="rutinaPersonalizada" class="form-group row">
+                <label for="usuario" class="col-form-label col-sm-4">Seleccionar Usuario</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="usuario" [(ngModel)]="usuarioSeleccionado" name="usuario">
+                        <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nombre }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sección para seleccionar días de rutina -->
+            <div class="form-group row">
+                <label for="diasRutina" class="col-form-label col-sm-4">Días de Rutina</label>
+                <div class="col-sm-8"> <!-- Ampliamos el tamaño del contenedor para los botones -->
+                    <div class="d-flex justify-content-between align-items-center"> <!-- Utilizamos flexbox para alinear y distribuir los botones -->
+                        <select class="form-control mr-2" id="diasRutina" [(ngModel)]="selectedDia" name="diasRutina">
+                            <option *ngFor="let dia of diasRutina" [ngValue]="dia">{{ dia.nombre }} - {{dia.dia}}</option>
+                        </select>
+                            <button class="btn btn-success mr-2" (click)="agregarDia(selectedDia)">Agregar día</button> <!-- Añadimos margen a la derecha para separación -->
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <!-- Lista de días de rutina seleccionados -->
+            <div *ngIf="diasSeleccionados.length > 0" class="mt-3">
+                <h5>Días de Rutina Seleccionados:</h5>
+                <ul class="list-group">
+                    <li class="list-group-item" style="color: black;" *ngFor="let dia of diasSeleccionados">
+                        {{ dia.nombre }} - {{ dia.dia }}
+                        <button class="btn btn-sm btn-danger ml-2" (click)="eliminarDia(dia)">Eliminar</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-group row mt-3">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button" (click)="guardar()" *ngIf="!rutina.id; else elseBlock">Crear</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary" role="button" (click)="actualizar()">Editar</button> 
+                </ng-template>
+                <span class="mx-2"></span>
+                <button class="btn btn-rounded btn-primary" [routerLink]="['/rutinas']">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
