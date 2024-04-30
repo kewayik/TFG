@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { Material } from './material'; // Importamos la clase Material en lugar de Ejercicio
-import { MaterialService } from './material.service'; // Importamos el servicio de materiales en lugar del de ejercicios
+import { Material } from './material'; 
+import { MaterialService } from './material.service'; 
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-ver-material', // Cambiamos el nombre del componente
-  templateUrl: './ver-material.component.html' // Cambiamos el nombre del archivo HTML
+  selector: 'app-ver-material',
+  templateUrl: './ver-material.component.html' 
 })
 export class VerMaterialComponent {
 
-  public material: Material = new Material(); // Cambiamos el tipo de la variable
+  public material: Material = new Material(); 
 
   constructor(private materialService: MaterialService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -17,7 +17,7 @@ export class VerMaterialComponent {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id']
       if(id){
-        this.materialService.getMaterial(id).subscribe((material) => this.material = material) // Cambiamos el nombre de la variable
+        this.materialService.getMaterial(id).subscribe((material) => this.material = material)
       }
     })
   }

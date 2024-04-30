@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tfg.springboot.backend.apirest.models.dto.EjercicioDTO;
-import com.tfg.springboot.backend.apirest.models.entity.Cliente;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 import com.tfg.springboot.backend.apirest.models.services.IEjercicioService;
 import com.tfg.springboot.backend.apirest.models.services.IUploadFileService;

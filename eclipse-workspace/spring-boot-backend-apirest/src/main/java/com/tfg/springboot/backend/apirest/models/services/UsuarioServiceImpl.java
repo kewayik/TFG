@@ -35,6 +35,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Override
 	@Transactional
 	public void delete(Integer id) {
+		usuarioDao.deleteRutinaPersonalizada(id);
 		usuarioDao.deleteActividadesUsuariosByUserId(id);
 		usuarioDao.deleteById(id);
 		

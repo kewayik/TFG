@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { Material } from './material'; // Importamos la clase Material en lugar de Ejercicio
+import { Material } from './material';
 import swal from 'sweetalert2';
 
 @Injectable({
@@ -9,38 +9,38 @@ import swal from 'sweetalert2';
 })
 export class MaterialService {
 
-  private urlEndpoint: string = 'http://localhost:8080/api/materiales'; // Cambiamos la URL para trabajar con materiales
+  private urlEndpoint: string = 'http://localhost:8080/api/materiales';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient) { }
 
-  getMateriales(): Observable<Material[]>{ // Cambiamos el nombre de la función y el tipo de retorno
-    return this.http.get<Material[]>(this.urlEndpoint); // Cambiamos la URL para obtener materiales
+  getMateriales(): Observable<Material[]>{ 
+    return this.http.get<Material[]>(this.urlEndpoint); 
   }
 
-  create(material: Material): Observable<Material>{ // Cambiamos el nombre de la función y el tipo de parámetro
-    return this.http.post<Material>(this.urlEndpoint, material, {headers: this.httpHeaders}); // Cambiamos la URL para crear materiales
+  create(material: Material): Observable<Material>{ 
+    return this.http.post<Material>(this.urlEndpoint, material, {headers: this.httpHeaders}); 
   }
 
-  getMaterial(id): Observable<Material>{ // Cambiamos el nombre de la función y el tipo de retorno
-    return this.http.get<Material>(`${this.urlEndpoint}/${id}`); // Cambiamos la URL para obtener materiales
+  getMaterial(id): Observable<Material>{ 
+    return this.http.get<Material>(`${this.urlEndpoint}/${id}`); 
   }
 
-  update(material: Material): Observable<Material>{ // Cambiamos el nombre de la función y el tipo de parámetro
-    return this.http.put<Material>(`${this.urlEndpoint}/${material.id}`, material, {headers: this.httpHeaders}); // Cambiamos la URL para actualizar materiales
+  update(material: Material): Observable<Material>{
+    return this.http.put<Material>(`${this.urlEndpoint}/${material.id}`, material, {headers: this.httpHeaders}); 
   }
 
-  delete(id: number): Observable<Material>{ // Cambiamos el nombre de la función y el tipo de retorno
-    return this.http.delete<Material>(`${this.urlEndpoint}/${id}`, {headers: this.httpHeaders}); // Cambiamos la URL para eliminar materiales
+  delete(id: number): Observable<Material>{ 
+    return this.http.delete<Material>(`${this.urlEndpoint}/${id}`, {headers: this.httpHeaders}); 
   }
 
-  subirFoto(archivo: File, id): Observable<Material>{ // Cambiamos el nombre de la función y el tipo de retorno
+  subirFoto(archivo: File, id): Observable<Material>{ 
     let formData = new FormData();
     formData.append("fotoMaterial",archivo);
     formData.append("id",id);
     return this.http.post(`${this.urlEndpoint}/upload`, formData).pipe(
-      map( (response:any)=>response.material as Material), // Cambiamos el tipo de retorno
+      map( (response:any)=>response.material as Material), 
       catchError(e=> {
         console.error(e.error.mensaje);
         swal.fire(e.error.mensaje, e.error.error, 'error');

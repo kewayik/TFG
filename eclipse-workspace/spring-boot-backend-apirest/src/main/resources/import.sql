@@ -47,18 +47,18 @@ INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('Por motivos de mantenimiento, el gimnasio permanecerá cerrado el próximo sábado 13 de julio. Reanudaremos nuestras actividades el domingo 14 de julio. Disculpa las molestias.', 'Aviso', '2024-07-05', '13:20');
 INSERT INTO notificaciones (descripcion, tipo, fecha, hora_generacion) VALUES ('Estamos emocionados de presentarte nuestro nuevo programa de entrenamiento de fuerza y ​​acondicionamiento físico. ¡Sigue con nosotros para alcanzar tus objetivos de fitness!', 'Anuncio', '2024-07-07', '08:00');
 
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Carlos', 'Velasco Hilario', '77191635R', 'carlosv@gmail.com', 'Calle Larios, 123, Centro Histórico, Málaga', 'rathalos123', 'cliente', '2001-11-12');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Jose Miguel', 'Martinez Martin', '74578966Q', 'jmiguel@gmail.com', 'Avenida Andalucía, 456, Cruz de Humilladero, Málaga', 'Persona32', 'cliente', '2001-03-16');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Juan', 'Cubo Bravo', '99999999J', 'cubojuan@gmail.com', 'Calle Carretería, 789, La Merced, Málaga', 'laliLe12', 'cliente', '2001-07-22');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Silvia', 'Carrasco Miedes', '12345678D', 'silviaacm3@gmail.com', 'Calle Marqués de Larios, 321, El Molinillo, Málaga', 'Sisinono45', 'cliente', '2001-07-09');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Lucia', 'Riobo Perez', '77885544D', 'luli@gmail.com', 'Calle Granada, 234, La Victoria, Málaga', '32Rueda', 'cliente', '1999-11-09');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Pablo', 'Tamayo Medina', '96857412D', 'tamamedi@gmail.com', 'Paseo del Parque, 567, Centro, Málaga', 'Patito543', 'cliente', '2001-02-07');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Vicente', 'Navarro Jurado', '78956412D', 'vnavarro@gmail.com', 'Calle San Agustín, 890, La Trinidad, Málaga', 'Vengala23', 'cliente', '1967-11-02');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Antonio', 'Bujalance Castilla', '78754412E', 'abuja@gmail.com', 'Plaza de la Constitución, 111, Centro Histórico, Málaga', 'mAqUiNa99', 'cliente', '1966-05-24');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Maria de la O', 'Bujalance Castilla', '88965412J', 'mdelao@gmail.com', 'Calle Alcazabilla, 222, Centro Histórico, Málaga', 'ruEDas56', 'cliente', '1967-04-25');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Adolfo', 'Gonzalez Bujalance', '78962222D', 'adolgon@gmail.com', 'Calle Alameda Principal, 333, Centro, Málaga', 'Lejia2365', 'cliente', '2004-04-04');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Natalia', 'Paez Marquez', '78965431K', 'nati@gmail.com', 'Calle Compañía, 444, Centro Histórico, Málaga', 'papelerIa954', 'cliente', '2001-08-29');
-INSERT INTO usuarios (nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento) VALUES('Daniel', 'Gonzalez Holgado', '78963311L', 'dgon@gmail.com', 'Paseo Marítimo Antonio Banderas, 555, Huelin, Málaga', 'Jueves6587', 'cliente', '2001-12-15');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'carlos.png', 'Carlos', 'Velasco Hilario', '77191635R', 'carlosv@gmail.com', 'Calle Larios, 123, Centro Histórico, Málaga', 'rathalos123', 'cliente', '2001-11-12', '123456789');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'josemi.png', 'Jose Miguel', 'Martinez Martin', '74578966Q', 'jmiguel@gmail.com', 'Avenida Andalucía, 456, Cruz de Humilladero, Málaga', 'Persona32', 'cliente', '2001-03-16', '987654321');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(false, 'cubo.png', 'Juan', 'Cubo Bravo', '99999999J', 'cubojuan@gmail.com', 'Calle Carretería, 789, La Merced, Málaga', 'laliLe12', 'cliente', '2001-07-22', '654123987');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'silvia.png', 'Silvia', 'Carrasco Miedes', '12345678D', 'silviaacm3@gmail.com', 'Calle Marqués de Larios, 321, El Molinillo, Málaga', 'Sisinono45', 'cliente', '2001-07-09', '741852963');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'vicente.png', 'Vicente', 'Navarro Jurado', '78956412D', 'vnavarro@gmail.com', 'Calle San Agustín, 890, La Trinidad, Málaga', 'Vengala23', 'cliente', '1967-11-02', '159263478');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'luli.png', 'Lucia', 'Riobo Perez', '77885544D', 'luli@gmail.com', 'Calle Granada, 234, La Victoria, Málaga', '32Rueda', 'cliente', '1999-11-09', '369852147');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(false, 'tamayo.png', 'Pablo', 'Tamayo Medina', '96857412D', 'tamamedi@gmail.com', 'Paseo del Parque, 567, Centro, Málaga', 'Patito543', 'cliente', '2001-02-07', '852741963');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'maria.png', 'Maria de la O', 'Bujalance Castilla', '88965412J', 'mdelao@gmail.com', 'Calle Alcazabilla, 222, Centro Histórico, Málaga', 'ruEDas56', 'cliente', '1967-04-25', '456123789');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'adolfo.png', 'Adolfo', 'Gonzalez Bujalance', '78962222D', 'adolgon@gmail.com', 'Calle Alameda Principal, 333, Centro, Málaga', 'Lejia2365', 'cliente', '2004-04-04', '987456321');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'enrique.png', 'Enrique', 'Navarro Jurado', '78754412E', 'enavarro@gmail.com', 'Plaza de la Constitución, 111, Centro Histórico, Málaga', 'mAqUiNa99', 'cliente', '1966-05-24', '123987654');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(false, 'natalia.png', 'Natalia', 'Paez Marquez', '78965431K', 'nati@gmail.com', 'Calle Compañía, 444, Centro Histórico, Málaga', 'papelerIa954', 'cliente', '2001-08-29', '321987654');
+INSERT INTO usuarios (dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, contraseña, rol, fecha_nacimiento, telefono) VALUES(true, 'dani.png', 'Daniel', 'Gonzalez Holgado', '78963311L', 'dgon@gmail.com', 'Paseo Marítimo Antonio Banderas, 555, Huelin, Málaga', 'Jueves6587', 'cliente', '2001-12-15', '987654321');
 
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 15, 5, '2024-03-12', 1, 2);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 12, 4, '2024-03-13', 2, 3);
@@ -322,23 +322,4 @@ INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (13
 INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (14, 13), (14, 14), (14, 15), (14, 16);
 -- Rutina Tiron Pierna Empuje (Usuario 10)
 INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (15, 4), (15, 5), (15, 6);
--- Rutina Fullbody (Usuario 11)
-INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (16, 13), (16, 14), (16, 15), (16, 16);
--- Rutina Tiron Pierna Empuje (Usuario 12)
-INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (17, 4), (17, 5), (17, 6);
 
---#############################Datos que habrá que borrar################################################################################
-
-
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Carlos', 'Velasco', 'carlosv@gmail.com', '2022-10-12');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Jose Miguel', 'Martinez', 'jmiguel@gmail.com', '2022-05-12');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Juan', 'Cubo', 'cubojuan@gmail.com', '2022-09-11');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Silvia', 'Carrasco', 'silviaacm3@gmail.com', '2022-07-09');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Alvaro', 'Muñoz', 'muño@gmail.com', '2022-01-20');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Alvaro', 'Olmo', 'aolmo@gmail.com', '2022-06-30');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Vicente', 'Navarro', 'vnavarro@gmail.com', '2022-02-02');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Antonio', 'Bujalance', 'abuja@gmail.com', '2022-10-15');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Maria de la O', 'Castilla', 'mdelao@gmail.com', '2022-06-06');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Adolfo', 'Gonzalez', 'adolgon@gmail.com', '2022-07-25');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Pedro', 'Ximenez', 'pedrox@gmail.com', '2022-12-03');
-INSERT INTO clientes (nombre, apellido, email, create_at) VALUES('Daniel', 'Gonzalez', 'dgon@gmail.com', '2022-10-01');

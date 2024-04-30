@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title" style="font-size: 3em;">{{ usuario.nombre }} {{usuario.apellidos}}</h1>
+            <p class="card-text">DNI: {{ usuario.dni }}</p>
+            <p class="card-text">Email: {{ usuario.email }}</p>
+            <p class="card-text">Fecha de nacimiento: {{ usuario.fechaNacimiento }}</p>
+            <p class="card-text">Telefono: {{ usuario.telefono }}</p>
+            <p class="card-text">Domicilio: {{ usuario.domicilio }}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="float-right mt-3 mr-3">
+            <img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
+            <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

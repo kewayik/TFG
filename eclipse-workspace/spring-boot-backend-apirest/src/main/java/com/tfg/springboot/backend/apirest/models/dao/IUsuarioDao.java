@@ -17,4 +17,9 @@ public interface IUsuarioDao extends JpaRepository<Usuario, Integer> {
     @Modifying
     @Query(value = "DELETE FROM actividadesusuarios WHERE usuarios_fk = :userId", nativeQuery = true)
     void deleteActividadesUsuariosByUserId(@Param("userId") Integer userId);
+	
+	@Transactional
+    @Modifying
+    @Query(value = "DELETE FROM rutinas_pred WHERE usuario_id = :userID", nativeQuery = true)
+    void deleteRutinaPersonalizada(@Param("userID") Integer userId);
 }

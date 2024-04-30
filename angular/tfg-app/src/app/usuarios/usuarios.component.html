@@ -1,1 +1,41 @@
-<p>usuarios works!</p>
+<div class="card border-primary mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span style="font-weight: bold; font-size: xx-large;">Usuarios</span>
+        <button class="btn btn-rounded btn-primary" [routerLink]="['/usuarios/form-usuario']">Crear usuario</button>
+    </div>
+    <div class="card-body text-primary">
+        <div class="my-2 text-left">
+            <div *ngIf="usuarios?.length == 0" class="alert alert-info">
+                No hay registros en la base de datos
+            </div>
+
+            <div *ngIf="usuarios?.length > 0" class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let usuario of usuarios" [ngClass]="{'table-dark': !usuario.dadoDeAlta}">
+                            <td><img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded" style="width:64px;">
+                                <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded" style="width:64px;"></td>
+                            <td>{{ usuario.nombre }} {{usuario.apellidos}}</td>
+                            <td>{{ usuario.email }}</td>
+                            <td>
+                                <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]" *ngIf="usuario.dadoDeAlta">Ver</button>
+                                <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]" *ngIf="usuario.dadoDeAlta">Editar</button>
+                                <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
+                                <button class="btn btn-rounded btn-info mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
+                                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,19 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ClientesComponent } from './clientes/clientes.component';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormComponent } from './clientes/form.component';
 import { FormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
-import { ClienteService } from './clientes/cliente.service';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule} from '@angular/material/datepicker';
-import { DetalleComponent } from './clientes/detalle/detalle.component';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { DiasrutinasComponent } from './diasrutinas/diasrutinas.component';
 import { EjerciciosComponent } from './ejercicios/ejercicios.component';
@@ -37,17 +33,14 @@ import { VerUsuariosComponent } from './actividades/ver-usuarios.component';
 import { VerRutinaComponent } from './rutinas/ver-rutina.component';
 import { FormRutinaComponent } from './rutinas/form-rutina.component';
 import { FormDiarutinaComponent } from './diasrutinas/form-diarutina.component';
+import { VerUsuarioComponent } from './usuarios/ver-usuario.component';
+import { FormUsuarioComponent } from './usuarios/form-usuario.component';
 
 registerLocaleData(localeES, 'es');
 
 const routes: Routes = [
 
-  {path: '',redirectTo: '/clientes', pathMatch:'full'},
-  {path: 'clientes', component: ClientesComponent},
-  {path: 'clientes/page/:page', component: ClientesComponent},
-  {path: 'clientes/form', component: FormComponent},
-  {path: 'clientes/form/:id', component: FormComponent},
-  {path: 'actividades', component: ActividadesComponent},
+  {path: '',redirectTo: '/usuarios', pathMatch:'full'},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
   {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
   {path: 'actividades/ver-usuarios/:id', component: VerUsuariosComponent},
@@ -69,6 +62,10 @@ const routes: Routes = [
   {path: 'rutinas/form-rutina/:id', component: FormRutinaComponent},
   {path: 'diasrutinas', component: DiasrutinasComponent},
   {path: 'diasrutinas/form-diarutina', component: FormDiarutinaComponent},
+  {path: 'usuarios', component: UsuariosComponent},
+  {path: 'usuarios/ver-usuario/:id', component: VerUsuarioComponent},
+  {path: 'usuarios/form-usuario', component: FormUsuarioComponent},
+  {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent}
 
 ];
 
@@ -77,10 +74,7 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ClientesComponent,
-    FormComponent,
     PaginatorComponent,
-    DetalleComponent,
     ActividadesComponent,
     DiasrutinasComponent,
     EjerciciosComponent,
@@ -100,7 +94,9 @@ const routes: Routes = [
     VerUsuariosComponent,
     VerRutinaComponent,
     FormRutinaComponent,
-    FormDiarutinaComponent
+    FormDiarutinaComponent,
+    VerUsuarioComponent,
+    FormUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +105,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, MatDatepickerModule, MatNativeDateModule
   ],
-  providers: [ClienteService, {provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

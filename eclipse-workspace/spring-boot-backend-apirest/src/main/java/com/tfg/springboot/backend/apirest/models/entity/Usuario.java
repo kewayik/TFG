@@ -1,7 +1,7 @@
 package com.tfg.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -20,9 +20,12 @@ public class Usuario implements Serializable {
 	@Column(unique = true)
 	private String email;
 	private String domicilio;
+	private String telefono;
 	private String contraseña;
 	private String rol;
 	private Date fechaNacimiento;
+	private String foto;
+	private Boolean dadoDeAlta;
 	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
@@ -110,6 +113,30 @@ public class Usuario implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public boolean isDadoDeAlta() {
+		return dadoDeAlta;
+	}
+
+	public void setDadoDeAlta(boolean dadoDeAlta) {
+		this.dadoDeAlta = dadoDeAlta;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	/**
