@@ -9,6 +9,8 @@
                 No hay registros en la base de datos
             </div>
 
+            <button class="btn btn-rounded btn-secondary mb-2" (click)="toggleUsuarios()">Ver usuarios dados de {{ mostrarDadoDeAlta ? 'baja' : 'alta' }}</button>
+
             <div *ngIf="usuarios?.length > 0" class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -20,17 +22,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let usuario of usuarios" [ngClass]="{'table-dark': !usuario.dadoDeAlta}">
+                        <tr *ngFor="let usuario of usuarios" [ngClass]="{'table-dark': !usuario.dadoDeAlta && mostrarDadoDeAlta, 'd-none': (!usuario.dadoDeAlta && mostrarDadoDeAlta) || (usuario.dadoDeAlta && !mostrarDadoDeAlta)}">
                             <td><img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded" style="width:64px;">
                                 <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded" style="width:64px;"></td>
                             <td>{{ usuario.nombre }} {{usuario.apellidos}}</td>
                             <td>{{ usuario.email }}</td>
                             <td>
-                                <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]" *ngIf="usuario.dadoDeAlta">Ver</button>
-                                <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]" *ngIf="usuario.dadoDeAlta">Editar</button>
+                                <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]" ><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]" > <i class="fas fa-edit"></i></button>
+                                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"> <i class="fas fa-trash-alt"></i></button>
                                 <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
-                                <button class="btn btn-rounded btn-info mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
-                                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta">Eliminar</button>
+                                <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
                             </td>
                         </tr>
                     </tbody>

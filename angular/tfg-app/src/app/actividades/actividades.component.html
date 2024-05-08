@@ -19,9 +19,9 @@
                         <span>{{actividad.fecha}}</span>
                     </button>
                     <div>
-                        <button type="button" name="editar" [routerLink]="['/actividades/form-actividad', actividad.id]" class="btn btn-primary">Editar</button>
+                        <button type="button" name="editar" [routerLink]="['/actividades/form-actividad', actividad.id]" class="btn btn-primary"><i class="fas fa-edit"></i></button>
                         <span class="mx-2"></span>
-                        <button type="button" name="eliminar" (click)="delete(actividad)" class="btn btn-danger">Eliminar</button>
+                        <button type="button" name="eliminar" (click)="delete(actividad)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </h5>
             </div>

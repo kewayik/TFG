@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 export class UsuariosComponent {
 
   usuarios: Usuario[];
+  mostrarDadoDeAlta: boolean = true;
 
   constructor(private usuarioService: UsuarioService) { }
   
@@ -18,6 +19,10 @@ export class UsuariosComponent {
       usuarios => this.usuarios = usuarios
     );
   }
+
+  toggleUsuarios() {
+    this.mostrarDadoDeAlta = !this.mostrarDadoDeAlta;
+}
 
   darDeAlta(usuario: Usuario): void{
     usuario.dadoDeAlta = true;

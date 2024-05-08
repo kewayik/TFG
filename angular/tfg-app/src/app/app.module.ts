@@ -35,12 +35,14 @@ import { FormRutinaComponent } from './rutinas/form-rutina.component';
 import { FormDiarutinaComponent } from './diasrutinas/form-diarutina.component';
 import { VerUsuarioComponent } from './usuarios/ver-usuario.component';
 import { FormUsuarioComponent } from './usuarios/form-usuario.component';
+import { PoliticasComponent } from './politicas/politicas.component';
 
 registerLocaleData(localeES, 'es');
 
 const routes: Routes = [
 
   {path: '',redirectTo: '/usuarios', pathMatch:'full'},
+  {path: 'actividades', component: ActividadesComponent},
   {path: 'actividades/form-actividad', component: FormActividadComponent},
   {path: 'actividades/form-actividad/:id', component: FormActividadComponent},
   {path: 'actividades/ver-usuarios/:id', component: VerUsuariosComponent},
@@ -65,7 +67,8 @@ const routes: Routes = [
   {path: 'usuarios', component: UsuariosComponent},
   {path: 'usuarios/ver-usuario/:id', component: VerUsuarioComponent},
   {path: 'usuarios/form-usuario', component: FormUsuarioComponent},
-  {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent}
+  {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent},
+  {path: 'politicas', component: PoliticasComponent}
 
 ];
 
@@ -96,7 +99,8 @@ const routes: Routes = [
     FormRutinaComponent,
     FormDiarutinaComponent,
     VerUsuarioComponent,
-    FormUsuarioComponent
+    FormUsuarioComponent,
+    PoliticasComponent
   ],
   imports: [
     BrowserModule,

@@ -20,9 +20,9 @@
                                     <td style="font-size: 1.6em; color: black;">{{ rutina.nombre }}</td>
                                     <td>
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-primary mr-2" [routerLink]="['/rutinas/ver-rutina', rutina.id]">Ver</button>
-                                            <button type="button" class="btn btn-warning mr-2" [routerLink]="['/rutinas/form-rutina', rutina.id]">Editar</button>
-                                            <button type="button" class="btn btn-danger" (click)="delete(rutina)">Eliminar</button>
+                                            <button type="button" class="btn btn-primary mr-2" [routerLink]="['/rutinas/ver-rutina', rutina.id]"><i class="fas fa-eye"></i></button>
+                                            <button type="button" class="btn btn-warning mr-2" [routerLink]="['/rutinas/form-rutina', rutina.id]"><i class="fas fa-edit"></i></button>
+                                            <button type="button" class="btn btn-danger" (click)="delete(rutina)"><i class="fas fa-trash-alt"></i></button>
                                         </div>
                                     </td>
                                 </ng-container>
