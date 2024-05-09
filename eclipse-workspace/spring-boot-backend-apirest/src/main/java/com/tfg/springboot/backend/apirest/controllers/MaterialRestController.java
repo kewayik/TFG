@@ -27,6 +27,7 @@ import java.net.MalformedURLException;
 import java.util.HashMap;
 
 import com.tfg.springboot.backend.apirest.models.dto.MaterialDTO;
+import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 import com.tfg.springboot.backend.apirest.models.entity.Material;
 import com.tfg.springboot.backend.apirest.models.services.IMaterialService;
 import com.tfg.springboot.backend.apirest.models.services.IUploadFileService;
@@ -54,6 +55,12 @@ public class MaterialRestController {
     public MaterialDTO show(@PathVariable Integer id) {
         Material material = materialService.findById(id);
         return mapToDTO(material);
+    }
+    
+    @GetMapping("/materiales/{id}/ejercicios")
+    public List<Ejercicio> showEjercicios(@PathVariable Integer id) {
+    	List<Ejercicio> ejercicios = materialService.ejerciciosMaterial(id);
+    	return ejercicios;
     }
     
     @PostMapping("/materiales")

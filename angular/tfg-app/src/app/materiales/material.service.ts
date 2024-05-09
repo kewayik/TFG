@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Material } from './material';
 import swal from 'sweetalert2';
+import { Ejercicio } from '../ejercicios/ejercicio';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,10 @@ export class MaterialService {
         return throwError(e);
       })
     );
+  }
+
+  getEjerciciosByMaterialId(materialId: number): Observable<Ejercicio[]> {
+    return this.http.get<Ejercicio[]>(`${this.urlEndpoint}/${materialId}/ejercicios`);
   }
 
 }

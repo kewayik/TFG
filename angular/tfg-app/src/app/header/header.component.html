@@ -1,54 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="assets/images/icono.png" alt="Icono" style="height: 50px; width: auto;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-
+  <div class="container-fluid">
+       <a class="navbar-brand" href="#">
+            <img src="assets/images/icono.png" alt="Icono" class="icono-normal">
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/materiales">Materiales</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/rutinas">Rutinas</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/actividades">Actividades</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/ejercicios">Ejercicios</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/materiales">Perfil</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/gimnasio">Gimnasio</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link active" routerLink="/usuarios">Usuarios</a>
-          </li>
-          
-        </ul>  
-        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" routerLink="/notificaciones" width="20" height="20" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm5-4V8c0-3.047-1.98-5.664-4.42-6.535A1.75 1.75 0 0 0 8 0a1.75 1.75 0 0 0-1.58 1.465C4.98 2.336 3 4.953 3 8v4l-.172.344A.5.5 0 0 0 3.5 13h9a.5.5 0 0 0 .5-.656L13 12zm-3-1V8c0-2.206-1.343-3.5-3-3.5s-3 1.294-3 3.5v3l-.142.285A1.5 1.5 0 0 0 4.5 12h7a1.5 1.5 0 0 0 1.42-1.215L10 11z"/>
-              </svg> 
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cerrar Sesión</a>
-          </li>
-        </ul>      
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/materiales" style="font-size: 1.2em;">Materiales</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/rutinas" style="font-size: 1.2em;">Rutinas</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/actividades" style="font-size: 1.2em;">Actividades</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/ejercicios" style="font-size: 1.2em;">Ejercicios</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/materiales" style="font-size: 1.2em;">Perfil</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/gimnasio" style="font-size: 1.2em;">Gimnasio</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link active" routerLink="/usuarios" style="font-size: 1.2em;">Usuarios</a>
+              </li>
+          </ul>  
+          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" style="font-size: 1.2em;" routerLink="/notificaciones">
+                  <i class="fas fa-bell"></i> 
+              </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" style="font-size: 1.2em;">Cerrar Sesión</a>
+              </li>
+          </ul>      
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>

@@ -1,18 +1,23 @@
 package com.tfg.springboot.backend.apirest.models.services;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tfg.springboot.backend.apirest.models.dao.IEjercicioDao;
 import com.tfg.springboot.backend.apirest.models.dao.IMaterialDao;
+import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 import com.tfg.springboot.backend.apirest.models.entity.Material;
 @Service
 public class MaterialServiceImpl implements IMaterialService {
 	
 	@Autowired
 	private IMaterialDao materialDao;
+	
+	@Autowired IEjercicioDao ejercicioDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -38,6 +43,19 @@ public class MaterialServiceImpl implements IMaterialService {
 		materialDao.deleteEjerciciosMateriales(id);
 		materialDao.deleteById(id);
 		
+	}
+
+	@Override
+	public List<Ejercicio> ejerciciosMaterial(Integer id) {
+		
+		List<Integer> listaID = materialDao.ejerciciosDeUnMaterial(id);
+		List<Ejercicio> ejercicios = new ArrayList<>();
+		
+		for(Integer idEjercicio : listaID) {
+			ejercicios.add(ejercicioDao.findById(idEjercicio).orElse(null));
+		}
+		
+		return ejercicios;
 	}
 	
 }

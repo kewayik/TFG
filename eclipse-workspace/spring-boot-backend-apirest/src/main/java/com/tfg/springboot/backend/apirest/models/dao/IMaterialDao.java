@@ -16,4 +16,9 @@ public interface IMaterialDao extends JpaRepository<Material, Integer> {
     @Modifying
     @Query(value = "DELETE FROM ejerciciosmateriales WHERE materiales_fk = :materialID", nativeQuery = true)
     void deleteEjerciciosMateriales(@Param("materialID") Integer materialId);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "SELECT ejercicios_fk FROM ejerciciosmateriales where materiales_fk = :materialID", nativeQuery = true)
+	List<Integer> ejerciciosDeUnMaterial(@Param("materialID") Integer materialId);
 }

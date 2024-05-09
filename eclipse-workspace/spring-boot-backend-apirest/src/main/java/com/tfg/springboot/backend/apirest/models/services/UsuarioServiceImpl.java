@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tfg.springboot.backend.apirest.models.dao.IRutinaPersDao;
 import com.tfg.springboot.backend.apirest.models.dao.IUsuarioDao;
 import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 @Service
@@ -13,6 +14,9 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	
 	@Autowired
 	private IUsuarioDao usuarioDao;
+	
+	@Autowired
+	private IRutinaPersDao rutinaPersDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -32,9 +36,17 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		return usuarioDao.save(usuario);
 	}
 
+	
 	@Override
 	@Transactional
 	public void delete(Integer id) {
+		
+		System.out.println("Id de usuario: "+id+" Id de la rutina: "+usuarioDao.obtenerIdRutinaPersonalizada(id));
+		
+		if(usuarioDao.obtenerIdRutinaPersonalizada(id).size()!=0) {
+			rutinaPersDao.deleteById(usuarioDao.obtenerIdRutinaPersonalizada(id).get(0));
+		}
+		
 		usuarioDao.deleteRutinaPersonalizada(id);
 		usuarioDao.deleteActividadesUsuariosByUserId(id);
 		usuarioDao.deleteById(id);

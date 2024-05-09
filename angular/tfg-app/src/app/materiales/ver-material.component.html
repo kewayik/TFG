@@ -1,21 +1,30 @@
 <div class="container">
-    <div class="card">
+  <div class="card">
       <div class="row">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h1 class="card-title" style="font-size: 3em;">{{ material.nombre }}</h1>
-            <p class="card-text">{{ material.descripcion }}</p>
-            <p class="card-text">Stock: {{ material.stock ? 'Disponible' : 'Agotado' }}</p>
-            <p class="card-text">Tipo: {{ material.tipo }}</p>
+          <div class="col-md-8">
+              <div class="card-body">
+                  <h1 class="card-title" style="font-size: 3em;">{{ material.nombre }}</h1>
+                  <p class="card-text">{{ material.descripcion }}</p>
+                  <p class="card-text">Stock: {{ material.stock ? 'Disponible' : 'Agotado' }}</p>
+                  <p class="card-text">Tipo: {{ material.tipo }}</p>
+                  <p class="card-text">Ejercicios:
+                      <ng-container *ngIf="ejercicios && ejercicios.length > 0; else noEjercicios">
+                          <ng-container *ngFor="let ejercicio of ejercicios; let last = last">
+                              <a [routerLink]="['/ejercicios/ver-ejercicio', ejercicio.id]">{{ ejercicio.nombre }}</a>{{ !last ? ', ' : '' }}
+                          </ng-container>
+                      </ng-container>
+                      <ng-template #noEjercicios>
+                          Ningún ejercicio asociado a este material
+                      </ng-template>
+                  </p>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="float-right mt-3 mr-3">
-            <img *ngIf="material?.foto" src="http://localhost:8080/api/uploads/img/{{material.foto}}" alt="{{material.foto}}" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
-            <img *ngIf="!material?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
+          <div class="col-md-4">
+              <div class="float-right mt-3 mr-3">
+                  <img *ngIf="material?.foto" src="http://localhost:8080/api/uploads/img/{{material.foto}}" alt="{{material.foto}}" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
+                  <img *ngIf="!material?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-material shadow" style="width: 300px;">
+              </div>
           </div>
-        </div>
       </div>
-    </div>
   </div>
-  
+</div>
