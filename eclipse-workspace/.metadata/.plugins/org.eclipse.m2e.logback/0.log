@@ -3650,3 +3650,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2024-05-09 13:00:41,801 [Worker-94: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-05-09 13:00:41,810 [Worker-94: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
 2024-05-09 13:00:41,816 [Worker-94: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-10 09:55:07,986 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

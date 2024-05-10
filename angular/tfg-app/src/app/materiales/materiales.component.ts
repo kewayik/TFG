@@ -12,12 +12,17 @@ export class MaterialesComponent implements OnInit {
 
   materiales: Material[]; 
   ejercicios: Ejercicio[];
+  searchTerm: string = '';
+  allMateriales: Material[];
 
   constructor(private materialService: MaterialService) { } 
 
   ngOnInit(){
     this.materialService.getMateriales().subscribe( 
-      materiales => this.materiales = materiales 
+      materiales => {
+        this.materiales = materiales;
+        this.allMateriales = materiales;
+      }
     );
   }
 
@@ -59,5 +64,15 @@ export class MaterialesComponent implements OnInit {
         });
       }
     );
+  }
+
+  filterMateriales() {
+    if (this.searchTerm === '') {
+      this.materiales = this.allMateriales;
+    } else {
+      this.materiales = this.allMateriales.filter(material =>
+        material.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
   }
 }

@@ -3,7 +3,6 @@ import { Actividad } from './actividad';
 import { ActividadService } from './actividad.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-actividades',
   templateUrl: './actividades.component.html'
@@ -11,10 +10,9 @@ import Swal from 'sweetalert2';
 export class ActividadesComponent {
 
   activeIndex: number | null = null;
+  orderByDateAsc: boolean = true;
+  hideFullActivities: boolean = false;
 
-  toggleCollapse(index: number) {
-    this.activeIndex = (this.activeIndex === index) ? null : index;
-  }
   actividades: Actividad[];
 
   constructor(private actividadService: ActividadService) { }
@@ -23,6 +21,35 @@ export class ActividadesComponent {
     this.actividadService.getActividades().subscribe(
       actividades => this.actividades = actividades
     );
+  }
+
+  toggleCollapse(index: number) {
+    this.activeIndex = (this.activeIndex === index) ? null : index;
+  }
+
+  toggleOrderByDate() {
+    this.orderByDateAsc = !this.orderByDateAsc;
+    
+    this.actividades.sort((a, b) => {
+      if (this.orderByDateAsc) {
+        return new Date(a.fecha).getTime() - new Date(b.fecha).getTime();
+      } else {
+        return new Date(b.fecha).getTime() - new Date(a.fecha).getTime();
+      }
+    });
+  }
+
+  toggleHideFullActivities() {
+    if (this.hideFullActivities) {
+      this.actividadService.getActividades().subscribe(
+        actividades => this.actividades = actividades
+      );
+    } else {
+      this.actividadService.getActividades().subscribe(
+        actividades => this.actividades = actividades.filter(actividad => actividad.usuarios.length < actividad.aforo)
+      );
+    }
+    this.hideFullActivities = !this.hideFullActivities;
   }
 
   delete(actividad: Actividad): void{
@@ -50,6 +77,4 @@ export class ActividadesComponent {
       }
     });
   }
-
-
 }

@@ -11,6 +11,10 @@ export class UsuariosComponent {
 
   usuarios: Usuario[];
   mostrarDadoDeAlta: boolean = true;
+  orderByApellidoAsc: boolean = true;
+  orderByNombreAsc: boolean = true;
+  orderByCorreoAsc: boolean = true;
+  searchTerm: string = '';
 
   constructor(private usuarioService: UsuarioService) { }
   
@@ -22,6 +26,53 @@ export class UsuariosComponent {
 
   toggleUsuarios() {
     this.mostrarDadoDeAlta = !this.mostrarDadoDeAlta;
+}
+
+filterUsuarios() {
+  if (this.searchTerm === '') {
+    this.usuarioService.getUsuarios().subscribe(
+      usuarios => this.usuarios = usuarios
+    );
+  } else {
+    this.usuarios = this.usuarios.filter(usuario => 
+      usuario.nombre.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      usuario.apellidos.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      usuario.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+}
+
+toggleOrderByApellido() {
+  this.orderByApellidoAsc = !this.orderByApellidoAsc;
+  this.usuarios.sort((a, b) => {
+    if (this.orderByApellidoAsc) {
+      return a.apellidos.localeCompare(b.apellidos);
+    } else {
+      return b.apellidos.localeCompare(a.apellidos);
+    }
+  });
+}
+
+toggleOrderByNombre() {
+  this.orderByNombreAsc = !this.orderByNombreAsc;
+  this.usuarios.sort((a, b) => {
+    if (this.orderByNombreAsc) {
+      return a.nombre.localeCompare(b.nombre);
+    } else {
+      return b.nombre.localeCompare(a.nombre);
+    }
+  });
+}
+
+toggleOrderByCorreo() {
+  this.orderByCorreoAsc = !this.orderByCorreoAsc;
+  this.usuarios.sort((a, b) => {
+    if (this.orderByCorreoAsc) {
+      return a.email.localeCompare(b.email);
+    } else {
+      return b.email.localeCompare(a.email);
+    }
+  });
 }
 
   darDeAlta(usuario: Usuario): void{

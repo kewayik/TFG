@@ -10,12 +10,23 @@ import Swal from 'sweetalert2';
 export class EjerciciosComponent implements OnInit {
 
   ejercicios: Ejercicio[];
+  searchTerm: string = '';
+  filteredEjercicios: Ejercicio[];
 
   constructor(private ejercicioService: EjercicioService) { }
   
   ngOnInit(){
     this.ejercicioService.getEjercicios().subscribe(
-      ejercicios => this.ejercicios = ejercicios
+      ejercicios => {
+        this.ejercicios = ejercicios;
+        this.filteredEjercicios = this.ejercicios.slice();
+      }
+    );
+  }
+
+  filterEjercicios() {
+    this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
+      Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
     );
   }
 

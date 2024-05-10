@@ -15,7 +15,15 @@
                             <tr *ngFor="let notificacion of notificaciones">
                                 <td>
                                     <span style="font-size: 24px;">
-                                        {{ notificacion.tipo === 'Anuncio' ? '📢' : (notificacion.tipo === 'Aviso' ? '⚠️' : '❓') }}
+                                        <ng-container *ngIf="notificacion.tipo === 'Anuncio'">
+                                            <i class="fas fa-bullhorn"></i>
+                                        </ng-container>
+                                        <ng-container *ngIf="notificacion.tipo === 'Aviso'">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </ng-container>
+                                        <ng-container *ngIf="notificacion.tipo !== 'Anuncio' && notificacion.tipo !== 'Aviso'">
+                                            <i class="fas fa-question-circle"></i>
+                                        </ng-container>
                                     </span>
                                 </td>
                                 <td>{{ notificacion.descripcion }}</td>

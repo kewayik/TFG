@@ -1,6 +1,12 @@
 <div class="card border-primary mb-3">
     <div class="card-header d-flex justify-content-between align-items-center">
         <span style="font-weight: bold; font-size: xx-large;">Actividades</span>
+        <button class="btn btn-rounded btn-secondary" (click)="toggleOrderByDate()">
+            {{ orderByDateAsc ? 'Ordenar por fecha desc' : 'Ordenar por fecha asc' }}
+        </button>
+        <button class="btn btn-rounded btn-secondary" (click)="toggleHideFullActivities()">
+            {{ hideFullActivities ? 'Mostrar todas' : 'Ocultar llenas' }}
+        </button>
         <button class="btn btn-rounded btn-primary" [routerLink]="['/actividades/form-actividad']">Crear actividad</button>
     </div>
     <div class="card-body text-primary">
