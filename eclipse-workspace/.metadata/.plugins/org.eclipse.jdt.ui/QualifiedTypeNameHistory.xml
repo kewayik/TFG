@@ -48,7 +48,6 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.net.MalformedURLException"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Usuario"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.dao.IRutinaPersDao"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>

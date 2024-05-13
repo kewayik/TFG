@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
-import { PaginatorComponent } from './paginator/paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -37,6 +36,7 @@ import { VerUsuarioComponent } from './usuarios/ver-usuario.component';
 import { FormUsuarioComponent } from './usuarios/form-usuario.component';
 import { PoliticasComponent } from './politicas/politicas.component';
 import { HomeComponent } from './home/home.component';
+import { FormRegistroComponent } from './registros/form-registro.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -71,7 +71,9 @@ const routes: Routes = [
   {path: 'usuarios/form-usuario', component: FormUsuarioComponent},
   {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent},
   {path: 'politicas', component: PoliticasComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'registros', component: RegistrosComponent},
+  {path: 'registros/form-registro', component: FormRegistroComponent},
 
 ];
 
@@ -80,7 +82,6 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PaginatorComponent,
     ActividadesComponent,
     DiasrutinasComponent,
     EjerciciosComponent,
@@ -104,7 +105,8 @@ const routes: Routes = [
     VerUsuarioComponent,
     FormUsuarioComponent,
     PoliticasComponent,
-    HomeComponent
+    HomeComponent,
+    FormRegistroComponent
   ],
   imports: [
     BrowserModule,
