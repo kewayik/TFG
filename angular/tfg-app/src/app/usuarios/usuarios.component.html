@@ -1,50 +1,62 @@
 <div class="card border-primary mb-3">
-    <div class="card-header d-flex justify-content-between align-items-center">
-      <span style="font-weight: bold; font-size: xx-large;">Usuarios</span>
-      <button class="btn btn-rounded btn-primary" [routerLink]="['/usuarios/form-usuario']">Crear usuario</button>
-    </div>
-    <div class="card-body text-primary">
-      <div class="my-2 text-left">
-        <div *ngIf="usuarios?.length == 0" class="alert alert-info">
-          No hay registros en la base de datos
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span style="font-weight: bold; font-size: xx-large;">Usuarios</span>
+    <button class="btn btn-rounded btn-primary" [routerLink]="['/usuarios/form-usuario']">Crear usuario</button>
+  </div>
+  <div class="card-body text-primary">
+    <div class="my-2 text-left">
+      <div *ngIf="usuarios?.length == 0" class="alert alert-info">
+        No hay registros en la base de datos
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="form-group flex-grow-1 mr-2">
+          <input type="text" class="form-control" placeholder="Buscar usuarios..." [(ngModel)]="searchTerm" (input)="filterUsuarios()">
         </div>
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <div class="form-group flex-grow-1 mr-2">
-              <input type="text" class="form-control" placeholder="Buscar usuarios..." [(ngModel)]="searchTerm" (input)="filterUsuarios()">
-            </div>
-      
-            <button class="btn btn-rounded btn-secondary" (click)="toggleUsuarios()">Ver usuarios dados de {{ mostrarDadoDeAlta ? 'baja' : 'alta' }}</button>
-          </div>
-        <div *ngIf="usuarios?.length > 0" class="table-responsive">
-          <table class="table table-light table-hover">
-            <thead>
-              <tr>
-                <th>Foto</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Correo</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let usuario of usuarios" [ngClass]="{'table-dark': !usuario.dadoDeAlta && mostrarDadoDeAlta, 'd-none': (!usuario.dadoDeAlta && mostrarDadoDeAlta) || (usuario.dadoDeAlta && !mostrarDadoDeAlta)}">
-                <td><img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded" style="width:64px;">
-                  <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded" style="width:64px;"></td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.apellidos }}</td>
-                <td>{{ usuario.email }}</td>
-                <td>
-                  <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]"><i class="fas fa-eye"></i></button>
-                  <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
-                  <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"><i class="fas fa-trash-alt"></i></button>
-                  <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
-                  <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <button class="btn btn-rounded btn-secondary" (click)="toggleUsuarios()">Ver usuarios dados de {{ mostrarDadoDeAlta ? 'baja' : 'alta' }}</button>
+      </div>
+      <div *ngIf="usuarios?.length > 0" class="table-responsive">
+        <table class="table table-light table-hover">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th (click)="toggleOrderByNombre()">
+                Nombre
+                <i class="fas fa-chevron-down" *ngIf="orderByNombreAsc"></i>
+                <i class="fas fa-chevron-up" *ngIf="!orderByNombreAsc"></i>
+            </th>
+            <th (click)="toggleOrderByApellido()">
+                Apellidos
+                <i class="fas fa-chevron-down" *ngIf="orderByApellidoAsc"></i>
+                <i class="fas fa-chevron-up" *ngIf="!orderByApellidoAsc"></i>
+            </th>
+            <th (click)="toggleOrderByCorreo()">
+                Correo
+                <i class="fas fa-chevron-down" *ngIf="orderByCorreoAsc"></i>
+                <i class="fas fa-chevron-up" *ngIf="!orderByCorreoAsc"></i>
+            </th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios" [ngClass]="{'table-dark': !usuario.dadoDeAlta && mostrarDadoDeAlta, 'd-none': (!usuario.dadoDeAlta && mostrarDadoDeAlta) || (usuario.dadoDeAlta && !mostrarDadoDeAlta)}">
+              <td>
+                <img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded" style="width:64px;">
+                <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded" style="width:64px;">
+              </td>
+              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.apellidos }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>
+                <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
+                <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  
+</div>

@@ -10,8 +10,10 @@ import Swal from 'sweetalert2';
 export class EjerciciosComponent implements OnInit {
 
   ejercicios: Ejercicio[];
-  searchTerm: string = '';
   filteredEjercicios: Ejercicio[];
+  searchTerm: string = '';
+  currentPage: number = 1;
+  itemsPerPage: number = 8; 
 
   constructor(private ejercicioService: EjercicioService) { }
   
@@ -19,18 +21,34 @@ export class EjerciciosComponent implements OnInit {
     this.ejercicioService.getEjercicios().subscribe(
       ejercicios => {
         this.ejercicios = ejercicios;
-        this.filteredEjercicios = this.ejercicios.slice();
+        this.filteredEjercicios = this.ejercicios.slice(0, this.itemsPerPage);
       }
     );
   }
 
   filterEjercicios() {
+    this.currentPage = 1;
     this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
       Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
-    );
+    ).slice(0, this.itemsPerPage);
   }
 
-  delete(ejercicio: Ejercicio): void{
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    const startIndex = (pageNumber - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.filteredEjercicios = this.ejercicios.slice(startIndex, endIndex);
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.ejercicios.length / this.itemsPerPage);
+  }
+  
+  getPageNumbers(): number[] {
+    return Array.from({ length: this.getTotalPages() }, (_, i) => i + 1);
+  }
+
+  delete(ejercicio: Ejercicio): void {
     let materialesTexto = ejercicio.materiales.map(material => material.nombre).join(', ');
     Swal.fire({
       title: "¿Está seguro?",
@@ -48,6 +66,7 @@ export class EjerciciosComponent implements OnInit {
         this.ejercicioService.delete(ejercicio.id).subscribe(
           response => {
             this.ejercicios = this.ejercicios.filter(act => act !== ejercicio);
+            this.filterEjercicios();
             Swal.fire(
               'Ejercicio Eliminado!',
               `Ejercicio ${ejercicio.nombre} eliminado con éxito.`,
