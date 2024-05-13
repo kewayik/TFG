@@ -40,10 +40,10 @@
 
             <div class="form-group row mt-3">
                 <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button" (click)="guardar()">Crear</button>
+                    <button class="btn btn-primary" role="button" (click)="guardar()">{{ diarutina.id ? 'Actualizar' : 'Crear' }}</button>
                     
                     <span class="mx-2"></span>
-                    <button class="btn btn-rounded btn-primary" [routerLink]="['/rutinas']">Cancelar</button>
+                    <button class="btn btn-rounded btn-primary" [routerLink]="['/diasrutinas']">Cancelar</button>
                 </div>
             </div>
         </form>

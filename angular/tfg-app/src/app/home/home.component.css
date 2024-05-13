@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .hero h2 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .hero button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hero button:hover {
+    background-color: #0056b3;
+  }
+  
+  .benefits {
+    margin-bottom: 40px;
+  }
+  
+  .benefits h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .benefits ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+  

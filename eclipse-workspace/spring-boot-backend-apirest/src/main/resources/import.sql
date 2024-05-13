@@ -286,9 +286,18 @@ INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (8, 11
 INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (9, 2), (9, 12), (9, 20);
 -- Jueves: Pecho
 INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (10, 1), (10, 5), (10, 19), (10, 8), (10, 23);
--- Viernes: Fullbody
-INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (11, 2), (11, 1), (11, 3), (11, 12), (11, 17), (11, 5), (11, 21), (11, 11), (11, 10), (11, 20), (11, 19), (11, 22), (11, 8), (11, 9);
-
+-- Lunes: Fullbody (id de días de rutina: 11)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (11, 2), (11, 3),  (11, 9), (11, 13),(11, 17), (11, 18), (11, 19), (11, 20);
+-- Martes: Fullbody (id de días de rutina: 12)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (12, 1),  (12, 3), (12, 8), (12, 11), (12, 13),  (12, 17),  (12, 19), (12, 21);
+-- Miércoles: Fullbody (id de días de rutina: 13)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (13, 16), (13, 17), (13, 18), (13, 19), (13, 20), (13, 21), (13, 23), (13, 24);
+-- Jueves: Fullbody (id de días de rutina: 14)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (14, 1),  (14, 3), (14, 5), (14, 8), (14, 9), (14, 11), (14, 12);
+-- Viernes: Fullbody (id de días de rutina: 15)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (15, 2), (15, 11), (15, 12), (15, 13), (15, 16), (15, 23), (15, 24);
+-- Sábado: Pierna (id de días de rutina: 16)
+INSERT INTO dias_rutinas_ejercicios (dia_rutina_id, ejercicios_id) VALUES (16, 2), (16, 12), (16, 21);
 
 -- Rutina de Parte Superior del Cuerpo
 INSERT INTO rutinas_pred_dias_rutina (rutina_pred_id, dias_rutina_id) VALUES (1, 7), (1, 2), (1, 3);
