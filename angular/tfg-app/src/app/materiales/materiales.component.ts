@@ -1,30 +1,67 @@
 import { Component, OnInit } from '@angular/core';
-import { Material } from './material'; 
-import { MaterialService } from './material.service'; 
+import { Material } from './material';
+import { MaterialService } from './material.service';
 import Swal from 'sweetalert2';
 import { Ejercicio } from '../ejercicios/ejercicio';
 
 @Component({
-  selector: 'app-materiales', 
+  selector: 'app-materiales',
   templateUrl: './materiales.component.html'
 })
 export class MaterialesComponent implements OnInit {
 
-  materiales: Material[]; 
+  materiales: Material[];
+  allMateriales: Material[];
   ejercicios: Ejercicio[];
   searchTerm: string = '';
-  allMateriales: Material[];
+  currentPage: number = 1;
+  itemsPerPage: number = 8;
+  searching: boolean = false;
 
-  constructor(private materialService: MaterialService) { } 
+  constructor(private materialService: MaterialService) { }
 
   ngOnInit(){
-    this.materialService.getMateriales().subscribe( 
+    this.materialService.getMateriales().subscribe(
       materiales => {
-        this.materiales = materiales;
         this.allMateriales = materiales;
+        this.filterMateriales();
       }
     );
   }
+
+  filterMateriales() {
+    if(this.searching){
+      if(this.searchTerm === ''){
+        this.currentPage = 1;
+        this.searching=false;
+        this.materiales = this.allMateriales.slice(0, this.itemsPerPage);
+      }else{
+        this.searching=true;
+        this.currentPage = 1;
+        this.materiales = this.allMateriales.filter(material =>
+          Object.values(material).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
+        );
+      }
+    } else {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      this.materiales = this.allMateriales.slice(startIndex, endIndex);
+    }
+  }
+
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.filterMateriales();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.allMateriales.length / this.itemsPerPage);
+  }
+  
+  getPageNumbers(): number[] {
+    return Array.from({ length: this.getTotalPages() }, (_, i) => i + 1);
+  }
+
 
   delete(material: Material): void{ 
     this.materialService.getEjerciciosByMaterialId(material.id).subscribe(
@@ -66,13 +103,5 @@ export class MaterialesComponent implements OnInit {
     );
   }
 
-  filterMateriales() {
-    if (this.searchTerm === '') {
-      this.materiales = this.allMateriales;
-    } else {
-      this.materiales = this.allMateriales.filter(material =>
-        material.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
-  }
+  
 }

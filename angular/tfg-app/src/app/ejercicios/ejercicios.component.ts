@@ -14,6 +14,7 @@ export class EjerciciosComponent implements OnInit {
   searchTerm: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 8; 
+  searching: boolean = false;
 
   constructor(private ejercicioService: EjercicioService) { }
   
@@ -27,10 +28,23 @@ export class EjerciciosComponent implements OnInit {
   }
 
   filterEjercicios() {
-    this.currentPage = 1;
-    this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
-      Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
-    ).slice(0, this.itemsPerPage);
+    if (this.searching) {
+      
+      if(this.searchTerm === ''){
+        this.currentPage = 1;
+        this.searching=false;
+        this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
+          Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
+        ).slice(0, this.itemsPerPage);
+
+      }else{
+      this.searching=true;
+      this.currentPage = 1;
+      this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
+        Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
+      );
+    }
+    }
   }
 
   onPageChange(pageNumber: number) {
