@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import com.tfg.springboot.backend.apirest.models.entity.Material;
 import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 import com.tfg.springboot.backend.apirest.models.services.IUploadFileService;
 import com.tfg.springboot.backend.apirest.models.services.IUsuarioService;
+import com.tfg.springboot.backend.apirest.seguridad.UserRequest;
 
 @CrossOrigin
 @RestController
@@ -59,24 +61,16 @@ public class UsuarioRestController {
 	
 	@PutMapping("/usuarios/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario update(@RequestBody Usuario usuario, @PathVariable Integer id) {
+	public Usuario update(@RequestBody UserRequest usuario, @PathVariable Integer id) {
 		
-		Usuario usuarioActual = usuarioService.findById(id);
+		Optional<Usuario> usuarioOptional = usuarioService.update(usuario,id);
 		
-		usuarioActual.setNombre(usuario.getNombre());
-		usuarioActual.setApellidos(usuario.getApellidos());
-		usuarioActual.setDni(usuario.getDni());
-		usuarioActual.setEmail(usuario.getEmail());
-		usuarioActual.setDomicilio(usuario.getDomicilio());
-		usuarioActual.setContraseña(usuario.getContraseña());
-		usuarioActual.setRol(usuario.getRol());
-		usuarioActual.setFechaNacimiento(usuario.getFechaNacimiento());
-		usuarioActual.setRegistros(usuario.getRegistros());
-		usuarioActual.setFoto(usuario.getFoto());
-		usuarioActual.setDadoDeAlta(usuario.isDadoDeAlta());
-		usuarioActual.setTelefono(usuario.getTelefono());
+		if(usuarioOptional.isPresent()) {
+			return usuarioOptional.get();
+		}
+		System.out.println("Problema en el update de usuario");
+		return null;
 		
-		return usuarioService.save(usuarioActual);
 		
 	}
 	

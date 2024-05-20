@@ -12,9 +12,8 @@ import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 
 public interface IUsuarioDao extends JpaRepository<Usuario, Integer> {
 	
-	public Usuario findByEmail(String email);
-	
-	
+	public Usuario findByUsername(String username);
+		
 	@Transactional
     @Modifying
     @Query(value = "DELETE FROM actividadesusuarios WHERE usuarios_fk = :userId", nativeQuery = true)
@@ -29,4 +28,5 @@ public interface IUsuarioDao extends JpaRepository<Usuario, Integer> {
 	@Modifying
 	@Query(value = "SELECT id FROM rutinas_pred WHERE usuario_id = :userID", nativeQuery = true)
 	List<Integer> obtenerIdRutinaPersonalizada(@Param("userID") Integer userId);
+
 }

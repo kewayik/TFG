@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,13 +21,22 @@ public class Usuario implements Serializable {
 	private String dni;
 	@Column(unique = true)
 	private String email;
+	private String username;
+	private String password;
 	private String domicilio;
 	private String telefono;
-	private String contraseña;
 	private String rol;
 	private Date fechaNacimiento;
 	private String foto;
 	private Boolean dadoDeAlta;
+	
+	@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name="users_roles",
+        joinColumns = {@JoinColumn(name="user_id")},
+        inverseJoinColumns = @JoinColumn(name="role_id"))
+    private List<Role> roles;
 	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
@@ -79,14 +90,6 @@ public class Usuario implements Serializable {
 		this.domicilio = domicilio;
 	}
 
-	public String getContraseña() {
-		return contraseña;
-	}
-
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-
 	public String getRol() {
 		return rol;
 	}
@@ -137,6 +140,38 @@ public class Usuario implements Serializable {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public Boolean getDadoDeAlta() {
+		return dadoDeAlta;
+	}
+
+	public void setDadoDeAlta(Boolean dadoDeAlta) {
+		this.dadoDeAlta = dadoDeAlta;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	/**
