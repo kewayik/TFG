@@ -1,5 +1,6 @@
 package com.tfg.springboot.backend.apirest.models.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,9 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tfg.springboot.backend.apirest.models.dao.IRoleDao;
 import com.tfg.springboot.backend.apirest.models.dao.IRutinaPersDao;
 import com.tfg.springboot.backend.apirest.models.dao.IUsuarioDao;
+import com.tfg.springboot.backend.apirest.models.entity.Role;
 import com.tfg.springboot.backend.apirest.models.entity.Usuario;
+import com.tfg.springboot.backend.apirest.seguridad.IUser;
 import com.tfg.springboot.backend.apirest.seguridad.UserRequest;
 @Service
 public class UsuarioServiceImpl implements IUsuarioService{
@@ -21,6 +25,9 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private IRoleDao roleDao;
 	
 	@Autowired
 	private IRutinaPersDao rutinaPersDao;
@@ -40,11 +47,12 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Override
 	@Transactional
 	public Usuario save(Usuario usuario) {
+		
+		usuario.setRoles(getRoles(usuario));		
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		return usuarioDao.save(usuario);
 	}
 
-	
 	@Override
 	@Transactional
 	public Optional<Usuario> update(UserRequest usuario, Integer id) {
@@ -65,6 +73,8 @@ public class UsuarioServiceImpl implements IUsuarioService{
 			usuarioActual.setFoto(usuario.getFoto());
 			usuarioActual.setDadoDeAlta(usuario.isDadoDeAlta());
 			usuarioActual.setTelefono(usuario.getTelefono());
+			
+			usuarioActual.setRoles(getRoles(usuario));
 			return Optional.of(usuarioDao.save(usuarioActual));
 		}
 		return Optional.empty();
@@ -86,6 +96,18 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		usuarioDao.deleteActividadesUsuariosByUserId(id);
 		usuarioDao.deleteById(id);
 		
+	}
+	
+	private List<Role> getRoles(IUser usuario) {
+		List<Role> roles = new ArrayList<>();
+		Optional<Role> optionalRoleUser = roleDao.findByNombre("ROLE_USER");
+		optionalRoleUser.ifPresent(roles::add);
+		
+		if(usuario.isAdmin()) {
+			Optional<Role> optionalRoleAdmin = roleDao.findByNombre("ROLE_ADMIN");
+			optionalRoleAdmin.ifPresent(roles::add);
+		}
+		return roles;
 	}
 
 }

@@ -7,7 +7,7 @@ import com.tfg.springboot.backend.apirest.models.entity.Registro;
 
 import jakarta.persistence.Column;
 
-public class UserRequest {
+public class UserRequest implements IUser{
 
 	private String nombre;
 	private String apellidos;
@@ -22,6 +22,7 @@ public class UserRequest {
 	private Date fechaNacimiento;
 	private String foto;
 	private Boolean dadoDeAlta;
+	private boolean admin;
 	private List<Registro> registros;
 
 	public String getNombre() {
@@ -118,6 +119,14 @@ public class UserRequest {
 
 	public Boolean getDadoDeAlta() {
 		return dadoDeAlta;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	public void setRegistros(List<Registro> registros) {
