@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UsuarioService } from './usuario.service';
 import { Usuario } from './usuario';
 import Swal from 'sweetalert2';
+import { SharingDataService } from '../sharing-data.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,12 +18,17 @@ export class UsuariosComponent {
   orderByCorreoAsc: boolean = true;
   searchTerm: string = '';
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, sharingData: SharingDataService, private authService: AuthService) { }
   
   ngOnInit(){
     this.usuarioService.getUsuarios().subscribe(
       usuarios => this.usuarios = usuarios
     );
+  }
+
+  
+  get admin() {
+    return this.authService.isAdmin();
   }
 
   toggleUsuarios() {

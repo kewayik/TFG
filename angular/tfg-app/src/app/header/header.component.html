@@ -38,7 +38,13 @@
               </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#" style="font-size: 1.2em;">Cerrar Sesión</a>
+                <div *ngIf="!login.isAuth; else elseBlock">
+                    <a class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</a></div>
+                <ng-template #elseBlock>
+                    {{login.usuario.username}}
+                    <a class="btn btn-outline-success" (click)="handlerLogout()">Cerrar Sesión</a>
+                </ng-template>
+              
               </li>
           </ul>      
       </div>

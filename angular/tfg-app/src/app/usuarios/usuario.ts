@@ -10,5 +10,7 @@ export class Usuario {
     domicilio: string;
     telefono: string;
     fechaNacimiento: string;
+    username: string;
+    password: string;
 
 }

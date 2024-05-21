@@ -1,4 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { AuthService } from "../auth/auth.service";
+import { Usuario } from "../usuarios/usuario";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-header',
@@ -8,4 +11,20 @@ import { Component } from "@angular/core";
 export class HeaderComponent{
  title: string = 'Gym Manager'
 
+ @Input() usuarios: Usuario[] = [];
+
+ constructor(private authService: AuthService, private router: Router){}
+
+ get login(){
+    return this.authService.usuario;
+ }
+
+ get admin(){
+    return this.authService.isAdmin();
+ }
+
+ handlerLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login'])
+  }
 }

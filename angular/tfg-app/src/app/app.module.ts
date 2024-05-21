@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes} from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
@@ -37,6 +37,11 @@ import { FormUsuarioComponent } from './usuarios/form-usuario.component';
 import { PoliticasComponent } from './politicas/politicas.component';
 import { HomeComponent } from './home/home.component';
 import { FormRegistroComponent } from './registros/form-registro.component';
+import { AuthComponent } from './auth/auth.component';
+import { authGuard } from './guards/auth.guard';
+import { Forbidden403Component } from './forbidden403/forbidden403.component';
+import { AuthService } from './auth/auth.service';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 registerLocaleData(localeES, 'es');
 
@@ -68,12 +73,14 @@ const routes: Routes = [
   {path: 'diasrutinas/form-diarutina/:id', component: FormDiarutinaComponent},
   {path: 'usuarios', component: UsuariosComponent},
   {path: 'usuarios/ver-usuario/:id', component: VerUsuarioComponent},
-  {path: 'usuarios/form-usuario', component: FormUsuarioComponent},
-  {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent},
+  {path: 'usuarios/form-usuario', component: FormUsuarioComponent, canActivate: [authGuard]},
+  {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent, canActivate: [authGuard]},
   {path: 'politicas', component: PoliticasComponent},
   {path: 'home', component: HomeComponent},
   {path: 'registros', component: RegistrosComponent},
   {path: 'registros/form-registro', component: FormRegistroComponent},
+  {path: 'login', component: AuthComponent},
+  {path: 'forbidden', component: Forbidden403Component},
 
 ];
 
@@ -106,7 +113,9 @@ const routes: Routes = [
     FormUsuarioComponent,
     PoliticasComponent,
     HomeComponent,
-    FormRegistroComponent
+    FormRegistroComponent,
+    AuthComponent,
+    Forbidden403Component
   ],
   imports: [
     BrowserModule,
@@ -114,6 +123,14 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, MatDatepickerModule, MatNativeDateModule
+  ],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -64,6 +64,7 @@ public class JwtValidationFilter extends BasicAuthenticationFilter {
 			 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 			 chain.doFilter(request, response);
 			 
+			 
 		 } catch (JwtException e) {
 			 Map<String, String> body = new HashMap<>();
 	            body.put("error", e.getMessage());

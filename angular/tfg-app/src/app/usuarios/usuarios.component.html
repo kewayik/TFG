@@ -1,7 +1,10 @@
 <div class="card border-primary mb-3">
   <div class="card-header d-flex justify-content-between align-items-center">
     <span style="font-weight: bold; font-size: xx-large;">Usuarios</span>
-    <button class="btn btn-rounded btn-primary" [routerLink]="['/usuarios/form-usuario']">Crear usuario</button>
+    <div *ngIf="admin">
+      <button class="btn btn-rounded btn-primary" [routerLink]="['/usuarios/form-usuario']">Crear usuario</button>
+    </div>
+
   </div>
   <div class="card-body text-primary">
     <div class="my-2 text-left">
@@ -48,10 +51,12 @@
               <td>{{ usuario.email }}</td>
               <td>
                 <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"><i class="fas fa-trash-alt"></i></button>
-                <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
-                <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
+                <div *ngIf="admin">
+                  <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
+                  <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
+                </div>
               </td>
             </tr>
           </tbody>
