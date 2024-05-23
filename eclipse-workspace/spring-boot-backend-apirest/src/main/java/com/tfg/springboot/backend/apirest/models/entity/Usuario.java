@@ -53,6 +53,9 @@ public class Usuario implements Serializable, IUser {
 		return id;
 	}
 
+	public Usuario() {
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

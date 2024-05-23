@@ -62,13 +62,11 @@ public class UsuarioRestController {
 	@PutMapping("/usuarios/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario update(@RequestBody UserRequest usuario, @PathVariable Integer id) {
-		
 		Optional<Usuario> usuarioOptional = usuarioService.update(usuario,id);
 		
 		if(usuarioOptional.isPresent()) {
 			return usuarioOptional.get();
 		}
-		System.out.println("Problema en el update de usuario");
 		return null;
 		
 		
@@ -104,16 +102,19 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
     
-    @GetMapping("usuarios/img/{nombreFoto:.+}")
-    public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto) {
-        Resource recurso = null;
-        try {
-            recurso = uploadService.cargar(nombreFoto);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HttpHeaders cabecera = new HttpHeaders();
-        cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
-        return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
-    }
+	@GetMapping("usuarios/img/{nombreFoto:.+}")
+	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto) {
+	    Resource recurso = null;
+	    try {
+	        recurso = uploadService.cargar(nombreFoto);
+	    } catch (MalformedURLException e) {
+	        e.printStackTrace();
+	    }
+	    if (recurso == null) {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	    HttpHeaders cabecera = new HttpHeaders();
+	    cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
+	    return new ResponseEntity<>(recurso, cabecera, HttpStatus.OK);
+	}
 }

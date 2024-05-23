@@ -56,7 +56,6 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Override
 	@Transactional
 	public Optional<Usuario> update(UserRequest usuario, Integer id) {
-		
 		Optional<Usuario> usuarioOptional = usuarioDao.findById(id);
 		
 		if(usuarioOptional.isPresent()) {
@@ -69,11 +68,9 @@ public class UsuarioServiceImpl implements IUsuarioService{
 			usuarioActual.setUsername(usuario.getUsername());
 			usuarioActual.setRol(usuario.getRol());
 			usuarioActual.setFechaNacimiento(usuario.getFechaNacimiento());
-			usuarioActual.setRegistros(usuario.getRegistros());
 			usuarioActual.setFoto(usuario.getFoto());
 			usuarioActual.setDadoDeAlta(usuario.isDadoDeAlta());
-			usuarioActual.setTelefono(usuario.getTelefono());
-			
+			usuarioActual.setTelefono(usuario.getTelefono());			
 			usuarioActual.setRoles(getRoles(usuario));
 			return Optional.of(usuarioDao.save(usuarioActual));
 		}

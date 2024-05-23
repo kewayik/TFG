@@ -30,6 +30,9 @@
               <li class="nav-item" routerLinkActive="active">
                   <a class="nav-link active" routerLink="/usuarios" style="font-size: 1.2em;">Usuarios</a>
               </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link active" [routerLink]="verPerfil" style="font-size: 1.2em;">Mi cuenta</a>
+            </li>
           </ul>  
           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -41,8 +44,8 @@
                 <div *ngIf="!login.isAuth; else elseBlock">
                     <a class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</a></div>
                 <ng-template #elseBlock>
-                    {{login.usuario.username}}
-                    <a class="btn btn-outline-success" (click)="handlerLogout()">Cerrar Sesión</a>
+                    <a class="mr-2" style="color:white">{{login.usuario.username}}</a>
+                    <a class="btn btn-primary mr-2" style="color:white" (click)="handlerLogout()">Cerrar Sesión</a>
                 </ng-template>
               
               </li>

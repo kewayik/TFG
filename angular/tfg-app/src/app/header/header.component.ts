@@ -27,4 +27,11 @@ export class HeaderComponent{
     this.authService.logout();
     this.router.navigate(['/login'])
   }
+
+  get verPerfil(){
+      if(this.authService.authenticated()){
+         return "/usuarios/ver-usuario/" + this.authService.usuario.usuario.id;
+      }
+     return null;
+   }
 }

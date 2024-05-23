@@ -3,7 +3,9 @@
         <div class="container">
           <h1 class="display-4">Bienvenido al Gimnasio Peso Puma</h1>
           <p class="lead">Transforma tu cuerpo. Transforma tu vida.</p>
-          <a href="#" class="btn btn-primary btn-lg">¡Vamos a tu rutina personalizada!</a>
+
+          <a href="#" *ngIf="login.isAuth" class="btn btn-primary btn-lg">¡Vamos a tu rutina personalizada!</a>
+          <a href="#" *ngIf="!login.isAuth" class="btn btn-primary btn-lg">¡Registrate en nuestra app!</a>
         </div>
     </section>
 

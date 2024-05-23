@@ -44,6 +44,7 @@ export class FormUsuarioComponent {
   }
 
   actualizar(): void {
+    this.usuario.registros = [];
     this.usuarioService.update(this.usuario).subscribe(() => {
       swal.fire('Usuario Actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success');
       this.router.navigate(['/usuarios']);

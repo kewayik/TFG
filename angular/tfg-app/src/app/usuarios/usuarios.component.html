@@ -51,12 +51,10 @@
               <td>{{ usuario.email }}</td>
               <td>
                 <button class="btn btn-rounded btn-info mr-2" [routerLink]="['/usuarios/ver-usuario', usuario.id]"><i class="fas fa-eye"></i></button>
-                <div *ngIf="admin">
-                  <button class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
-                  <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta"><i class="fas fa-trash-alt"></i></button>
-                  <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta">Dar de baja</button>
-                  <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta">Dar de alta</button>
-                </div>
+                <button *ngIf="admin" class="btn btn-rounded btn-warning mr-2" [routerLink]="['/usuarios/form-usuario', usuario.id]"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-rounded btn-danger mr-2" (click)="delete(usuario)" *ngIf="!usuario.dadoDeAlta && admin"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-rounded btn-danger mr-2" (click)="darDeBaja(usuario)" *ngIf="usuario.dadoDeAlta && admin">Dar de baja</button>
+                <button class="btn btn-rounded btn-success mr-2" (click)="darDeAlta(usuario)" *ngIf="!usuario.dadoDeAlta && admin">Dar de alta</button>
               </td>
             </tr>
           </tbody>
