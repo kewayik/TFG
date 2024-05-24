@@ -73,7 +73,7 @@ const routes: Routes = [
   {path: 'diasrutinas/form-diarutina/:id', component: FormDiarutinaComponent},
   {path: 'usuarios', component: UsuariosComponent},
   {path: 'usuarios/ver-usuario/:id', component: VerUsuarioComponent},
-  {path: 'usuarios/form-usuario', component: FormUsuarioComponent, canActivate: [authGuard]},
+  {path: 'usuarios/form-usuario', component: FormUsuarioComponent},
   {path: 'usuarios/form-usuario/:id', component: FormUsuarioComponent, canActivate: [authGuard]},
   {path: 'politicas', component: PoliticasComponent},
   {path: 'home', component: HomeComponent},

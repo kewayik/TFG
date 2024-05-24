@@ -3,6 +3,7 @@ import swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './usuario.service';
 import { Usuario } from './usuario';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-form-usuario',
@@ -15,10 +16,25 @@ export class FormUsuarioComponent {
   public creandoUsuario: boolean = false;
   public fotoSeleccionada: File;
 
-  constructor(private usuarioService: UsuarioService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private usuarioService: UsuarioService, private router: Router, private activatedRoute: ActivatedRoute,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(){
     this.cargarUsuario();
+  }
+
+  Enlazar(): void{
+    
+    if(this.authService.isAdmin()){
+      this.router.navigate(['/usuarios']);
+    }else{
+      this.router.navigate(['/home']);
+    }
+  }
+
+  get isAdmin(): boolean {
+    return this.authService.isAdmin();
   }
 
   cargarUsuario(): void {
@@ -36,7 +52,7 @@ export class FormUsuarioComponent {
     this.usuario.dadoDeAlta = false;
     this.usuarioService.create(this.usuario).subscribe(() => {
       swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} ha sido creado con éxito`, 'success');
-      this.router.navigate(['/usuarios']);
+      this.Enlazar();
     }, error => {
       console.error(error);
       swal.fire('Error', 'Ocurrió un error al crear el usuario', 'error');

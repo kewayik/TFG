@@ -12,6 +12,7 @@ export class Usuario {
     fechaNacimiento: string;
     username: string;
     password: string;
+    rol: string;
     registros: any[] = [];
     roles: any[] = [];
 

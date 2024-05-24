@@ -22,47 +22,101 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import com.tfg.springboot.backend.apirest.auth.filter.JwtAuthenticationFilter;
 import com.tfg.springboot.backend.apirest.auth.filter.JwtValidationFilter;
 import org.springframework.web.filter.CorsFilter;
-
 @Configuration
 public class SpringSecurityConfig {
 
     @Autowired
     private AuthenticationConfiguration authenticationConfiguration;
-    
+
     @Bean
     AuthenticationManager authenticationManager() throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-    
+
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(authz -> 
             authz
+            // GETS PARA TODOS
             .requestMatchers(HttpMethod.GET, 
-                    "/api/usuarios", 
                     "/api/uploads/img/{nombreFoto:.+}", 
                     "/api/usuarios/upload",
                     "/api/usuarios/ver-usuario/{id}",
-                    "/images/{nombreFoto:.+}"
-                    ).permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/usuarios/{id}").hasAnyRole("USER", "ADMIN")
-            .requestMatchers(HttpMethod.POST, "/api/usuarios").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.PUT, "/api/usuarios/{id}").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.DELETE, "/api/usuarios/{id}").hasRole("ADMIN")
-            .anyRequest().authenticated())
-            .cors(cors -> cors.configurationSource(configurationSource()))
-            .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-            .addFilter(new JwtValidationFilter(authenticationManager()))
-            .csrf(config -> config.disable())
-            .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .build();
+                    "/images/{nombreFoto:.+}",
+                    "/api/usuarios/{id}",
+                    "/api/usuarios",
+                    "/api/home",
+                    "/login",
+                    "/api/actividades",
+                    "/actividades/{id}"
+            ).permitAll()
+            
+            // GETS PARA ENTRENADORES
+            .requestMatchers(HttpMethod.GET,
+                "/api/usuarios/{id}",
+                "/api/form-actividad",
+                "/api/form-actividad/{id}",
+                "/api/form-actividad/ver-usuarios/{id}"
+            ).hasAnyRole("ENTRENADOR", "ADMIN")
+            
+            // GETS PARA ADMINS
+            .requestMatchers(HttpMethod.GET
+            ).hasRole("ADMIN")
+            
+            // POST PARA TODOS
+            .requestMatchers(HttpMethod.POST,
+                "/api/usuarios"
+            ).permitAll()
+            
+            // POST PARA ENTRENADORES
+            .requestMatchers(HttpMethod.POST,
+                "/api/actividades"
+            ).hasAnyRole("ENTRENADOR", "ADMIN")
+            
+            // POST PARA ADMINS
+            .requestMatchers(HttpMethod.POST
+            ).hasRole("ADMIN")
+            
+            // PUT PARA TODOS
+            .requestMatchers(HttpMethod.PUT,
+                "/api/usuarios/{id}"
+            ).permitAll()
+            
+            // PUT PARA ENTRENADORES
+            .requestMatchers(HttpMethod.PUT,
+                "/api/actividades/{id}"
+            ).hasAnyRole("ENTRENADOR", "ADMIN")
+            
+            // PUT PARA ADMINS
+            .requestMatchers(HttpMethod.PUT
+            ).hasRole("ADMIN")
+            
+            // DELETE PARA ENTRENADORES
+            .requestMatchers(HttpMethod.DELETE,
+                "/api/actividades/{id}"
+            ).hasAnyRole("ENTRENADOR", "ADMIN")
+            
+            // DELETE PARA ADMINS
+            .requestMatchers(HttpMethod.DELETE,
+                "/api/usuarios/{id}"
+            ).hasRole("ADMIN")
+            
+            // DELETE PARA TODOS (Debe estar al final y con restricciones específicas)
+            .anyRequest().authenticated()
+        )
+        .cors(cors -> cors.configurationSource(configurationSource()))
+        .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+        .addFilter(new JwtValidationFilter(authenticationManager()))
+        .csrf(config -> config.disable())
+        .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .build();
     }
-    
+
     @Bean
     CorsConfigurationSource configurationSource() {
         CorsConfiguration config = new CorsConfiguration();

@@ -4,11 +4,15 @@
         <div class="col-md-8">
           <div class="card-body">
             <h1 class="card-title" style="font-size: 3em;">{{ usuario.nombre }} {{usuario.apellidos}}</h1>
+            <p class="card-text">Nombre de usuario: {{ usuario.username }}</p>
+            <p class="card-text">Rol: {{ usuario.rol }}</p>
             <p class="card-text">DNI: {{ usuario.dni }}</p>
             <p class="card-text">Email: {{ usuario.email }}</p>
             <p class="card-text">Fecha de nacimiento: {{ usuario.fechaNacimiento }}</p>
             <p class="card-text">Telefono: {{ usuario.telefono }}</p>
             <p class="card-text">Domicilio: {{ usuario.domicilio }}</p>
+            <button class="btn btn-primary" *ngIf="mismoUsuario" (click)="editarPerfil()">Editar perfil</button>
+
           </div>
         </div>
         <div class="col-md-4">

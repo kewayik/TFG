@@ -28,5 +28,6 @@ public interface IUsuarioDao extends JpaRepository<Usuario, Integer> {
 	@Modifying
 	@Query(value = "SELECT id FROM rutinas_pred WHERE usuario_id = :userID", nativeQuery = true)
 	List<Integer> obtenerIdRutinaPersonalizada(@Param("userID") Integer userId);
+	
 
 }

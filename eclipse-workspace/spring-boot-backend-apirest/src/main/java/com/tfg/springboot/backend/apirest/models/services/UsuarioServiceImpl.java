@@ -48,7 +48,8 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Transactional
 	public Usuario save(Usuario usuario) {
 		
-		usuario.setRoles(getRoles(usuario));		
+		usuario.setRoles(getRoles(usuario));
+		
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		return usuarioDao.save(usuario);
 	}
@@ -98,12 +99,27 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	private List<Role> getRoles(IUser usuario) {
 		List<Role> roles = new ArrayList<>();
 		Optional<Role> optionalRoleUser = roleDao.findByNombre("ROLE_USER");
+		Optional<Role> optionalRoleAdmin = roleDao.findByNombre("ROLE_ADMIN");
+		Optional<Role> optionalRoleEntrenador = roleDao.findByNombre("ROLE_ENTRENADOR");
+		
+		
 		optionalRoleUser.ifPresent(roles::add);
 		
-		if(usuario.isAdmin()) {
-			Optional<Role> optionalRoleAdmin = roleDao.findByNombre("ROLE_ADMIN");
-			optionalRoleAdmin.ifPresent(roles::add);
+		try {
+			switch(usuario.getRol()) {
+			case "administrador":
+				optionalRoleAdmin.ifPresent(roles::add);
+				optionalRoleEntrenador.ifPresent(roles::add);
+				break;
+			case "entrenador":
+				optionalRoleEntrenador.ifPresent(roles::add);
+			default:
+				break;
+			}
+		} catch (NullPointerException e) {
+			
 		}
+		
 		return roles;
 	}
 

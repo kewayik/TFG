@@ -42,16 +42,20 @@ export class AppComponent {
             next: usuarios => {
               const usuario = usuarios.find(u => u.username === username);
               if (usuario) {
-                console.log(usuario);
-                const login = {
-                  usuario,
-                  isAuth: true,
-                  isAdmin: payload.isAdmin
+                if(usuario.dadoDeAlta){
+                  console.log(usuario);
+                  const login = {
+                    usuario,
+                    isAuth: true,
+                    isAdmin: payload.isAdmin
+                  }
+                  console.log(login);
+                  this.authService.usuario = login;
+                  this.authService.token = token;
+                  this.router.navigate(['/home']);
+                }else{
+                  Swal.fire('Error en login', 'Usuario no dado de alta', 'error');
                 }
-                console.log(login);
-                this.authService.usuario = login;
-                this.authService.token = token;
-                this.router.navigate(['/home']);
               } else {
                 Swal.fire('Error', 'Usuario no encontrado', 'error');
               }
