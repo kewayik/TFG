@@ -7,7 +7,7 @@
         <button class="btn btn-rounded btn-secondary" (click)="toggleHideFullActivities()">
             {{ hideFullActivities ? 'Mostrar todas' : 'Ocultar llenas' }}
         </button>
-        <button class="btn btn-rounded btn-primary" [routerLink]="['/actividades/form-actividad']">Crear actividad</button>
+        <button class="btn btn-rounded btn-primary" *ngIf="entrenador || admin" [routerLink]="['/actividades/form-actividad']">Crear actividad</button>
     </div>
     <div class="card-body text-primary">
         <div class="my-2 text-left">
@@ -25,9 +25,9 @@
                         <span>{{actividad.fecha}}</span>
                     </button>
                     <div>
-                        <button type="button" name="editar" [routerLink]="['/actividades/form-actividad', actividad.id]" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                        <button type="button" name="editar" *ngIf="entrenador || admin" [routerLink]="['/actividades/form-actividad', actividad.id]" class="btn btn-primary"><i class="fas fa-edit"></i></button>
                         <span class="mx-2"></span>
-                        <button type="button" name="eliminar" (click)="delete(actividad)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" name="eliminar" *ngIf="entrenador || admin" (click)="delete(actividad)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </h5>
             </div>
@@ -37,7 +37,7 @@
                     <p><strong>Descripción:</strong> {{actividad.descripcion}}</p>
                     <p><strong>Sala:</strong> {{actividad.sala}}</p>
                     <p><strong>Aforo:</strong> {{actividad.usuarios.length}}/{{actividad.aforo}}</p>
-                    <button [routerLink]="['/actividades/ver-usuarios',actividad.id]" class="btn btn-primary float-left mb-3">Ver usuarios</button>                    
+                    <button [routerLink]="['/actividades/ver-usuarios',actividad.id]" *ngIf="entrenador || admin" class="btn btn-primary float-left mb-3">Ver usuarios</button>                    
                     <button class="btn btn-primary float-right mb-3" [disabled]="actividad.usuarios.length === actividad.aforo">Reservar</button>
                 </div>
             </div>

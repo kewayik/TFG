@@ -4,7 +4,7 @@ import { AuthService } from './auth/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Usuario } from './usuarios/usuario';
-import { UsuarioService } from './usuarios/usuario.service'; // Asegúrate de importar el servicio
+import { UsuarioService } from './usuarios/usuario.service'; 
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(
     private sharingData: SharingDataService, 
     private authService: AuthService, 
-    private usuarioService: UsuarioService, // Inyecta el servicio de usuarios
+    private usuarioService: UsuarioService,
     private router: Router
   ) {}
 

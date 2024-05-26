@@ -3,6 +3,7 @@ import { Material } from './material';
 import { MaterialService } from './material.service';
 import Swal from 'sweetalert2';
 import { Ejercicio } from '../ejercicios/ejercicio';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-materiales',
@@ -18,7 +19,7 @@ export class MaterialesComponent implements OnInit {
   itemsPerPage: number = 8;
   searching: boolean = false;
 
-  constructor(private materialService: MaterialService) { }
+  constructor(private materialService: MaterialService, private authService: AuthService) { }
 
   ngOnInit(){
     this.materialService.getMateriales().subscribe(
@@ -28,6 +29,18 @@ export class MaterialesComponent implements OnInit {
       }
     );
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
+
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
 
   filterMateriales() {
     if(this.searching){

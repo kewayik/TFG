@@ -9,30 +9,30 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
                   <a class="nav-link active" routerLink="/materiales" style="font-size: 1.2em;">Materiales</a>
               </li>
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
                   <a class="nav-link active" routerLink="/rutinas" style="font-size: 1.2em;">Rutinas</a>
               </li>
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
                   <a class="nav-link active" routerLink="/actividades" style="font-size: 1.2em;">Actividades</a>
               </li>
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
                   <a class="nav-link active" routerLink="/ejercicios" style="font-size: 1.2em;">Ejercicios</a>
               </li>
               <li class="nav-item" routerLinkActive="active">
                   <a class="nav-link active" routerLink="/gimnasio" style="font-size: 1.2em;">Gimnasio</a>
               </li>
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active"  *ngIf="entrenador || admin">
                   <a class="nav-link active" routerLink="/usuarios" style="font-size: 1.2em;">Usuarios</a>
               </li>
-              <li class="nav-item" routerLinkActive="active">
+              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
                 <a class="nav-link active" [routerLink]="verPerfil" style="font-size: 1.2em;">Mi cuenta</a>
             </li>
           </ul>  
           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item"  *ngIf="authenticated">
                 <a class="nav-link" style="font-size: 1.2em;" routerLink="/notificaciones">
                   <i class="fas fa-bell"></i> 
               </a>

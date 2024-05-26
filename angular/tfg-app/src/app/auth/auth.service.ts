@@ -60,8 +60,16 @@ export class AuthService {
     return null;
   }
 
+  hasRole(role: string): boolean {
+    return this.usuario.usuario?.rol === role;
+  }
+
   isAdmin() {
     return this.usuario.isAdmin;
+  }
+
+  isEntrenador() {
+    return this.usuario.usuario?.rol === 'entrenador';
   }
 
   authenticated() {

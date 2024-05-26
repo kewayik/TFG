@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateFn, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state) => {
   
   const service = inject(AuthService);
   const router = inject(Router);
@@ -14,10 +14,15 @@ export const authGuard: CanActivateFn = (route, state) => {
       router.navigate(['/login']);
       return false;
     }
-    if(!service.isAdmin()){
+    
+    const userRole = service.usuario.usuario?.rol;
+    const requiredRole = route.data['role'] as string;
+
+    if (!hasAccess(userRole, requiredRole)) {
       router.navigate(['/forbidden']);
       return false;
     }
+    
     return true;
   }
   router.navigate(['/login']);
@@ -31,4 +36,14 @@ const isTokenExpired = () => {
   const exp = payload.exp;
   const now = new Date().getTime() / 1000;
   return (now > exp) ? true : false;
+}
+
+const hasAccess = (userRole: string, requiredRole: string) => {
+  const rolesHierarchy = {
+    'cliente': 1,
+    'entrenador': 2,
+    'administrador': 3
+  };
+  
+  return rolesHierarchy[userRole] >= rolesHierarchy[requiredRole];
 }

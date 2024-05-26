@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gimnasio } from './gimnasio';
 import { GimnasioService } from './gimnasio.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-gimnasios',
@@ -13,7 +14,7 @@ export class GimnasiosComponent implements OnInit {
   modoEdicion: boolean = false;
   gimnasioOriginal: Gimnasio;
 
-  constructor(private gimnasioService: GimnasioService) {
+  constructor(private gimnasioService: GimnasioService, private authService: AuthService) {
     this.gimnasio = {
       nombre: 'Peso puma',
       telefono: 952695478,
@@ -27,6 +28,10 @@ export class GimnasiosComponent implements OnInit {
     this.gimnasioService.updateGimnasio(this.gimnasio);
     this.gimnasioOriginal = { ...this.gimnasio };
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
 
   editar(): void {
     this.modoEdicion = true;

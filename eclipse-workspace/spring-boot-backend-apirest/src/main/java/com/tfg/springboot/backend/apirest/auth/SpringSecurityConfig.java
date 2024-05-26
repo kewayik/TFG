@@ -42,26 +42,49 @@ public class SpringSecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(authz -> 
             authz
-            // GETS PARA TODOS
+            // GETS PARA NO LOGEADOS TAMBIEN
             .requestMatchers(HttpMethod.GET, 
+                    "/api/home",
+                    "/login",
+                    "/usuarios/form-usuario",
+                    "/api/usuarios",
                     "/api/uploads/img/{nombreFoto:.+}", 
                     "/api/usuarios/upload",
                     "/api/usuarios/ver-usuario/{id}",
-                    "/images/{nombreFoto:.+}",
-                    "/api/usuarios/{id}",
+                    "/images/{nombreFoto:.+}"
+            ).permitAll()
+            
+            
+            //GETS PARA TODOS ROLES
+            .requestMatchers(HttpMethod.GET, 
+                   "/api/usuarios/{id}",
                     "/api/usuarios",
                     "/api/home",
                     "/login",
                     "/api/actividades",
-                    "/actividades/{id}"
-            ).permitAll()
+                    "/api/actividades/{id}",
+                    "/api/ejercicios",
+                    "/api/ejercicios/{id}",
+                    "/api/materiales",
+                    "/api/materiales/{id}",
+                    "/api/notificaciones",
+                    "/api/notificaciones/{id}",
+                    "/api/registros",
+                    "/api/registros/{id}",
+                    "/api/rutinasPers",
+                    "/api/rutinasPers/{id}",
+                    "/api/rutinasPred",
+                    "/api/rutinasPred/{id}"
+            ).hasAnyRole("ENTRENADOR", "ADMIN", "USER")
             
             // GETS PARA ENTRENADORES
             .requestMatchers(HttpMethod.GET,
                 "/api/usuarios/{id}",
                 "/api/form-actividad",
                 "/api/form-actividad/{id}",
-                "/api/form-actividad/ver-usuarios/{id}"
+                "/api/form-actividad/ver-usuarios/{id}",
+                "/api/diasrutinas",
+                "/api/diasrutinas/{id}"
             ).hasAnyRole("ENTRENADOR", "ADMIN")
             
             // GETS PARA ADMINS
@@ -70,12 +93,20 @@ public class SpringSecurityConfig {
             
             // POST PARA TODOS
             .requestMatchers(HttpMethod.POST,
-                "/api/usuarios"
+                "/api/usuarios",
+                "/api/registros",
+                "api/usuarios/upload"
             ).permitAll()
             
             // POST PARA ENTRENADORES
             .requestMatchers(HttpMethod.POST,
-                "/api/actividades"
+                "/api/actividades",
+                "/api/diasrutinas",
+                "/api/ejercicios",
+                "/api/materiales",
+                "/api/notificaciones",
+                "/api/rutinasPers",
+                "/api/rutinasPred"
             ).hasAnyRole("ENTRENADOR", "ADMIN")
             
             // POST PARA ADMINS
@@ -84,12 +115,18 @@ public class SpringSecurityConfig {
             
             // PUT PARA TODOS
             .requestMatchers(HttpMethod.PUT,
-                "/api/usuarios/{id}"
+                "/api/usuarios/{id}",
+                "/api/registros/{id}"
             ).permitAll()
             
             // PUT PARA ENTRENADORES
             .requestMatchers(HttpMethod.PUT,
-                "/api/actividades/{id}"
+                "/api/actividades/{id}",
+                "/api/diasrutinas/{id}",
+                "/api/ejercicios/{id}",
+                "/api/materiales/{id}",
+                "/api/rutinasPers/{id}",
+                "/api/rutinasPred/{id}"
             ).hasAnyRole("ENTRENADOR", "ADMIN")
             
             // PUT PARA ADMINS
@@ -98,7 +135,13 @@ public class SpringSecurityConfig {
             
             // DELETE PARA ENTRENADORES
             .requestMatchers(HttpMethod.DELETE,
-                "/api/actividades/{id}"
+                "/api/actividades/{id}",
+                "/api/diasrutinas/{id}",
+                "/api/ejercicios/{id}",
+                "/api/materiales/{id}",
+                "/api/notificaciones/{id}",
+                "/api/rutinasPers/{id}",
+                "/api/rutinasPred/{id}"
             ).hasAnyRole("ENTRENADOR", "ADMIN")
             
             // DELETE PARA ADMINS
@@ -106,8 +149,14 @@ public class SpringSecurityConfig {
                 "/api/usuarios/{id}"
             ).hasRole("ADMIN")
             
+         // DELETE PARA TODOS
+            .requestMatchers(HttpMethod.DELETE,
+            		"/api/registros/{id}"
+            ).hasAnyRole("ENTRENADOR", "ADMIN", "USER")
+            
             // DELETE PARA TODOS (Debe estar al final y con restricciones específicas)
             .anyRequest().authenticated()
+            
         )
         .cors(cors -> cors.configurationSource(configurationSource()))
         .addFilter(new JwtAuthenticationFilter(authenticationManager()))

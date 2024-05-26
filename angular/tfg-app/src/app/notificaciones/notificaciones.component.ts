@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NotificacionService } from './notificacion.service';
 import { Notificacion } from './notificacion';
 import Swal from 'sweetalert2';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-notificaciones',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class NotificacionesComponent {
 
-  constructor(private notificacionService: NotificacionService) { }
+  constructor(private notificacionService: NotificacionService, private authService: AuthService) { }
 
   notificaciones: Notificacion[];
   
@@ -18,6 +19,19 @@ export class NotificacionesComponent {
       notificaciones => this.notificaciones = notificaciones
     );
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
+
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
+
   eliminarNotificacion(notificacion: Notificacion): void {
     Swal.fire({
         title: "¿Está seguro?",

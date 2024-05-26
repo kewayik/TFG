@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Rutina } from './rutina';
 import { RutinaService } from './rutina.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-rutinas',
   templateUrl: './rutinas.component.html'
 })
 export class RutinasComponent {
-  constructor(private rutinasService:RutinaService) { }
+  constructor(private rutinasService:RutinaService, private authService: AuthService) { }
 
   rutinas: Rutina[];
   
@@ -17,6 +18,18 @@ export class RutinasComponent {
       rutinas => this.rutinas = rutinas
     );
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
+
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
 
   delete (rutina: Rutina): void {
     Swal.fire({

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Actividad } from './actividad';
 import { ActividadService } from './actividad.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-actividades',
@@ -15,13 +16,25 @@ export class ActividadesComponent {
 
   actividades: Actividad[];
 
-  constructor(private actividadService: ActividadService) { }
+  constructor(private actividadService: ActividadService, private authService: AuthService) { }
   
   ngOnInit(){
     this.actividadService.getActividades().subscribe(
       actividades => this.actividades = actividades
     );
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
+
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
 
   toggleCollapse(index: number) {
     this.activeIndex = (this.activeIndex === index) ? null : index;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ejercicio } from './ejercicio';
 import { EjercicioService } from './ejercicio.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-ejercicios',
@@ -16,7 +17,7 @@ export class EjerciciosComponent implements OnInit {
   itemsPerPage: number = 8; 
   searching: boolean = false;
 
-  constructor(private ejercicioService: EjercicioService) { }
+  constructor(private ejercicioService: EjercicioService, private authService: AuthService) { }
   
   ngOnInit(){
     this.ejercicioService.getEjercicios().subscribe(
@@ -26,6 +27,18 @@ export class EjerciciosComponent implements OnInit {
       }
     );
   }
+
+  get admin(){
+    return this.authService.isAdmin();
+ }
+
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
 
   filterEjercicios() {
     if (this.searching) {

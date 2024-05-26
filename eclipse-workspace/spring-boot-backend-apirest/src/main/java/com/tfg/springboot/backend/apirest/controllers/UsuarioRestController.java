@@ -80,27 +80,58 @@ public class UsuarioRestController {
 	}
 	
 	@PostMapping("/usuarios/upload")
-    public ResponseEntity<?> upload(@RequestParam("fotoUsuario") MultipartFile archivo, @RequestParam("id") Integer id) {
-        Map<String, Object> response = new HashMap<>();
-        Usuario usuario = usuarioService.findById(id);
-        if (!archivo.isEmpty()) {
-            String nombreArchivo = null;
-            try {
-                nombreArchivo = uploadService.copiar(archivo);
-            } catch (IOException e) {
-                response.put("mensaje", "Error al subir la imagen del usuario");
-                response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
-                return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            String nombreFotoAnterior = usuario.getFoto();
-            uploadService.eliminar(nombreFotoAnterior);
-            usuario.setFoto(nombreArchivo);
-            usuarioService.save(usuario);
-            response.put("usuario", usuario);
-            response.put("mensaje", "Has subido correctamente la imagen: " + nombreArchivo);
-        }
-        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
-    }
+	public ResponseEntity<?> upload(@RequestParam("fotoUsuario") MultipartFile archivo, @RequestParam("id") Integer id) {
+	    Map<String, Object> response = new HashMap<>();
+	    Usuario usuario = usuarioService.findById(id);
+	    if (usuario == null) {
+	        response.put("mensaje", "Error: no se pudo editar, el usuario ID: ".concat(id.toString().concat(" no existe en la base de datos!")));
+	        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+	    }
+
+	    if (!archivo.isEmpty()) {
+	        String nombreArchivo = null;
+	        try {
+	            nombreArchivo = uploadService.copiar(archivo);
+	        } catch (IOException e) {
+	            response.put("mensaje", "Error al subir la imagen del usuario");
+	            response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
+	            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+	        }
+
+	        String nombreFotoAnterior = usuario.getFoto();
+	        
+	        //No voy a eliminar la foto en uploads, porque sino en las pruebas tengo que estar cada
+	        //dos por tres recuperando las imágenes
+	        //uploadService.eliminar(nombreFotoAnterior);
+
+	        usuario.setFoto(nombreArchivo);
+	        UserRequest userRequest = convertToUserRequest(usuario);
+
+	        usuarioService.update(userRequest, id);
+
+	        response.put("usuario", usuario);
+	        response.put("mensaje", "Has subido correctamente la imagen: " + nombreArchivo);
+	    }
+	    return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+	}
+
+	private UserRequest convertToUserRequest(Usuario usuario) {
+	    UserRequest userRequest = new UserRequest();
+	    userRequest.setNombre(usuario.getNombre());
+	    userRequest.setApellidos(usuario.getApellidos());
+	    userRequest.setDni(usuario.getDni());
+	    userRequest.setEmail(usuario.getEmail());
+	    userRequest.setUsername(usuario.getUsername());
+	    userRequest.setDomicilio(usuario.getDomicilio());
+	    userRequest.setTelefono(usuario.getTelefono());
+	    userRequest.setRol(usuario.getRol());
+	    userRequest.setFechaNacimiento(usuario.getFechaNacimiento());
+	    userRequest.setFoto(usuario.getFoto());
+	    userRequest.setDadoDeAlta(usuario.getDadoDeAlta());
+	    userRequest.setRegistros(usuario.getRegistros());
+	    return userRequest;
+	}
+
     
 	@GetMapping("usuarios/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto) {

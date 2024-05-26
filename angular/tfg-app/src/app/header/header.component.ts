@@ -23,6 +23,14 @@ export class HeaderComponent{
     return this.authService.isAdmin();
  }
 
+ get entrenador(){
+    return this.authService.isEntrenador();
+ }
+
+ get authenticated(){
+      return this.authService.authenticated();
+   }
+
  handlerLogout() {
     this.authService.logout();
     this.router.navigate(['/login'])

@@ -49,6 +49,9 @@ export class FormUsuarioComponent {
   }
 
   guardar(): void {
+    if (!this.usuario.rol) {
+      this.usuario.rol = 'cliente';
+    }
     this.usuario.dadoDeAlta = false;
     this.usuarioService.create(this.usuario).subscribe(() => {
       swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} ha sido creado con éxito`, 'success');
@@ -63,7 +66,7 @@ export class FormUsuarioComponent {
     this.usuario.registros = [];
     this.usuarioService.update(this.usuario).subscribe(() => {
       swal.fire('Usuario Actualizado', `El usuario ${this.usuario.nombre} ha sido actualizado con éxito`, 'success');
-      this.router.navigate(['/usuarios']);
+      this.Enlazar();
     }, error => {
       console.error(error);
       swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
