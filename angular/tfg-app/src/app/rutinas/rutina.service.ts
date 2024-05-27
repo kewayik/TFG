@@ -14,6 +14,7 @@ export class RutinaService {
   private urlEndpoint: string = 'http://localhost:8080/api/rutinasPred';
   private urlDiasRutina: string = 'http://localhost:8080/api/diasrutinas';
   private urlUsuarios: string = 'http://localhost:8080/api/usuarios';
+  private urlPersonalizadas: string = 'http://localhost:8080/api/rutinasPers';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -38,6 +39,10 @@ export class RutinaService {
 
   getRutina(id): Observable<Rutina>{
     return this.http.get<Rutina>(`${this.urlEndpoint}/${id}`);
+  }
+
+  getRutinaPersonalizada(usuarioId: number): Observable<Rutina> {
+    return this.http.get<Rutina>(`${this.urlPersonalizadas}/${usuarioId}`);
   }
 
   update(rutina: Rutina): Observable<Rutina>{

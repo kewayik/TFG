@@ -86,7 +86,7 @@ export class FormRutinaComponent implements OnInit {
       this.router.navigate(['/rutinas']);
     }, error => {
       console.error(error);
-      swal.fire('Error', 'Ocurrió un error al crear la rutina', 'error');
+      swal.fire('Error', 'Este usuario ya tiene una rutina personalizada', 'error');
     });
   }
 

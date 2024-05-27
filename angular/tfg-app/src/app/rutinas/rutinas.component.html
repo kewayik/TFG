@@ -1,10 +1,17 @@
+<div style="text-align: center; margin-bottom: 20px;">
+    <span style="font-weight: bold; font-size: xx-large;">¡Vamos a tu rutina personalizada!</span>
+    <div>
+        <button class="btn btn-primary my-2" [routerLink]="['/rutinas/ver-rutina-personalizada', usuarioId]">Acceder a mi rutina</button>
+    </div>
+</div>
+
 <div class="card border-primary mb-3">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <span style="font-weight: bold; font-size: xx-large;">Rutinas</span>
-        <div><button class="btn btn-success btn-primary mr-2" *ngIf="entrenador || admin" [routerLink]="['/diasrutinas']">Gestionar dias rutina</button>
+        <span style="font-weight: bold; font-size: xx-large;">Rutinas predeterminadas</span>
+        <div>
+            <button class="btn btn-success btn-primary mr-2" *ngIf="entrenador || admin" [routerLink]="['/diasrutinas']">Gestionar días rutina</button>
             <button class="btn btn-rounded btn-primary mr-2" *ngIf="entrenador || admin" [routerLink]="['/rutinas/form-rutina']">Crear rutina</button>
         </div>
-        
     </div>
     <div class="card-body text-primary">
         <div class="my-2 text-left">
@@ -20,9 +27,15 @@
                                     <td style="font-size: 1.6em; color: black;">{{ rutina.nombre }}</td>
                                     <td>
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-primary mr-2" [routerLink]="['/rutinas/ver-rutina', rutina.id]"><i class="fas fa-eye"></i></button>
-                                            <button type="button" class="btn btn-warning mr-2" *ngIf="entrenador || admin" [routerLink]="['/rutinas/form-rutina', rutina.id]"><i class="fas fa-edit"></i></button>
-                                            <button type="button" class="btn btn-danger" *ngIf="entrenador || admin" (click)="delete(rutina)"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-primary mr-2" [routerLink]="['/rutinas/ver-rutina', rutina.id]">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-warning mr-2" *ngIf="entrenador || admin" [routerLink]="['/rutinas/form-rutina', rutina.id]">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger" *ngIf="entrenador || admin" (click)="delete(rutina)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
                                         </div>
                                     </td>
                                 </ng-container>

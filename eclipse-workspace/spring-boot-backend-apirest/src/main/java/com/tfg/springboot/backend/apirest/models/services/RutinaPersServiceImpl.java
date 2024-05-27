@@ -1,6 +1,7 @@
 package com.tfg.springboot.backend.apirest.models.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,14 @@ public class RutinaPersServiceImpl implements IRutinaPersService {
 	public RutinaPers findById(Integer id) {
 		return rutinapersDao.findById(id).orElse(null);
 	}
-
+	
+	@Override
+	public RutinaPers findByIdDeUsuario(Integer id) {
+		
+		Integer idRutina = rutinapersDao.findByIdDeUsuario(id);
+		System.out.println("Id de la rutina: "+idRutina+" Id del usuario: "+id);
+		return rutinapersDao.findById(idRutina).orElse(null);
+	}
 
 	@Override
 	@Transactional
@@ -42,5 +50,6 @@ public class RutinaPersServiceImpl implements IRutinaPersService {
 		rutinapersDao.deleteById(id);
 		
 	}
+
 
 }

@@ -19,6 +19,10 @@ export class RutinasComponent {
     );
   }
 
+  get usuarioId(){
+    return this.authService.usuario.usuario.id;
+  }
+
   get admin(){
     return this.authService.isAdmin();
  }

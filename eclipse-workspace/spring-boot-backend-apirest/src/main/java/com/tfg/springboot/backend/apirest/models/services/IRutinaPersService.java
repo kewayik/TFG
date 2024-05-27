@@ -9,6 +9,8 @@ public interface IRutinaPersService {
 	
 	public RutinaPers findById(Integer id);
 	
+	public RutinaPers findByIdDeUsuario(Integer id);
+	
 	public RutinaPers save(RutinaPers rutinaPers);
 	
 	public void delete(Integer id);

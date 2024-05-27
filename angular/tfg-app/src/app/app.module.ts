@@ -42,6 +42,7 @@ import { authGuard } from './guards/auth.guard';
 import { Forbidden403Component } from './forbidden403/forbidden403.component';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { VerRutinaPersonalizadaComponent } from './rutinas/ver-rutina-personalizada.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -80,6 +81,7 @@ const routes: Routes = [
   {path: 'registros/form-registro', component: FormRegistroComponent, canActivate: [authGuard], data: { role: 'cliente' }},
   {path: 'login', component: AuthComponent},
   {path: 'forbidden', component: Forbidden403Component},
+  {path: 'rutinas/ver-rutina-personalizada/:id', component: VerRutinaPersonalizadaComponent, canActivate: [authGuard], data: { role: 'cliente' }}
 ];
 
 @NgModule({
@@ -113,7 +115,8 @@ const routes: Routes = [
     HomeComponent,
     FormRegistroComponent,
     AuthComponent,
-    Forbidden403Component
+    Forbidden403Component,
+    VerRutinaPersonalizadaComponent
   ],
   imports: [
     BrowserModule,

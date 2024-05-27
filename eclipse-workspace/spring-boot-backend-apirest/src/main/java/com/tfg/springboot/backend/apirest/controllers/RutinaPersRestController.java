@@ -33,8 +33,8 @@ public class RutinaPersRestController {
 	}
 	
 	@GetMapping("/rutinasPers/{id}")
-	public RutinaPers show(@PathVariable Integer id) {
-		return rutinapersService.findById(id);
+	public RutinaPers show(@PathVariable Integer id) {		
+		return rutinapersService.findByIdDeUsuario(id);		
 	}
 	
 	@PostMapping("/rutinasPers")
