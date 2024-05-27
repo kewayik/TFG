@@ -109,6 +109,7 @@ public class SpringSecurityConfig {
                 "/api/rutinasPred"
             ).hasAnyRole("ENTRENADOR", "ADMIN")
             
+            
             // POST PARA ADMINS
             .requestMatchers(HttpMethod.POST
             ).hasRole("ADMIN")
@@ -116,12 +117,12 @@ public class SpringSecurityConfig {
             // PUT PARA TODOS
             .requestMatchers(HttpMethod.PUT,
                 "/api/usuarios/{id}",
-                "/api/registros/{id}"
+                "/api/registros/{id}",
+                "/api/actividades/{id}"
             ).permitAll()
             
             // PUT PARA ENTRENADORES
-            .requestMatchers(HttpMethod.PUT,
-                "/api/actividades/{id}",
+            .requestMatchers(HttpMethod.PUT,                
                 "/api/diasrutinas/{id}",
                 "/api/ejercicios/{id}",
                 "/api/materiales/{id}",

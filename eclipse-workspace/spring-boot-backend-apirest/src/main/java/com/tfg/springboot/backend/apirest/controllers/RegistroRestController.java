@@ -40,25 +40,11 @@ public class RegistroRestController {
 	@PostMapping("/registros")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Registro create(@RequestBody Registro registro) {
+		
+		System.out.println("Registo de ejercicio: "+registro.getEjercicio());
 		return registroService.save(registro);
 	}
 	
-	@PutMapping("/registros/{id}")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Registro update(@RequestBody Registro registro, @PathVariable Integer id) {
-		
-		Registro registroActual = registroService.findById(id);
-		
-		registroActual.setFecha(registro.getFecha());
-		registroActual.setPeso(registro.getPeso());
-		registroActual.setRepeticiones(registro.getRepeticiones());
-		registroActual.setSeries(registro.getSeries());
-		//registroActual.setUsuario(registro.getUsuario());
-		//registroActual.setEjercicio(registro.getEjercicio());
-		
-		return registroService.save(registroActual);
-		
-	}
 	
 	@DeleteMapping("/registros/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)

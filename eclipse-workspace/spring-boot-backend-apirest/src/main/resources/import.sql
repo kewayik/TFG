@@ -66,6 +66,7 @@ INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, emai
 INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('entrenador', true, 'guille.png', 'Entrenador', 'Guillermo', '87763311L', 'entrenador@gmail.com', 'Calle Antonio, 5, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'entrenador', '2001-12-15', '987654321');
 
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 15, 5, '2024-03-12', 1, 2);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 4, '2024-03-14', 1, 2);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 12, 4, '2024-03-13', 2, 3);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 10, 3, '2024-03-14', 3, 4);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 5, '2024-03-15', 4, 5);

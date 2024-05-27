@@ -128,7 +128,7 @@ public class UsuarioRestController {
 	    userRequest.setFechaNacimiento(usuario.getFechaNacimiento());
 	    userRequest.setFoto(usuario.getFoto());
 	    userRequest.setDadoDeAlta(usuario.getDadoDeAlta());
-	    userRequest.setRegistros(usuario.getRegistros());
+//	    userRequest.setRegistros(usuario.getRegistros());
 	    return userRequest;
 	}
 

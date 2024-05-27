@@ -11,7 +11,7 @@ import swal from 'sweetalert2';
 })
 export class VerUsuariosComponent implements OnInit {
 
-  actividad: Actividad;
+  actividad: Actividad | undefined;
   
   constructor(private activatedRoute: ActivatedRoute, private actividadService: ActividadService) { }
 
@@ -35,12 +35,14 @@ export class VerUsuariosComponent implements OnInit {
       confirmButtonText: 'Sí, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        const index = this.actividad.usuarios.indexOf(usuario);
-        if (index !== -1) {
-          this.actividad.usuarios.splice(index, 1);
-          this.actividadService.update(this.actividad).subscribe(() => {
-            swal.fire('¡Eliminado!', 'El usuario ha sido eliminado de la actividad.', 'success');
-          });
+        if (this.actividad) {
+          const index = this.actividad.usuarios.indexOf(usuario);
+          if (index !== -1) {
+            this.actividad.usuarios.splice(index, 1);
+            this.actividadService.update(this.actividad).subscribe(() => {
+              swal.fire('¡Eliminado!', 'El usuario ha sido eliminado de la actividad.', 'success');
+            });
+          }
         }
       }
     });

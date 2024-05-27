@@ -1,1 +1,47 @@
-<p>registros works!</p>
+<div class="card border-primary mb-3">
+  <div class="card-header d-flex justify-content-between align-items-center text-center">
+    <span style="font-weight: bold; font-size: xx-large;">Registros de Ejercicios</span>
+    <button class="btn btn-primary btn-lg" [routerLink]="['/registros/form-registro']">Registrar ejercicio</button>
+  </div>
+  <div class="card-body text-primary">
+    <div class="my-2 text-left">
+      <div *ngIf="ejercicios.length === 0" class="alert alert-info">
+        No tienes registros de ejercicios.
+      </div>
+      <div *ngIf="ejercicios.length > 0">
+        <label for="ejercicioSelect">Selecciona un ejercicio:</label>
+        <select id="ejercicioSelect" class="form-control" (change)="onEjercicioChange($event.target.value)">
+          <option value="" selected disabled>Seleccione un ejercicio</option>
+          <option *ngFor="let ejercicio of ejercicios" [value]="ejercicio.id">
+            {{ ejercicio.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="registrosFiltrados.length > 0" class="mt-4">
+      <h5>Registros:</h5>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let registro of registrosFiltrados">
+          <div>
+            <strong>Fecha:</strong> {{ registro.fecha }}
+          </div>
+          <div>
+            <strong>Peso:</strong> {{ registro.peso }}
+          </div>
+          <div>
+            <strong>Repeticiones:</strong> {{ registro.repeticiones }}
+          </div>
+          <div>
+            <strong>Series:</strong> {{ registro.series }}
+          </div>
+          <button class="btn btn-danger btn-sm" (click)="eliminarRegistro(registro.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="selectedEjercicioId !== null && registrosFiltrados.length === 0" class="alert alert-info mt-4">
+      No hay registros para el ejercicio seleccionado.
+    </div>
+  </div>
+</div>

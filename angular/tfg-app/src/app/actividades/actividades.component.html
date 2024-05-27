@@ -38,7 +38,8 @@
                     <p><strong>Sala:</strong> {{actividad.sala}}</p>
                     <p><strong>Aforo:</strong> {{actividad.usuarios.length}}/{{actividad.aforo}}</p>
                     <button [routerLink]="['/actividades/ver-usuarios',actividad.id]" *ngIf="entrenador || admin" class="btn btn-primary float-left mb-3">Ver usuarios</button>                    
-                    <button class="btn btn-primary float-right mb-3" [disabled]="actividad.usuarios.length === actividad.aforo">Reservar</button>
+                    <button class="btn btn-primary float-right mb-3" (click)="reservarActividad(actividad)" *ngIf="puedeReservar(actividad)">Reservar</button>
+                    <button class="btn btn-primary float-right mb-3" (click)="cancelarActividad(actividad)" *ngIf="usuarioHaReservado(actividad)">Cancelar Reserva</button>
                 </div>
             </div>
         </div>

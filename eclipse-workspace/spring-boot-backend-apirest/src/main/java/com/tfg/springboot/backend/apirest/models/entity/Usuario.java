@@ -45,7 +45,6 @@ public class Usuario implements Serializable, IUser {
         inverseJoinColumns = @JoinColumn(name="role_id"))
     private List<Role> roles;
 	
-	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	private List<Registro> registros;
 
@@ -115,7 +114,7 @@ public class Usuario implements Serializable, IUser {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
+/*
 	public List<Registro> getRegistros() {
 		return registros;
 	}
@@ -123,7 +122,7 @@ public class Usuario implements Serializable, IUser {
 	public void setRegistros(List<Registro> registros) {
 		this.registros = registros;
 	}
-
+*/
 	public void setId(Integer id) {
 		this.id = id;
 	}
