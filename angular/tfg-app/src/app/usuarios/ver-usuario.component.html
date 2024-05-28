@@ -1,27 +1,35 @@
 <div class="container">
-    <div class="card">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h1 class="card-title" style="font-size: 3em;">{{ usuario.nombre }} {{usuario.apellidos}}</h1>
-            <p class="card-text">Nombre de usuario: {{ usuario.username }}</p>
-            <p class="card-text">Rol: {{ usuario.rol }}</p>
-            <p class="card-text">DNI: {{ usuario.dni }}</p>
-            <p class="card-text">Email: {{ usuario.email }}</p>
-            <p class="card-text">Fecha de nacimiento: {{ usuario.fechaNacimiento }}</p>
-            <p class="card-text">Telefono: {{ usuario.telefono }}</p>
-            <p class="card-text">Domicilio: {{ usuario.domicilio }}</p>
-            <button class="btn btn-primary" *ngIf="mismoUsuario" (click)="editarPerfil()">Editar perfil</button>
-
-          </div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h1 class="card-title" style="font-size: 3em;">{{ usuario.nombre }} {{usuario.apellidos}}</h1>
+          <p class="card-text">Nombre de usuario: {{ usuario.username }}</p>
+          <p class="card-text">Rol: {{ usuario.rol }}</p>
+          <p class="card-text">DNI: {{ usuario.dni }}</p>
+          <p class="card-text">Email: {{ usuario.email }}</p>
+          <p class="card-text">Fecha de nacimiento: {{ usuario.fechaNacimiento }}</p>
+          <p class="card-text">Telefono: {{ usuario.telefono }}</p>
+          <p class="card-text">Domicilio: {{ usuario.domicilio }}</p>
+          <button class="btn btn-primary mr-2" *ngIf="mismoUsuario" (click)="editarPerfil()">Editar perfil</button>
+          
+          <ng-container *ngIf="rutina; else noRutina">
+            <button class="btn btn-rounded btn-warning mr-2 my-2" *ngIf="entrenador || admin" (click)="editarRutina()">Editar rutina</button>
+            <button class="btn btn-rounded btn-danger mr-2 my-2" *ngIf="entrenador || admin" (click)="eliminarRutina()">Eliminar rutina</button>
+          </ng-container>
+          
+          <ng-template #noRutina>
+            <p class="card-text mt-4 alert alert-warning">Este usuario no tiene una rutina personalizada asignada</p>
+          </ng-template>
+          
         </div>
-        <div class="col-md-4">
-          <div class="float-right mt-3 mr-3">
-            <img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
-            <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="float-right mt-3 mr-3">
+          <img *ngIf="usuario?.foto" src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
+          <img *ngIf="!usuario?.foto" src="http://localhost:8080/images/noimage.png" alt="Sin foto" class="img-thumbnail rounded imagen-usuario shadow" style="width: 300px;">
         </div>
       </div>
     </div>
   </div>
-  
+</div>

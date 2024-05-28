@@ -68,13 +68,13 @@ public class Ejercicio implements Serializable {
 		this.grupoMuscular = grupoMuscular;
 	}
 	
-	public List<Registro> getRegistros() {
-		return registros;
-	}
-
-	public void setRegistros(List<Registro> registros) {
-		this.registros = registros;
-	}
+//	public List<Registro> getRegistros() {
+//		return registros;
+//	}
+//
+//	public void setRegistros(List<Registro> registros) {
+//		this.registros = registros;
+//	}
 	
 	public List<Material> getMaterialesEj() {
 		return materialesEj;

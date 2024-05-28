@@ -1,55 +1,55 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-       <a class="navbar-brand" routerLinkActive="active">
-            <img src="assets/images/icono.png" alt="Icono" class="icono-normal" routerLink="/home">
-        </a>
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLinkActive="active">
+        <img src="assets/images/icono.png" alt="Icono" class="icono-normal" routerLink="/home">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
-
+  
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
-                  <a class="nav-link active" routerLink="/materiales" style="font-size: 1.2em;">Materiales</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
-                  <a class="nav-link active" routerLink="/rutinas" style="font-size: 1.2em;">Rutinas</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
-                  <a class="nav-link active" routerLink="/actividades" style="font-size: 1.2em;">Actividades</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
-                  <a class="nav-link active" routerLink="/ejercicios" style="font-size: 1.2em;">Ejercicios</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
-                <a class="nav-link active" routerLink="/registros" style="font-size: 1.2em;">Registros</a>
-            </li>
-              <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link active" routerLink="/gimnasio" style="font-size: 1.2em;">Gimnasio</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="entrenador || admin">
-                  <a class="nav-link active" routerLink="/usuarios" style="font-size: 1.2em;">Usuarios</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active"  *ngIf="authenticated">
-                <a class="nav-link active" [routerLink]="verPerfil" style="font-size: 1.2em;">Mi cuenta</a>
-            </li>
-          </ul>  
-          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item"  *ngIf="authenticated">
-                <a class="nav-link" style="font-size: 1.2em;" routerLink="/notificaciones">
-                  <i class="fas fa-bell"></i> 
-              </a>
-              </li>
-              <li class="nav-item">
-                <div *ngIf="!login.isAuth; else elseBlock">
-                    <a class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</a></div>
-                <ng-template #elseBlock>
-                    <a class="mr-2" style="color:white">{{login.usuario.username}}</a>
-                    <a class="btn btn-primary mr-2" style="color:white" (click)="handlerLogout()">Cerrar Sesión</a>
-                </ng-template>
-              
-              </li>
-          </ul>      
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" routerLink="/materiales" style="font-size: 1.2em;">Materiales</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" routerLink="/rutinas" style="font-size: 1.2em;">Rutinas</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" routerLink="/actividades" style="font-size: 1.2em;">Actividades</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" routerLink="/ejercicios" style="font-size: 1.2em;">Ejercicios</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" routerLink="/registros" style="font-size: 1.2em;">Registros</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link active" routerLink="/gimnasio" style="font-size: 1.2em;">Gimnasio</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="entrenador || admin">
+            <a class="nav-link active" routerLink="/usuarios" style="font-size: 1.2em;">Usuarios</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authenticated">
+            <a class="nav-link active" [routerLink]="verPerfil" style="font-size: 1.2em;">Mi cuenta</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="authenticated">
+            <a class="nav-link" style="font-size: 1.2em;" routerLink="/notificaciones">
+              <i class="fas fa-bell"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <div *ngIf="!login.isAuth; else elseBlock">
+              <a class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</a></div>
+            <ng-template #elseBlock>
+              <a class="mr-2" style="color:white">{{login.usuario.username}}</a>
+              <a class="btn btn-primary mr-2" id="logoutButton" style="color:white" (click)="confirmLogout()">Cerrar Sesión</a>
+            </ng-template>
+          </li>
+        </ul>
       </div>
-  </div>
-</nav>
+    </div>
+  </nav>
+  

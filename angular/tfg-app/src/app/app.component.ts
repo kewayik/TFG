@@ -29,27 +29,22 @@ export class AppComponent {
 
   handlerLogin() {
     this.sharingData.handlerLoginEventEmitter.subscribe(({ username, password }) => {
-      console.log(username + ' ' + password);
 
       this.authService.loginUsuario({ username, password }).subscribe({
         next: response => {
           const token = response.token;
-          console.log(token);
           const payload = this.authService.getPayload(token);
-          console.log(payload);
 
           this.usuarioService.getUsuarios().subscribe({
             next: usuarios => {
               const usuario = usuarios.find(u => u.username === username);
               if (usuario) {
                 if(usuario.dadoDeAlta){
-                  console.log(usuario);
                   const login = {
                     usuario,
                     isAuth: true,
                     isAdmin: payload.isAdmin
                   }
-                  console.log(login);
                   this.authService.usuario = login;
                   this.authService.token = token;
                   this.router.navigate(['/home']);

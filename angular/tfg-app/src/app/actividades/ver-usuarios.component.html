@@ -1,19 +1,18 @@
 <div class="card border-primary mb-3">
-    <div class="card-header">
-      <span style="font-weight: bold; font-size: xx-large;">Usuarios en la actividad: {{ actividad.nombre }}</span>
-    </div>
-    <div class="card-body text-primary">
-      <div class="my-2 text-left">
-        <div *ngIf="actividad.usuarios?.length === 0" class="alert alert-info">
-          No hay usuarios registrados en esta actividad.
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let usuario of actividad.usuarios">
-            {{ usuario.nombre }} {{ usuario.apellidos }}
-            <button class="btn btn-danger btn-sm float-right" (click)="eliminarUsuario(usuario)">Eliminar</button>
-          </li>
-        </ul>
+  <div class="card-header">
+    <span style="font-weight: bold; font-size: xx-large;">Usuarios en la actividad: {{ actividad?.nombre }}</span>
+  </div>
+  <div class="card-body text-primary">
+    <div class="my-2 text-left">
+      <div *ngIf="actividad?.usuarios?.length === 0" class="alert alert-info">
+        No hay usuarios registrados en esta actividad.
       </div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let usuario of actividad?.usuarios">
+          {{ usuario.nombre }} {{ usuario.apellidos }}
+          <button class="btn btn-danger btn-sm float-right" (click)="eliminarUsuario(usuario)">Eliminar</button>
+        </li>
+      </ul>
     </div>
   </div>
-  
+</div>

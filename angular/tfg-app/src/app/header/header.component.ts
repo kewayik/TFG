@@ -2,44 +2,62 @@ import { Component, Input } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import { Usuario } from "../usuarios/usuario";
 import { Router } from "@angular/router";
+import swal from 'sweetalert2';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
- title: string = 'Gym Manager'
+export class HeaderComponent {
+  title: string = 'Gym Manager'
 
- @Input() usuarios: Usuario[] = [];
+  @Input() usuarios: Usuario[] = [];
 
- constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router) { }
 
- get login(){
+  get login() {
     return this.authService.usuario;
- }
-
- get admin(){
-    return this.authService.isAdmin();
- }
-
- get entrenador(){
-    return this.authService.isEntrenador();
- }
-
- get authenticated(){
-      return this.authService.authenticated();
-   }
-
- handlerLogout() {
-    this.authService.logout();
-    this.router.navigate(['/login'])
   }
 
-  get verPerfil(){
-      if(this.authService.authenticated()){
-         return "/usuarios/ver-usuario/" + this.authService.usuario.usuario.id;
+  get admin() {
+    return this.authService.isAdmin();
+  }
+
+  get entrenador() {
+    return this.authService.isEntrenador();
+  }
+
+  get authenticated() {
+    return this.authService.authenticated();
+  }
+
+  confirmLogout() {
+    swal.fire({
+      title: '¿Estás seguro?',
+      text: "¿Quieres cerrar sesión?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.handlerLogout();
       }
-     return null;
-   }
+    });
+  }
+
+  handlerLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  get verPerfil() {
+    if (this.authService.authenticated()) {
+      return "/usuarios/ver-usuario/" + this.authService.usuario.usuario.id;
+    }
+    return null;
+  }
 }

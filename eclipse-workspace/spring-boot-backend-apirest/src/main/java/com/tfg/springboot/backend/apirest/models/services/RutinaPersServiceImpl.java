@@ -32,9 +32,16 @@ public class RutinaPersServiceImpl implements IRutinaPersService {
 	@Override
 	public RutinaPers findByIdDeUsuario(Integer id) {
 		
+		
 		Integer idRutina = rutinapersDao.findByIdDeUsuario(id);
 		System.out.println("Id de la rutina: "+idRutina+" Id del usuario: "+id);
-		return rutinapersDao.findById(idRutina).orElse(null);
+		if(idRutina!=null) {
+			return rutinapersDao.findById(idRutina).orElse(null);
+		}else {
+			return null;
+		}
+		
+
 	}
 
 	@Override

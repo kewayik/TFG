@@ -79,6 +79,12 @@ export class FormRutinaComponent implements OnInit {
 
   guardar(): void {
     this.rutina.diasRutinas = this.diasSeleccionados;
+
+    if(this.rutinaService.getRutinaPersonalizada(this.usuarioSeleccionado.id)!=null){
+      swal.fire('Error', 'Ya existe una rutina personalizada para este usuario deberás eliminarla antes', 'error');
+      return;
+    }
+
     this.rutina.usuario = this.usuarioSeleccionado;
 
     this.rutinaService.create(this.rutina).subscribe(() => {
@@ -86,7 +92,7 @@ export class FormRutinaComponent implements OnInit {
       this.router.navigate(['/rutinas']);
     }, error => {
       console.error(error);
-      swal.fire('Error', 'Este usuario ya tiene una rutina personalizada', 'error');
+      swal.fire('Error', 'Error al crear rutina', 'error');
     });
   }
 

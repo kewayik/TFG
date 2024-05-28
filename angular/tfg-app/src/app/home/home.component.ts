@@ -19,4 +19,8 @@ export class HomeComponent {
     return this.authService.isAdmin();
  }
 
+ get usuarioId(){
+  return this.authService.usuario.usuario.id;
+}
+
 }

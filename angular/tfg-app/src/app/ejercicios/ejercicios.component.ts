@@ -10,8 +10,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class EjerciciosComponent implements OnInit {
 
-  ejercicios: Ejercicio[];
-  filteredEjercicios: Ejercicio[];
+  ejercicios: Ejercicio[] = [];
+  filteredEjercicios: Ejercicio[] = [];
   searchTerm: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 8; 
@@ -28,35 +28,30 @@ export class EjerciciosComponent implements OnInit {
     );
   }
 
-  get admin(){
+  get admin() {
     return this.authService.isAdmin();
- }
+  }
 
- get entrenador(){
+  get entrenador() {
     return this.authService.isEntrenador();
- }
+  }
 
- get authenticated(){
-      return this.authService.authenticated();
-   }
+  get authenticated() {
+    return this.authService.authenticated();
+  }
 
   filterEjercicios() {
     if (this.searching) {
-      
-      if(this.searchTerm === ''){
+      if(this.searchTerm === '') {
         this.currentPage = 1;
-        this.searching=false;
+        this.searching = false;
+        this.filteredEjercicios = this.ejercicios.slice(0, this.itemsPerPage);
+      } else {
+        this.currentPage = 1;
         this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
           Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
-        ).slice(0, this.itemsPerPage);
-
-      }else{
-      this.searching=true;
-      this.currentPage = 1;
-      this.filteredEjercicios = this.ejercicios.filter(ejercicio =>
-        Object.values(ejercicio).some(prop => prop && prop.toString().toLowerCase().includes(this.searchTerm.toLowerCase()))
-      );
-    }
+        );
+      }
     }
   }
 
@@ -68,7 +63,7 @@ export class EjerciciosComponent implements OnInit {
   }
 
   getTotalPages(): number {
-    return Math.ceil(this.ejercicios.length / this.itemsPerPage);
+    return this.ejercicios ? Math.ceil(this.ejercicios.length / this.itemsPerPage) : 0;
   }
   
   getPageNumbers(): number[] {
@@ -80,8 +75,8 @@ export class EjerciciosComponent implements OnInit {
     Swal.fire({
       title: "¿Está seguro?",
       text: ejercicio.materiales.length === 0 ?
-        `¿Seguro que desea eliminar la Ejercicio ${ejercicio.nombre}? Este ejercicio no está asociado a ningún material` :
-        `¿Seguro que desea eliminar la Ejercicio ${ejercicio.nombre}? Este ejercicio está asociado a los siguientes materiales: ${materialesTexto}`,
+        `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}? Este ejercicio no está asociado a ningún material` :
+        `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}? Este ejercicio está asociado a los siguientes materiales: ${materialesTexto}`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: 'Sí, eliminar!',

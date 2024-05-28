@@ -11,9 +11,9 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MaterialesComponent implements OnInit {
 
-  materiales: Material[];
-  allMateriales: Material[];
-  ejercicios: Ejercicio[];
+  materiales: Material[] = [];
+  allMateriales: Material[] = [];
+  ejercicios: Ejercicio[] = [];
   searchTerm: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 8;

@@ -76,6 +76,7 @@ export class FormDiarutinaComponent implements OnInit {
   guardar(): void {
     this.diarutina.ejercicios = this.ejerciciosSeleccionados;
 
+
     this.diarutinaService.create(this.diarutina).subscribe(() => {
       swal.fire('Nueva Diarutina', `La diarutina ${this.diarutina.nombre} ha sido creada con éxito`, 'success');
       this.router.navigate(['/diasrutinas']);
@@ -87,6 +88,7 @@ export class FormDiarutinaComponent implements OnInit {
 
   actualizar(): void {
     this.diarutina.ejercicios = this.ejerciciosSeleccionados;
+
     this.diarutinaService.update(this.diarutina).subscribe(() => {
       swal.fire('Diarutina Actualizada', `La diarutina ${this.diarutina.nombre} ha sido actualizada con éxito`, 'success');
       this.router.navigate(['/diasrutinas']);
