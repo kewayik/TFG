@@ -55,9 +55,9 @@
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.FilterRegistrationBean"/>
     <fullyQualifiedTypeName name="org.springframework.core.Ordered"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.Role"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="com.tfg.springboot.backend.apirest.models.entity.RutinaPers"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

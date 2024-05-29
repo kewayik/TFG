@@ -25,7 +25,6 @@ export class FormUsuarioComponent {
   }
 
   Enlazar(): void{
-    
     if(this.authService.isAdmin()){
       this.router.navigate(['/usuarios']);
     }else{
@@ -53,12 +52,32 @@ export class FormUsuarioComponent {
       this.usuario.rol = 'cliente';
     }
     this.usuario.dadoDeAlta = false;
-    this.usuarioService.create(this.usuario).subscribe(() => {
-      swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} ha sido creado con éxito`, 'success');
-      this.Enlazar();
-    }, error => {
-      console.error(error);
-      swal.fire('Error', 'Ocurrió un error al crear el usuario', 'error');
+
+    this.usuarioService.getUsuarios().subscribe(usuarios => {
+      const usuarioExistenteDni = usuarios.find(u => u.dni === this.usuario.dni);
+      const usuarioExistenteEmail = usuarios.find(u => u.email === this.usuario.email);
+      const usuarioExistenteUsername = usuarios.find(u => u.username === this.usuario.username);
+
+      if (usuarioExistenteDni) {
+        swal.fire('Error', 'El DNI ya está registrado', 'error');
+        return;
+      }
+      if (usuarioExistenteEmail) {
+        swal.fire('Error', 'El email ya está registrado', 'error');
+        return;
+      }
+      if (usuarioExistenteUsername) {
+        swal.fire('Error', 'El nombre de usuario ya está en uso', 'error');
+        return;
+      }
+
+      this.usuarioService.create(this.usuario).subscribe(() => {
+        swal.fire('Nuevo Usuario', `El usuario ${this.usuario.nombre} ha sido creado con éxito`, 'success');
+        this.Enlazar();
+      }, error => {
+        console.error(error);
+        swal.fire('Error', 'Ocurrió un error al crear el usuario', 'error');
+      });
     });
   }
 
