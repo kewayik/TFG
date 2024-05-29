@@ -95,7 +95,9 @@ public class SpringSecurityConfig {
             .requestMatchers(HttpMethod.POST,
                 "/api/usuarios",
                 "/api/registros",
-                "api/usuarios/upload"
+                "api/usuarios/upload",
+                "/api/usuarios/forgotPassword",
+                "/api/usuarios/resetPassword"
             ).permitAll()
             
             // POST PARA ENTRENADORES

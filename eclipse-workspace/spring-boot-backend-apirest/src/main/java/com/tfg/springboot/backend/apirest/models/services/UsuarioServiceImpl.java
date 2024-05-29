@@ -34,6 +34,12 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	
 	@Override
 	@Transactional(readOnly = true)
+	public Usuario findByEmail(String email) {
+        return usuarioDao.findByEmail(email);
+    }
+	
+	@Override
+	@Transactional(readOnly = true)
 	public List<Usuario> findAll() {
 		return usuarioDao.findAll();
 	}
@@ -43,7 +49,8 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	public Usuario findById(Integer id) {
 		return usuarioDao.findById(id).orElse(null);
 	}
-
+	
+	
 	@Override
 	@Transactional
 	public Usuario save(Usuario usuario) {

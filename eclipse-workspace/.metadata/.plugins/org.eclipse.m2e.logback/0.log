@@ -4194,3 +4194,115 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2024-05-29 11:45:37,436 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2024-05-29 11:55:53,676 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-05-29 11:55:53,834 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 11:55:53,841 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 12:55:17,984 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 12:55:18,104 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 12:55:18,113 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 12:56:46,487 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 12:56:46,502 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 12:56:46,516 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 12:57:51,285 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 12:57:51,336 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 12:57:51,345 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 12:58:47,017 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 12:58:47,024 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 12:58:47,029 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:02:58,220 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:02:58,231 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:02:58,238 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:03:06,706 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:03:06,718 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:03:06,722 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:03:38,716 [Worker-46: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.tfg.springboot.backend.apirest:spring-boot-backend-apirest:0.0.1-SNAPSHOT @ C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\pom.xml.
+2024-05-29 13:03:40,724 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 13:03:40,725 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 13:03:40,733 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:03:41,901 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-mail/3.1.1/spring-boot-starter-mail-3.1.1-sources.jar
+2024-05-29 13:03:42,217 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-mail/3.1.1/spring-boot-starter-mail-3.1.1-sources.jar
+2024-05-29 13:03:42,223 [Worker-51: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.boot:spring-boot-starter-mail:3.1.1
+2024-05-29 13:03:42,351 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-context-support/6.0.10/spring-context-support-6.0.10-sources.jar
+2024-05-29 13:03:42,541 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context-support/6.0.10/spring-context-support-6.0.10-sources.jar
+2024-05-29 13:03:42,550 [Worker-51: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-context-support:6.0.10
+2024-05-29 13:03:42,664 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/eclipse/angus/jakarta.mail/1.1.0/jakarta.mail-1.1.0-sources.jar
+2024-05-29 13:03:43,230 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/eclipse/angus/jakarta.mail/1.1.0/jakarta.mail-1.1.0-sources.jar
+2024-05-29 13:03:43,234 [Worker-51: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.eclipse.angus:jakarta.mail:1.1.0
+2024-05-29 13:04:05,233 [Worker-41: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.tfg.springboot.backend.apirest:spring-boot-backend-apirest:0.0.1-SNAPSHOT @ C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\pom.xml.
+2024-05-29 13:04:06,106 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:04:06,128 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:04:06,145 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:07:39,997 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:07:40,060 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:07:40,067 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:10:43,805 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:10:43,809 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 13:10:43,812 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:19:19,534 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:19:19,889 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 13:19:19,901 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:32:23,700 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:32:23,787 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:32:23,803 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:36:00,215 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:36:00,264 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:36:00,269 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:36:17,554 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:36:17,570 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:36:17,574 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:45:13,138 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:45:13,169 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:45:13,176 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:47:13,774 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:47:13,799 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:47:13,805 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:47:16,768 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:47:16,775 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:47:16,783 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:48:43,486 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:48:43,548 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:48:43,567 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:49:16,930 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:49:16,936 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:49:16,939 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:49:27,842 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:49:27,854 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:49:27,862 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:50:11,643 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:50:11,651 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:50:11,659 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:52:24,234 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:52:24,242 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:52:24,246 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:53:52,513 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:53:52,519 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:53:52,524 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:53:55,443 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:53:55,453 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:53:55,458 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:54:07,350 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:54:07,357 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:54:07,362 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:55:24,836 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:55:24,842 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:55:24,845 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:55:38,277 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:55:38,292 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:55:38,298 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:57:03,615 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:57:03,625 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:57:03,632 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 13:57:58,754 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 13:57:58,783 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 13:57:58,788 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 14:00:15,663 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 14:00:15,663 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 14:00:15,669 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 14:05:07,401 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 14:05:07,460 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 14:05:07,471 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 15:59:01,497 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-29 15:59:01,498 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 15:59:01,505 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 16:07:42,091 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-29 16:07:42,158 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-05-29 16:07:42,165 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\gym_manager\eclipse-workspace\spring-boot-backend-apirest\src\test\resources
+2024-05-29 16:13:07,219 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes

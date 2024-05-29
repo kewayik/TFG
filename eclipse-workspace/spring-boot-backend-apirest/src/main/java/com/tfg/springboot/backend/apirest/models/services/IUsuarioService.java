@@ -17,5 +17,7 @@ public interface IUsuarioService {
 	public void delete(Integer id);
 	
 	Optional<Usuario> update(UserRequest usuario, Integer id);
+
+	Usuario findByEmail(String email);
 	
 }

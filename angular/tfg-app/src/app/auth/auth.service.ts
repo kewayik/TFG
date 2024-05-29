@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   private url: string = 'http://localhost:8080/login';
+  private baseUrl: string = 'http://localhost:8080/api/usuarios';
 
   private _token: string | undefined;
 
@@ -18,6 +19,14 @@ export class AuthService {
   };
 
   constructor(private http: HttpClient) { }
+
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/forgotPassword`, { email });
+  }
+
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/resetPassword`, { token, newPassword });
+  }
 
   loginUsuario({ username, password }: any): Observable<any>{
     return this.http.post<any>(this.url, { username, password });

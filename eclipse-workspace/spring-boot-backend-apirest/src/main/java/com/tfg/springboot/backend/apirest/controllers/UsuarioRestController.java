@@ -2,17 +2,21 @@ package com.tfg.springboot.backend.apirest.controllers;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tfg.springboot.backend.apirest.models.entity.Material;
+import com.tfg.springboot.backend.apirest.models.entity.PasswordResetToken;
 import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 import com.tfg.springboot.backend.apirest.models.services.IUploadFileService;
 import com.tfg.springboot.backend.apirest.models.services.IUsuarioService;
@@ -42,6 +47,11 @@ public class UsuarioRestController {
 	
 	@Autowired
     private IUploadFileService uploadService;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	private Map<String, PasswordResetToken> tokenStore = new HashMap<>();
 	
 	@GetMapping("/usuarios")
 	public List<Usuario> index(){
@@ -148,4 +158,49 @@ public class UsuarioRestController {
 	    cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
 	    return new ResponseEntity<>(recurso, cabecera, HttpStatus.OK);
 	}
+	
+	 @PostMapping("usuarios/forgotPassword")
+	    public ResponseEntity<?> forgotPassword(@RequestBody Map<String, String> request) {
+	        String email = request.get("email");
+	        Usuario usuario = usuarioService.findByEmail(email);
+	        if (usuario == null) {
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+	        }
+
+	        String token = UUID.randomUUID().toString();
+	        PasswordResetToken myToken = new PasswordResetToken(token, email, new Date(System.currentTimeMillis() + 3600000)); // 1 hora
+	        tokenStore.put(token, myToken);
+
+	        SimpleMailMessage emailMessage = new SimpleMailMessage();
+	        emailMessage.setTo(email);
+	        emailMessage.setSubject("Solicitud de restablecimiento de contraseña");
+	        emailMessage.setText("Para restablecer tu contraseña, haz clic en el siguiente enlace:\n" +
+	                "http://localhost:4200/reset-password?token=" + token);
+	        mailSender.send(emailMessage);
+
+	        return ResponseEntity.ok("Enlace de restablecimiento de contraseña enviado a tu correo");
+	    }
+
+	    @PostMapping("usuarios/resetPassword")
+	    public ResponseEntity<?> resetPassword(@RequestBody Map<String, String> request) {
+	        String token = request.get("token");
+	        String newPassword = request.get("newPassword");
+
+	        PasswordResetToken myToken = tokenStore.get(token);
+	        if (myToken == null || myToken.getExpiryDate().before(new Date())) {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token inválido o expirado");
+	        }
+
+	        Usuario usuario = usuarioService.findByEmail(myToken.getEmail());
+	        if (usuario == null) {
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+	        }
+
+	        usuario.setPassword(newPassword);
+	        usuarioService.save(usuario);
+	        tokenStore.remove(token);
+
+	        return ResponseEntity.ok("Contraseña restablecida con éxito");
+	    }
+	
 }
