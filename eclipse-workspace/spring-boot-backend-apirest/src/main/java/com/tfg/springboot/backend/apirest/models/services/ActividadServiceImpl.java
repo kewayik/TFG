@@ -8,12 +8,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tfg.springboot.backend.apirest.models.dao.IActividadDao;
 import com.tfg.springboot.backend.apirest.models.entity.Actividad;
+import com.tfg.springboot.backend.apirest.models.entity.Notificacion;
 
 @Service
 public class ActividadServiceImpl implements IActividadService {
 	
 	@Autowired
 	private IActividadDao actividadDao;
+
+	@Autowired
+	private INotificacionService notificacionService; 
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -30,7 +34,19 @@ public class ActividadServiceImpl implements IActividadService {
 	@Override
 	@Transactional
 	public Actividad save(Actividad actividad) {
-		return actividadDao.save(actividad);
+		Actividad savedActividad = actividadDao.save(actividad);
+
+		Notificacion notificacion = new Notificacion();
+		notificacion.setDescripcion("Se ha publicado una nueva actividad: " + actividad.getNombre() + 
+		    " en la sala " + actividad.getSala() + " con aforo de " + actividad.getAforo() + 
+		    " y horario " + actividad.getHorario());
+		notificacion.setTipo("Anuncio");
+		notificacion.setFecha(new java.sql.Date(System.currentTimeMillis()));
+		 notificacion.setHoraGeneracion(java.time.LocalTime.now().toString());
+
+		notificacionService.save(notificacion);
+
+		return savedActividad;
 	}
 
 	@Override
