@@ -25,7 +25,6 @@
                         </div>
                     </div>
 
-                    <!-- Sección para subir imagen -->
                     <div *ngIf="ejercicio.id" class="input-group mt-3">
                         <input (change)="seleccionarFoto($event)" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         <button (click)="subirFoto()" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
@@ -42,7 +41,6 @@
 
         <hr>
 
-        <!-- Nuevo formulario para seleccionar materiales -->
         <form (ngSubmit)="agregarMaterial()" #materialForm="ngForm">
             <div class="form-group row">
                 <label for="material" class="col-form-label col-sm-2">Seleccionar Material</label>
@@ -57,11 +55,11 @@
             </div>
         </form>
         
-        <!-- Lista de materiales seleccionados -->
         <div *ngIf="materialesSeleccionados.length > 0" class="mt-3">
             <h5>Materiales Seleccionados:</h5>
             <ul class="list-group">
-                <li class="list-group-item" style="color: black;" *ngFor="let material of materialesSeleccionados">{{ material.nombre }} <button class="btn btn-sm btn-danger ml-2" (click)="eliminarMaterial(material)">Eliminar</button></li>
+                <li class="list-group-item" style="color: black;" *ngFor="let material of materialesSeleccionados">{{ material.nombre }} 
+                <button class="btn btn-sm btn-danger ml-2" (click)="eliminarMaterial(material)">Eliminar</button></li>
             </ul>
         </div>
 

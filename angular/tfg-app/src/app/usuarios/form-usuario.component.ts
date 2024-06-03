@@ -15,6 +15,7 @@ export class FormUsuarioComponent {
   public titulo: string = "Crear Usuario";
   public creandoUsuario: boolean = false;
   public fotoSeleccionada: File;
+  confirmPassword: string;
 
   constructor(private usuarioService: UsuarioService, private router: Router, private activatedRoute: ActivatedRoute,
     private authService: AuthService
@@ -42,6 +43,7 @@ export class FormUsuarioComponent {
       if (id) {
         this.usuarioService.getUsuario(id).subscribe((usuario) => {
           this.usuario = usuario;
+          this.titulo = 'Actualizar Usuario';
         });
       }
     });
@@ -68,6 +70,11 @@ export class FormUsuarioComponent {
       }
       if (usuarioExistenteUsername) {
         swal.fire('Error', 'El nombre de usuario ya está en uso', 'error');
+        return;
+      }
+
+      if(this.usuario.password !== this.confirmPassword){
+        swal.fire('Error', 'Las contraseñas no coinciden', 'error');
         return;
       }
 

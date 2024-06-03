@@ -1,6 +1,5 @@
 package com.tfg.springboot.backend.apirest.models.entity;
 
-import jakarta.persistence.*;
 import java.util.Date;
 
 public class PasswordResetToken {

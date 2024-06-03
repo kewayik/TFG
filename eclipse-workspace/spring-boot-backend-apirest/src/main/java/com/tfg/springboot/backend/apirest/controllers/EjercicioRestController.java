@@ -61,13 +61,11 @@ public class EjercicioRestController {
         Ejercicio ejercicio = mapToEntity(ejercicioDTO);
         Ejercicio ejercicioActual = ejercicioService.findById(id);
         
-        // Actualizar los campos del ejercicio actual con los valores del DTO
         ejercicioActual.setNombre(ejercicio.getNombre());
         ejercicioActual.setDescripcion(ejercicio.getDescripcion());
         ejercicioActual.setGrupoMuscular(ejercicio.getGrupoMuscular());
         ejercicioActual.setMaterialesEj(ejercicio.getMaterialesEj());
         
-        // Guardar y retornar el ejercicio actualizado
         Ejercicio updatedEjercicio = ejercicioService.save(ejercicioActual);
         return mapToDTO(updatedEjercicio);
     }
@@ -140,7 +138,6 @@ public class EjercicioRestController {
     private Ejercicio mapToEntity(EjercicioDTO ejercicioDTO) {
         Ejercicio ejercicio = new Ejercicio();
         
-        // Verificar si ejercicioDTO.getId() no es null antes de llamar a intValue()
         if (ejercicioDTO.getId() != null) {
             ejercicio.setId(ejercicioDTO.getId().intValue());
         }

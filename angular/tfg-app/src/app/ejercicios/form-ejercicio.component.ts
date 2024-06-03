@@ -16,8 +16,8 @@ export class FormEjercicioComponent {
   public titulo: string = "Crear Ejercicio";
   public creandoEjercicio: boolean = false;
   public materiales: Material[] = [];
-  public materialSeleccionado: string; // Variable para almacenar el material seleccionado
-  public materialesSeleccionados: Material[] = []; // Lista de materiales seleccionados
+  public materialSeleccionado: string; 
+  public materialesSeleccionados: Material[] = []; 
   public fotoSeleccionada: File;
 
   constructor(private ejercicioService: EjercicioService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -33,8 +33,8 @@ export class FormEjercicioComponent {
       if (id) {
         this.ejercicioService.getEjercicio(id).subscribe((ejercicio) => {
           this.ejercicio = ejercicio;
-          // Cargar los materiales asociados al ejercicio
           this.materialesSeleccionados = ejercicio.materiales || [];
+          this.titulo = 'Actualizar Ejercicio';
         });
       }
     });

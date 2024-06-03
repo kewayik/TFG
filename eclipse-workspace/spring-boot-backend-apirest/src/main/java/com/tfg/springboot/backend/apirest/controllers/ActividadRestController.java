@@ -56,7 +56,6 @@ public class ActividadRestController {
 	    Actividad actividad = mapToEntity(actividadDTO);
 	    Actividad actividadActual = actividadService.findById(id);
 	    
-	    // Actualizar los campos de la actividad actual con los valores del DTO
 	    actividadActual.setNombre(actividad.getNombre());
 	    actividadActual.setDescripcion(actividad.getDescripcion());
 	    actividadActual.setHorario(actividad.getHorario());
@@ -65,7 +64,6 @@ public class ActividadRestController {
 	    actividadActual.setSala(actividad.getSala());
 	    actividadActual.setUsuariosAct(actividad.getUsuariosAct());
 	    
-	    // Guardar y retornar la actividad actualizada
 	    Actividad updatedActividad = actividadService.save(actividadActual);
 	    return mapToDTO(updatedActividad);
 	}

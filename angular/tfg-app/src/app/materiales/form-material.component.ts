@@ -27,6 +27,7 @@ export class FormMaterialComponent {
       if (id) {
         this.materialService.getMaterial(id).subscribe((material) => {
           this.material = material;
+          this.titulo = 'Actualizar Material';
         });
       }
     });

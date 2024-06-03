@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -33,7 +32,7 @@ public class Ejercicio implements Serializable {
 	private List<DiaRutina> diasRutinas;
 	
 	public Ejercicio() {
-        this.materialesEj = new ArrayList<>(); // Inicializar la lista de materiales
+        this.materialesEj = new ArrayList<>();
     }
 
 	public int getId() {

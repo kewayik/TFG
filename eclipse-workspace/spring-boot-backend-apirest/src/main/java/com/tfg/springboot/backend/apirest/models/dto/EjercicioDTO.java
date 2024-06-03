@@ -14,9 +14,6 @@ public class EjercicioDTO implements Serializable {
     private String foto;
     private List<Material> materiales;
 
-    // Constructor, getters y setters
-
-    // Constructor
     public EjercicioDTO(Integer id, String nombre, String descripcion, String grupoMuscular, String foto, List<Material> materiales) {
         this.id = id;
         this.nombre = nombre;
@@ -26,7 +23,6 @@ public class EjercicioDTO implements Serializable {
         this.materiales = materiales;
     }
 
-    // Getters y setters
     public Integer getId() {
         return id;
     }

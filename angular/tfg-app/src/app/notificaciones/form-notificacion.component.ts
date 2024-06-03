@@ -26,6 +26,7 @@ export class FormNotificacionComponent {
       if (id) {
         this.notificacionService.getNotificacion(id).subscribe((notificacion) => {
           this.notificacion = notificacion;
+          this.titulo = 'Actualizar Notificacion';
         });
       }
     });

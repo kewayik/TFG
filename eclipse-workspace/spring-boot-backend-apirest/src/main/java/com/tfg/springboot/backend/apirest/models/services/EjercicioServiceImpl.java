@@ -1,15 +1,12 @@
 package com.tfg.springboot.backend.apirest.models.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tfg.springboot.backend.apirest.models.dao.IDiaRutinaDao;
 import com.tfg.springboot.backend.apirest.models.dao.IEjercicioDao;
-import com.tfg.springboot.backend.apirest.models.entity.DiaRutina;
 import com.tfg.springboot.backend.apirest.models.entity.Ejercicio;
 import com.tfg.springboot.backend.apirest.models.entity.Material;
 

@@ -11,6 +11,7 @@ export class ResetPasswordComponent {
 
   token: string;
   newPassword: string;
+  confirmPassword: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,11 @@ export class ResetPasswordComponent {
   }
 
   onSubmit() {
+    if (this.newPassword !== this.confirmPassword) {
+      swal.fire('Error', 'Las contraseñas no coinciden', 'error');
+      return;
+    }
+  
     this.authService.resetPassword(this.token, this.newPassword).subscribe(
       response => {
         swal.fire('Éxito', 'Tu contraseña ha sido restablecida con éxito', 'success')

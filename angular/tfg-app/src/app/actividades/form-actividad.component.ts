@@ -25,6 +25,7 @@ export class FormActividadComponent {
       let id = params['id']
       if(id){
         this.actividadService.getActividad(id).subscribe((actividad) => this.actividad = actividad)
+        this.titulo = "Editar Actividad"
       }
     })
   }

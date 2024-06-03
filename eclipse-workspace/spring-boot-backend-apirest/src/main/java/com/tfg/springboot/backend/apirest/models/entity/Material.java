@@ -1,9 +1,6 @@
 package com.tfg.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 

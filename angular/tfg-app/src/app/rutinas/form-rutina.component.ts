@@ -36,6 +36,7 @@ export class FormRutinaComponent implements OnInit {
         this.rutinaService.getRutina(id).subscribe((rutina) => {
           this.rutina = rutina;
           this.diasSeleccionados = rutina.diasRutinas || [];
+          this.titulo = 'Actualizar Rutina';
         });
       }
     });

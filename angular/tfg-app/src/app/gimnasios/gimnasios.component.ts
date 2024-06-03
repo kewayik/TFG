@@ -18,7 +18,7 @@ export class GimnasiosComponent implements OnInit {
     this.gimnasio = {
       nombre: 'Peso puma',
       telefono: 952695478,
-      direccion: 'Calle Diego de Almenguer, 5',
+      direccion: 'Calle Diego de Almaguer, 5',
       n_identificacion: '754169854M',
       email: 'dudasypreguntas@pesopuma.es'
     };

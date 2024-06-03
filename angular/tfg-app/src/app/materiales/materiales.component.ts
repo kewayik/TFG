@@ -7,7 +7,8 @@ import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-materiales',
-  templateUrl: './materiales.component.html'
+  templateUrl: './materiales.component.html',
+  styleUrls: ['./materiales.component.css']
 })
 export class MaterialesComponent implements OnInit {
 
@@ -76,22 +77,25 @@ export class MaterialesComponent implements OnInit {
   }
 
 
-  delete(material: Material): void{ 
+  delete(material: Material): void { 
     this.materialService.getEjerciciosByMaterialId(material.id).subscribe(
       ejercicios => {
         this.ejercicios = ejercicios;
         let mensaje: string;
-
+  
         if (this.ejercicios && this.ejercicios.length > 0) {
-          let ejerciciosTexto = this.ejercicios.map(ejercicio => ejercicio.nombre).join(', ');
-          mensaje = `Este material está asociado a los siguientes ejercicios: ${ejerciciosTexto}`;
+          let ejerciciosHtml = `<div style="max-height: 200px; overflow-y: auto;">` +
+            this.ejercicios.map(ejercicio => `<p>${ejercicio.nombre}</p>`).join('') +
+            `</div>`;
+          
+          mensaje = `Este material está asociado a los siguientes ejercicios: <br><br> ${ejerciciosHtml}`;
         } else {
           mensaje = 'Este material no está asociado a ningún ejercicio';
         }
-
+  
         Swal.fire({
           title: "¿Está seguro?",
-          text: `¿Seguro que desea eliminar el Material ${material.nombre}? ${mensaje}`, 
+          html: `¿Seguro que desea eliminar el Material ${material.nombre}? <br><br>${mensaje}`, 
           icon: "warning",
           showCancelButton: true,
           confirmButtonText: 'Sí, eliminar!',
@@ -99,22 +103,25 @@ export class MaterialesComponent implements OnInit {
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33'
         }).then((result) => {
-          if (result.value) {
-            this.materialService.delete(material.id).subscribe( 
+          if (result.isConfirmed) {
+            this.materialService.delete(material.id).subscribe(
               response => {
-                this.materiales = this.materiales.filter(act => act !== material)
+                this.materiales = this.materiales.filter(act => act !== material);
                 Swal.fire(
                   'Material Eliminado!',
                   `Material ${material.nombre} eliminado con éxito.`,
                   'success'
-                )
+                );
               }
-            )
+            );
           }
         });
       }
     );
   }
+  
+  
+  
 
   
 }

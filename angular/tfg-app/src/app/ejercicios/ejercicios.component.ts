@@ -6,7 +6,8 @@ import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-ejercicios',
-  templateUrl: './ejercicios.component.html'
+  templateUrl: './ejercicios.component.html',
+  styleUrls: ['./ejercicios.component.css']
 })
 export class EjerciciosComponent implements OnInit {
 
@@ -71,32 +72,60 @@ export class EjerciciosComponent implements OnInit {
   }
 
   delete(ejercicio: Ejercicio): void {
-    let materialesTexto = ejercicio.materiales.map(material => material.nombre).join(', ');
-    Swal.fire({
-      title: "¿Está seguro?",
-      text: ejercicio.materiales.length === 0 ?
-        `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}? Este ejercicio no está asociado a ningún material` :
-        `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}? Este ejercicio está asociado a los siguientes materiales: ${materialesTexto}`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar!',
-      cancelButtonText: 'No, cancelar!',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33'
-    }).then((result) => {
-      if (result.value) {
-        this.ejercicioService.delete(ejercicio.id).subscribe(
-          response => {
-            this.ejercicios = this.ejercicios.filter(act => act !== ejercicio);
-            this.filterEjercicios();
-            Swal.fire(
-              'Ejercicio Eliminado!',
-              `Ejercicio ${ejercicio.nombre} eliminado con éxito.`,
-              'success'
-            )
-          }
-        )
-      }
-    });
+    if (ejercicio.materiales && ejercicio.materiales.length > 0) {
+      let materialesHtml = `<div style="max-height: 200px; overflow-y: auto;">` +
+        ejercicio.materiales.map(material => `<p>${material.nombre}</p>`).join('') +
+        `</div>`;
+      
+      Swal.fire({
+        title: "¿Está seguro?",
+        html: `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}?<br>Este ejercicio está asociado a los siguientes materiales: <br><br> ${materialesHtml}`, 
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.ejercicioService.delete(ejercicio.id).subscribe(
+            response => {
+              this.ejercicios = this.ejercicios.filter(act => act !== ejercicio);
+              this.filterEjercicios();
+              Swal.fire(
+                'Ejercicio Eliminado!',
+                `Ejercicio ${ejercicio.nombre} eliminado con éxito.`,
+                'success'
+              );
+            }
+          );
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "¿Está seguro?",
+        text: `¿Seguro que desea eliminar el ejercicio ${ejercicio.nombre}? Este ejercicio no está asociado a ningún material`, 
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.ejercicioService.delete(ejercicio.id).subscribe(
+            response => {
+              this.ejercicios = this.ejercicios.filter(act => act !== ejercicio);
+              this.filterEjercicios();
+              Swal.fire(
+                'Ejercicio Eliminado!',
+                `Ejercicio ${ejercicio.nombre} eliminado con éxito.`,
+                'success'
+              );
+            }
+          );
+        }
+      });
+    }
   }
 }

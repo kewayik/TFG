@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tfg.springboot.backend.apirest.models.entity.Material;
 import com.tfg.springboot.backend.apirest.models.entity.PasswordResetToken;
 import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 import com.tfg.springboot.backend.apirest.models.services.IUploadFileService;
@@ -168,7 +166,7 @@ public class UsuarioRestController {
 	        }
 
 	        String token = UUID.randomUUID().toString();
-	        PasswordResetToken myToken = new PasswordResetToken(token, email, new Date(System.currentTimeMillis() + 3600000)); // 1 hora
+	        PasswordResetToken myToken = new PasswordResetToken(token, email, new Date(System.currentTimeMillis() + 3600000));
 	        tokenStore.put(token, myToken);
 
 	        SimpleMailMessage emailMessage = new SimpleMailMessage();

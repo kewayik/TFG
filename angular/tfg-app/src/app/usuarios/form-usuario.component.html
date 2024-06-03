@@ -43,6 +43,13 @@
                         </div>
                     </div>
 
+                    <div class="form-group row" *ngIf="!usuario.id">
+                        <label for="confirmPassword" class="col-form-label col-sm-4">Repita su contraseña</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="confirmPassword" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label for="dni" class="col-form-label col-sm-4">DNI</label>
                         <div class="col-sm-8">

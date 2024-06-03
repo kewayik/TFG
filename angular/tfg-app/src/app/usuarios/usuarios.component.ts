@@ -31,6 +31,10 @@ export class UsuariosComponent {
     return this.authService.isAdmin();
   }
 
+  get entrenador() {
+    return this.authService.isEntrenador();
+  }
+
   toggleUsuarios() {
     this.mostrarDadoDeAlta = !this.mostrarDadoDeAlta;
 }

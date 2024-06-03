@@ -11,11 +11,8 @@ public class MaterialDTO implements Serializable {
     private String tipo;
     private String foto;
 
-    // Constructor vacío
     public MaterialDTO() {
     }
-
-    // Getters y setters
 
     public Integer getId() {
         return id;

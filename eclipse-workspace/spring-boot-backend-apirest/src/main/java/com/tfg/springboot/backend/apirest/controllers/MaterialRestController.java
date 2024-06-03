@@ -77,13 +77,11 @@ public class MaterialRestController {
         Material material = mapToEntity(materialDTO);
         Material materialActual = materialService.findById(id);
         
-        // Actualizar los campos del material actual con los valores del DTO
         materialActual.setNombre(material.getNombre());
         materialActual.setDescripcion(material.getDescripcion());
         materialActual.setStock(material.getStock());
         materialActual.setTipo(material.getTipo());
-        
-        // Guardar y retornar el material actualizado
+
         Material updatedMaterial = materialService.save(materialActual);
         return mapToDTO(updatedMaterial);
     }
@@ -145,7 +143,7 @@ public class MaterialRestController {
     
     private Material mapToEntity(MaterialDTO materialDTO) {
         Material material = new Material();
-     // Verificar si ejercicioDTO.getId() no es null antes de llamar a intValue()
+        
         if (materialDTO.getId() != null) {
         	material.setId(materialDTO.getId().intValue());
         }

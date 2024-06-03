@@ -14,12 +14,10 @@ export class GimnasioService {
     this.gimnasioSubject = new BehaviorSubject<Gimnasio>(new Gimnasio());
   }
 
-  // Método para obtener el gimnasio actual
   public getGimnasio(): Gimnasio {
     return this.gimnasioSubject.getValue();
   }
 
-  // Método para actualizar el gimnasio
   public updateGimnasio(gimnasio: Gimnasio): void {
     this.gimnasioSubject.next(gimnasio);
   }

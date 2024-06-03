@@ -14,7 +14,7 @@ export class FormRegistroComponent implements OnInit {
 
   registro: Registro = new Registro();
   ejercicios: Ejercicio[] = [];
-  titulo: string = "Crear Registro de Ejercicio";
+  titulo: string = "Registrar ejercicio";
 
   constructor(
     private registroService: RegistroService,
