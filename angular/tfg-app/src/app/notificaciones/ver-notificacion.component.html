@@ -1,40 +1,47 @@
 <div class="card shadow p-3 mb-5 bg-white rounded">
     <div class="card-header bg-dark text-white">
-        <h5 style="font-weight: bold; font-size: xx-large;">Detalles de la Notificación</h5>
+      <h5 style="font-weight: bold; font-size: xx-large;">Detalles de la Notificación</h5>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <p id="descripcion">{{ notificacion.descripcion }}</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="tipo">Tipo:</label>
-                    <p id="tipo">{{ notificacion.tipo }}</p>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <p id="descripcion">{{ notificacion.descripcion }}</p>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="fecha">Fecha:</label>
-                    <p id="fecha">{{ notificacion.fecha }}</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="horaGeneracion">Hora de Generación:</label>
-                    <p id="horaGeneracion">{{ notificacion.horaGeneracion }}</p>
-                </div>
-            </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <p id="tipo">{{ notificacion.tipo }}</p>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <button class="btn btn-primary" [routerLink]="['/notificaciones']">Volver</button>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <p id="fecha">{{ notificacion.fecha }}</p>
+          </div>
         </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="horaGeneracion">Hora de Generación:</label>
+            <p id="horaGeneracion">{{ notificacion.horaGeneracion }}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="usuario">Usuario:</label>
+            <p id="usuario">{{ notificacion.usuario ? notificacion.usuario.nombre + ' ' + notificacion.usuario.apellidos : 'Notificación generada automáticamente por el sistema' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-primary" [routerLink]="['/notificaciones']">Volver</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

@@ -16,6 +16,9 @@ public class Notificacion implements Serializable {
 	private String tipo;
 	private Date fecha;
 	private String horaGeneracion;
+	
+	@ManyToOne
+	private Usuario usuario;
 
 	public int getId() {
 		return id;
@@ -55,6 +58,14 @@ public class Notificacion implements Serializable {
 
 	public void setHoraGeneracion(String horaGeneracion) {
 		this.horaGeneracion = horaGeneracion;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	/**

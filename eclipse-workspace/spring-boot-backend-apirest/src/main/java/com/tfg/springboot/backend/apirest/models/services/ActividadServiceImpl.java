@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tfg.springboot.backend.apirest.models.dao.IActividadDao;
 import com.tfg.springboot.backend.apirest.models.entity.Actividad;
 import com.tfg.springboot.backend.apirest.models.entity.Notificacion;
+import com.tfg.springboot.backend.apirest.models.entity.Usuario;
 
 @Service
 public class ActividadServiceImpl implements IActividadService {
@@ -42,8 +43,7 @@ public class ActividadServiceImpl implements IActividadService {
 		    " y horario " + actividad.getHorario());
 		notificacion.setTipo("Anuncio");
 		notificacion.setFecha(new java.sql.Date(System.currentTimeMillis()));
-		 notificacion.setHoraGeneracion(java.time.LocalTime.now().toString());
-
+		notificacion.setHoraGeneracion(java.time.LocalTime.now().toString());
 		notificacionService.save(notificacion);
 
 		return savedActividad;

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Notificacion } from './notificacion';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificacionService } from './notificacion.service';
 
@@ -8,17 +7,17 @@ import { NotificacionService } from './notificacion.service';
   selector: 'app-ver-notificacion',
   templateUrl: './ver-notificacion.component.html'
 })
-export class VerNotificacionComponent {
+export class VerNotificacionComponent implements OnInit {
   public notificacion: Notificacion = new Notificacion(); 
 
   constructor(private notificacionService: NotificacionService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
+      let id = params['id'];
       if(id){
-        this.notificacionService.getNotificacion(id).subscribe((notificacion) => this.notificacion = notificacion) 
+        this.notificacionService.getNotificacion(id).subscribe((notificacion) => this.notificacion = notificacion);
       }
-    })
+    });
   }
 }

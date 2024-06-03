@@ -3,6 +3,7 @@ import { Notificacion } from './notificacion';
 import { NotificacionService } from './notificacion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-form-notificacion',
@@ -12,7 +13,7 @@ export class FormNotificacionComponent {
   public notificacion: Notificacion = new Notificacion();
   public titulo: string = "Crear Notificacion";
 
-  constructor(private notificacionService: NotificacionService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private notificacionService: NotificacionService, private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(){
     this.cargarNotificacion();
@@ -33,6 +34,7 @@ export class FormNotificacionComponent {
   }
 
   guardar(): void {
+    this.notificacion.usuario = this.authService.usuario.usuario;
     this.notificacionService.create(this.notificacion).subscribe(() => {
       swal.fire('Nueva notificacion', `La notificacion ha sido creado con éxito`, 'success');
       this.router.navigate(['/notificaciones']);
