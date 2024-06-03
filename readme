@@ -1,0 +1,6 @@
+Si al intentar arrancar el back-end la consola muestra un error al arrancar, 
+posiblemente se arregle si en el archivo pom.xml se cambia la línea 
+<java.version>17.0.6</java.version> a <java.version>17</java.version>
+y viceversa.
+Es un error que me ha ocurrido muy amenudo y creo que es por un problema
+con la versión de spring boot.
