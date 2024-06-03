@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Actividad } from './actividad';
 import { ActividadService } from './actividad.service';
-import Swal from 'sweetalert2';
 import { AuthService } from '../auth/auth.service';
 import { Usuario } from '../usuarios/usuario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actividades',
@@ -19,22 +19,22 @@ export class ActividadesComponent implements OnInit {
 
   constructor(private actividadService: ActividadService, private authService: AuthService) { }
   
-  ngOnInit(){
+  ngOnInit() {
     this.actividadService.getActividades().subscribe(
       actividades => this.actividades = actividades
     );
-    this.usuario = this.authService.usuario.usuario;
+    this.usuario = this.authService.usuario;
   }
 
-  get admin(){
+  get admin() {
     return this.authService.isAdmin();
   }
 
-  get entrenador(){
+  get entrenador() {
     return this.authService.isEntrenador();
   }
 
-  get authenticated(){
+  get authenticated() {
     return this.authService.authenticated();
   }
 
@@ -46,7 +46,7 @@ export class ActividadesComponent implements OnInit {
     return actividad.usuarios.length < actividad.aforo && !this.usuarioHaReservado(actividad);
   }
 
-  reservarActividad(actividad: Actividad){
+  reservarActividad(actividad: Actividad) {
     if (actividad.usuarios.length >= actividad.aforo) {
       Swal.fire('Error', 'El aforo de la actividad está completo', 'error');
       return;
@@ -62,7 +62,7 @@ export class ActividadesComponent implements OnInit {
     }
   }
 
-  cancelarActividad(actividad: Actividad){
+  cancelarActividad(actividad: Actividad) {
     const index = actividad.usuarios.findIndex(user => user.id === this.usuario.id);
     if (index >= 0) {
       actividad.usuarios.splice(index, 1);
@@ -103,7 +103,7 @@ export class ActividadesComponent implements OnInit {
     this.hideFullActivities = !this.hideFullActivities;
   }
 
-  delete(actividad: Actividad): void{
+  delete(actividad: Actividad): void {
     Swal.fire({
       title: "¿Está seguro?",
       text: `¿Seguro que desea eliminar la actividad ${actividad.nombre}?`,
@@ -111,20 +111,14 @@ export class ActividadesComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: 'Sí, eliminar!',
       cancelButtonText: 'No, cancelar!',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33'
-    }).then((result) => {
+      cancelButtonColor: '#d33',
+      confirmButtonColor: '#3085d6'
+    }).then(result => {
       if (result.value) {
-        this.actividadService.delete(actividad.id).subscribe(
-          response => {
-            this.actividades = this.actividades.filter(act => act !== actividad)
-            Swal.fire(
-              'Actividad Eliminada!',
-              `Actividad ${actividad.nombre} eliminada con éxito.`,
-              'success'
-            )
-          }
-        )
+        this.actividadService.delete(actividad.id).subscribe(() => {
+          this.actividades = this.actividades.filter(act => act !== actividad);
+          Swal.fire('Eliminada!', `Actividad ${actividad.nombre} eliminada con éxito.`, 'success');
+        });
       }
     });
   }

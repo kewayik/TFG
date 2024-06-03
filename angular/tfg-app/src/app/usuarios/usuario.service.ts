@@ -35,6 +35,12 @@ export class UsuarioService {
     return this.http.delete<Usuario>(`${this.urlEndpoint}/${id}`, {headers: this.httpHeaders});
   }
 
+  getEntrenadoresOAdmins(): Observable<Usuario[]> {
+    return this.getUsuarios().pipe(
+      map(usuarios => usuarios.filter(usuario => usuario.rol === 'entrenador' || usuario.rol === 'administrador'))
+    );
+  }
+
   subirFoto(archivo: File, id): Observable<Usuario>{
     let formData = new FormData();
     formData.append("fotoUsuario",archivo);

@@ -63,6 +63,7 @@ public class ActividadRestController {
 	    actividadActual.setFecha(actividad.getFecha());
 	    actividadActual.setSala(actividad.getSala());
 	    actividadActual.setUsuariosAct(actividad.getUsuariosAct());
+	    actividadActual.setEntrenador(actividad.getEntrenador());
 	    
 	    Actividad updatedActividad = actividadService.save(actividadActual);
 	    return mapToDTO(updatedActividad);
@@ -84,6 +85,7 @@ public class ActividadRestController {
 	    dto.setFecha(actividad.getFecha());
 	    dto.setSala(actividad.getSala());
 	    dto.setUsuarios(actividad.getUsuariosAct());
+	    dto.setEntrenador(actividad.getEntrenador());
 	    return dto;
 	}
 	
@@ -96,6 +98,7 @@ public class ActividadRestController {
 	    actividad.setFecha(dto.getFecha());
 	    actividad.setSala(dto.getSala());
 	    actividad.setUsuariosAct(dto.getUsuarios());
+	    actividad.setEntrenador(dto.getEntrenador());
 	    return actividad;
 	}
 	

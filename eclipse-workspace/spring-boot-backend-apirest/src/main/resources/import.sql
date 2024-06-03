@@ -2,16 +2,6 @@ INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
 INSERT INTO roles (nombre) VALUES ('ROLE_USER');
 INSERT INTO roles (nombre) VALUES ('ROLE_ENTRENADOR');
 
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Body Pump', 'Programa de entrenamiento físico intenso que combina actividad aeróbica y trabajo muscular mediante el levantamiento de pesas al ritmo de la música', 'Sala 15', 32, '2022-10-12', '12:00-13:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Entrenamiento por parejas', 'El entrenamiento consiste en un circuito de fuerza y resistencia que incluye estaciones con ejercicios como sentadillas con mancuernas, flexiones de brazos con apoyo en balón medicinal, ejercicios de tracción con bandas de resistencia y planchas laterales con rotación. Cada pareja realiza las estaciones durante 1 minuto antes de pasar a la siguiente. Después, se completa una sesión de cardio en grupo con ejercicios de alta intensidad intercalados con períodos de descanso activo. La sesión concluye con estiramientos estáticos para promover la flexibilidad y la recuperación muscular', 'Sala 1', 4, '2022-10-17', '17:00-18:30');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Zumba', 'Clase de fitness que combina baile y ejercicios aeróbicos al ritmo de música latina', 'Sala 12', 25, '2022-10-13', '09:00-10:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Zumba', 'Clase de fitness que combina baile y ejercicios aeróbicos al ritmo de música latina', 'Sala 12', 25, '2022-10-13', '18:00-19:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Yoga', 'Práctica física, mental y espiritual originaria de la India que busca el equilibrio y la armonía del cuerpo y la mente', 'Sala 8', 20, '2022-10-14', '10:00-11:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Spinning', 'Clase de ciclismo indoor en la que se realizan ejercicios de intensidad variable al ritmo de la música', 'Sala 3', 30, '2022-10-15', '19:00-20:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Pilates', 'Sistema de entrenamiento físico y mental que se basa en la respiración, el control muscular y la alineación corporal', 'Sala 10', 15, '2022-10-16', '09:00-10:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('Kickboxing', 'Combinación de artes marciales y boxeo que se practica mediante golpes de puño y pierna', 'Sala 5', 20, '2022-10-17', '20:00-21:00');
-INSERT INTO actividades (nombre, descripcion, sala, aforo, fecha, horario) VALUES ('CrossFit', 'Entrenamiento funcional de alta intensidad que combina ejercicios de fuerza, resistencia y cardio', 'Sala 1', 25, '2022-10-18', '17:00-18:00');
-
 INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('press-de-banca.jpg', 'Press Banca', 'El press de banca es un ejercicio de peso libre que trabaja la fuerza de empuje del tren superior en el plano sagital. Así mismo, este ejercicio es uno de los 3 que se realizan en la disciplina de powerlifting', 'Pecho');
 INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('sentadillas.jpg', 'Sentadillas', 'Las sentadillas son un ejercicio de peso libre que trabaja los músculos de las piernas y glúteos. Es uno de los ejercicios básicos en cualquier rutina de entrenamiento de fuerza.', 'Piernas');
 INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('dominadas.jpg', 'Dominadas', 'Las dominadas son un ejercicio de peso corporal que trabaja principalmente los músculos de la espalda y los brazos. Es excelente para desarrollar fuerza y ​​potencia.', 'Espalda');
@@ -40,7 +30,6 @@ INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('flex
 INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('plancha.webp', 'Plancha', 'La plancha es un ejercicio de resistencia que fortalece los músculos abdominales, lumbares y del core. Ayuda a mejorar la estabilidad y la postura.', 'Abdominales');
 INSERT INTO ejercicios (foto, nombre, descripcion, grupo_muscular) VALUES ('burpees.webp', 'Burpees', 'Los burpees son un ejercicio compuesto que involucra movimientos de flexión, sentadilla, salto y flexiones de brazos. Son excelentes para el entrenamiento de fuerza y cardio.', 'Cuerpo Completo');
 
-
 INSERT INTO gimnasio (nombre, telefono, direccion, n_identificacion_fiscal) VALUES ('Peso puma', 952695478, 'Calle Diego de Almenguer, 15', '754169854M');
 
 INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('carlos', true, 'carlos.png', 'Carlos', 'Velasco Hilario', '77191635R', 'carlosv@gmail.com', 'Calle Larios, 123, Centro Histórico, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'cliente', '2001-11-12', '123456789');
@@ -57,6 +46,18 @@ INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, emai
 INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('dani', true, 'dani.png', 'Daniel', 'Gonzalez Holgado', '78963311L', 'dgon@gmail.com', 'Paseo Marítimo Antonio Banderas, 555, Huelin, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'cliente', '2001-12-15', '987654321');
 INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('admin', true, 'admin.jpeg', 'Admin', 'Admininstrador', '77963311L', 'kewayika@gmail.com', 'Calle Banderas, 555, Huelin, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'administrador','2001-12-15', '987654321');
 INSERT INTO usuarios (username, dado_de_alta, foto, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('entrenador', true, 'guille.png', 'Entrenador', 'Guillermo', '87763311L', 'entrenador@gmail.com', 'Calle Antonio, 5, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'entrenador', '2001-12-15', '987654321');
+INSERT INTO usuarios (username, dado_de_alta, nombre, apellidos, dni, email, domicilio, password, rol, fecha_nacimiento, telefono) VALUES('entrenador2', true, 'Entrenador', 'Ejemplo', '877633111L', 'entrenador2@gmail.com', 'Calle Antonio, 5, Málaga', '$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS', 'entrenador', '2001-12-15', '987654321');
+
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (14, 'Body Pump', 'Programa de entrenamiento físico intenso que combina actividad aeróbica y trabajo muscular mediante el levantamiento de pesas al ritmo de la música', 'Sala 15', 32, '2022-10-12', '12:00-13:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (15, 'Entrenamiento por parejas', 'El entrenamiento consiste en un circuito de fuerza y resistencia que incluye estaciones con ejercicios como sentadillas con mancuernas, flexiones de brazos con apoyo en balón medicinal, ejercicios de tracción con bandas de resistencia y planchas laterales con rotación. Cada pareja realiza las estaciones durante 1 minuto antes de pasar a la siguiente. Después, se completa una sesión de cardio en grupo con ejercicios de alta intensidad intercalados con períodos de descanso activo. La sesión concluye con estiramientos estáticos para promover la flexibilidad y la recuperación muscular', 'Sala 1', 4, '2022-10-17', '17:00-18:30');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (14, 'Zumba', 'Clase de fitness que combina baile y ejercicios aeróbicos al ritmo de música latina', 'Sala 12', 25, '2022-10-13', '09:00-10:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (15, 'Zumba', 'Clase de fitness que combina baile y ejercicios aeróbicos al ritmo de música latina', 'Sala 12', 25, '2022-10-13', '18:00-19:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (14, 'Yoga', 'Práctica física, mental y espiritual originaria de la India que busca el equilibrio y la armonía del cuerpo y la mente', 'Sala 8', 20, '2022-10-14', '10:00-11:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (15, 'Spinning', 'Clase de ciclismo indoor en la que se realizan ejercicios de intensidad variable al ritmo de la música', 'Sala 3', 30, '2022-10-15', '19:00-20:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (14, 'Pilates', 'Sistema de entrenamiento físico y mental que se basa en la respiración, el control muscular y la alineación corporal', 'Sala 10', 15, '2022-10-16', '09:00-10:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (15, 'Kickboxing', 'Combinación de artes marciales y boxeo que se practica mediante golpes de puño y pierna', 'Sala 5', 20, '2022-10-17', '20:00-21:00');
+INSERT INTO actividades (entrenador_id, nombre, descripcion, sala, aforo, fecha, horario) VALUES (14, 'CrossFit', 'Entrenamiento funcional de alta intensidad que combina ejercicios de fuerza, resistencia y cardio', 'Sala 1', 25, '2022-10-18', '17:00-18:00');
+
 
 INSERT INTO notificaciones (usuario_id, descripcion, tipo, fecha, hora_generacion) VALUES (13, 'La actividad Crossfit de las 15:00 ha sido atrasada una hora debido a un problema con el entrenador de esta', 'Aviso', '2024-07-12', '10:32');
 INSERT INTO notificaciones (usuario_id, descripcion, tipo, fecha, hora_generacion) VALUES (14, 'La clase de Yoga programada para mañana ha sido cancelada debido a problemas de disponibilidad del instructor. Disculpa las molestias.', 'Aviso', '2024-07-11', '16:45');
@@ -113,7 +114,15 @@ INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 4, '2024-04-25', 18, 10);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 5, '2024-04-26', 19, 11);
 INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 3, '2024-04-27', 20, 12);
-
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (16.5, 8, 4, '2024-04-19', 1, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (30.0, 20, 5, '2024-04-20', 1, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (15.0, 12, 3, '2024-04-21', 1, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (20.0, 15, 4, '2024-04-22', 1, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (17.5, 10, 5, '2024-04-23', 2, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (22.5, 8, 3, '2024-04-24', 2, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (18.0, 20, 4, '2024-04-25', 2, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (25.0, 12, 5, '2024-04-26', 2, 1);
+INSERT INTO registros (peso, repeticiones, series, fecha, ejercicio_id, usuario_id) VALUES (12.5, 15, 3, '2024-04-27', 2, 1);
 
 INSERT INTO materiales (foto, nombre, tipo, stock, descripcion) VALUES('mancuernas.jpg', 'Mancuernas', 'Peso Libre', false, 'Mancuernas para realización de diferentes ejercicios');
 INSERT INTO materiales (foto, nombre, tipo, stock, descripcion) VALUES('discos.png', 'Discos', 'Peso Libre', false,'Discos para usar tanto en barras como en máquinas');

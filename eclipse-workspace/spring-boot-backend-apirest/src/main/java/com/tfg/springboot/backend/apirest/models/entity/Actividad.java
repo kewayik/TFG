@@ -25,6 +25,9 @@ public class Actividad implements Serializable {
 	@JoinTable(name="actividadesusuarios", joinColumns = @JoinColumn(name="actividades_fk"),
 	inverseJoinColumns = @JoinColumn(name="usuarios_fk"))
 	private List<Usuario> usuariosAct;
+	
+	@ManyToOne
+	private Usuario entrenador;
 
 	public int getId() {
 		return id;
@@ -92,6 +95,15 @@ public class Actividad implements Serializable {
 	}
 	
 	
+	public Usuario getEntrenador() {
+		return entrenador;
+	}
+
+	public void setEntrenador(Usuario entrenador) {
+		this.entrenador = entrenador;
+	}
+
+
 	private static final long serialVersionUID = 1L;
 
 }

@@ -15,11 +15,12 @@ public class ActividadDTO {
     private Date fecha;
     private String horario;
     private List<Usuario> usuarios;
+    private Usuario entrenador;
     
     public ActividadDTO() {
     }
 
-    public ActividadDTO(Integer id, String nombre, String descripcion, String sala, int aforo, Date fecha, String horario, List<Usuario> usuarios) {
+    public ActividadDTO(Integer id, String nombre, String descripcion, String sala, int aforo, Date fecha, String horario, List<Usuario> usuarios, Usuario entrenador) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -28,6 +29,7 @@ public class ActividadDTO {
         this.fecha = fecha;
         this.horario = horario;
         this.usuarios = usuarios;
+        this.entrenador = entrenador;
     }
 
 
@@ -89,6 +91,14 @@ public class ActividadDTO {
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;
+	}
+
+	public Usuario getEntrenador() {
+		return entrenador;
+	}
+
+	public void setEntrenador(Usuario entrenador) {
+		this.entrenador = entrenador;
 	}
 
 	public void setUsuarios(List<Usuario> usuarios) {

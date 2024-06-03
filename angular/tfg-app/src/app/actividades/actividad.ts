@@ -10,4 +10,5 @@ export class Actividad {
     fecha: string;
     horario: string;
     usuarios: Array<Usuario>;
+    entrenador: Usuario;
 }
